@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary Meta Tags -->
+  <title>TabCmdr - Command Palette Your Browser</title>
+  <meta name="title" content="TabCmdr - Command Palette Your Browser | AI Chat, Calculator & Tab Manager" />
+  <meta name="description" content="Powerful command palette extension for Chrome & Firefox. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts. Privacy-first design." />
+  <meta name="keywords" content="command palette, browser extension, chrome extension, firefox addon, tab manager, keyboard shortcuts, AI chat assistant, calculator, productivity tools, browser productivity, tab search, bookmark manager, command line interface, developer tools, power user tools, browser automation, workflow optimization" />
+  <meta name="author" content="TabCmdr Team" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tabcmdr.com/" />
+  <meta property="og:title" content="TabCmdr - Command Palette Your Browser | AI Chat, Calculator & Tab Manager" />
+  <meta property="og:description" content="Powerful command palette extension for Chrome & Firefox. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts." />
+  <meta property="og:image" content="https://tabcmdr.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="TabCmdr Command Palette Extension - Search tabs, AI chat, calculator in one keystroke" />
+  <meta property="og:site_name" content="TabCmdr" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://tabcmdr.com/" />
+  <meta property="twitter:title" content="TabCmdr - Command Palette Your Browser | AI Chat, Calculator & Tab Manager" />
+  <meta property="twitter:description" content="Powerful command palette extension for Chrome & Firefox. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts." />
+  <meta property="twitter:image" content="https://tabcmdr.com/twitter-card.png" />
+  <meta property="twitter:image:alt" content="TabCmdr Command Palette Extension - Search tabs, AI chat, calculator in one keystroke" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://tabcmdr.com/" />
+  
+  <!-- Favicon and Icons -->
+<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="shortcut icon" href="./favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="tabcmdr" />
+<link rel="manifest" href="./site.webmanifest" />
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TabCmdr",
+    "alternateName": "Command Palette Your Browser",
+    "description": "Powerful command palette extension for Chrome & Firefox with AI chat, calculator, tab management, and 50+ keyboard shortcuts",
+    "url": "https://tabcmdr.com",
+    "downloadUrl": "https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": ["Chrome"],
+    "screenshot": "https://tabcmdr.com/screenshot.png",
+    "featureList": [
+      "Command palette interface",
+      "Tab search and management", 
+      "AI chat integration",
+      "Built-in calculator",
+      "Emoji picker",
+      "Bookmark search",
+      "History search",
+      "Keyboard shortcuts",
+      "Privacy-first design"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&family=Inter:opsz,wght@14..32,300..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./assets/css/tailwind.min.css">
+  <link rel="stylesheet" href="./assets/css/final.min.css">
+  <link rel="stylesheet" href="./assets/css/typing.min.css">
+</head>
+
+<body class="bg-white">
+
+  <!-- Dotted glow background -->
+  <canvas id="dotted-bg"></canvas>
+
+  <nav class="
+      fixed top-3 right-5 z-[60]
+      inline-flex items-center gap-0.5
+      min-h-[46px] max-w-[calc(100vw-40px)] px-2 py-[5px]
+      rounded-full
+      border border-black/[0.08]
+      bg-white/75
+      shadow-[0_14px_40px_rgba(15,23,42,0.10)]
+      backdrop-blur-[18px]
+      [&_a]:inline-flex [&_a]:items-center [&_a]:justify-center [&_a]:gap-[7px]
+      [&_a]:min-h-[34px] [&_a]:px-[13px] [&_a]:rounded-full
+      [&_a]:text-[#111]
+      [&_a]:text-[14px] [&_a]:font-medium [&_a]:leading-none
+      [&_a]:no-underline [&_a]:whitespace-nowrap
+      [&_a]:transition-colors [&_a]:duration-[160ms]
+      [&_a:hover]:bg-black/[0.07]
+      [&_svg]:w-[17px] [&_svg]:h-[17px] [&_svg]:shrink-0
+      max-[560px]:fixed max-[560px]:top-[10px] max-[560px]:left-[10px] max-[560px]:right-[10px]
+      max-[560px]:w-auto max-[560px]:justify-center max-[560px]:p-[5px]
+      max-[560px]:[&_a]:px-[9px] max-[560px]:[&_a]:text-[13px]
+    " aria-label="Primary">
+    <a href="https://tabcmdr.com/docs/">Docs</a>
+    <a href="https://tabcmdr.com/docs/privacy/">Privacy</a>
+    <span class="w-px h-6 mx-[5px] bg-black/[0.13] max-[560px]:mx-0.5" aria-hidden="true"></span>
+    <a href="https://abhimanyu003.gumroad.com/l/tabcmdr?wanted=true" target="_blank" rel="noopener noreferrer">Buy from
+      Gumroad</a>
+
+    <span class="w-px h-6 mx-[5px] bg-black/[0.13] max-[560px]:mx-0.5 max-[420px]:hidden" aria-hidden="true"></span>
+    <span class="max-[420px]:hidden">
+      <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc"
+        target="_blank" rel="noopener noreferrer" aria-label="Download TabCMDR from the Chrome Web Store">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M5 17v2h14v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Install</span>
+      </a>
+    </span>
+  </nav>
+
+  <section class="flex items-start justify-center text-center px-6 pt-24 pb-[8rem]">
+    <div class="max-w-4xl w-full">
+
+      <!-- Brand -->
+       <div class="fancy-underline albert text-5xl font-extrabold tracking-tight text-black md:text-7xl"><span style="color: #F0013D;">t</span>ab<span style="color: #F0013D;">c</span>mdr</div>
+
+      <!-- Tagline -->
+      <div class="text-md text-gray-500 mb-[6rem]">
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      </div>
+
+      <!-- Heading -->
+      <div class="relative">
+        <div class="h1glow"></div>
+        <h1 class="text-[32px] leading-[1.2] sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 tracking-tight-03">
+          The command palette <br>Your browser was missing
+        </h1>
+      </div>
+      <p
+        class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight mb-12 sm:mb-16 md:mb-20 text-black tracking-tight-03">
+        Search and Navigate through tabs, bookmarks, recently closed and more...
+      </p>
+
+      <!-- CTA Button -->
+      <div class="relative inline-flex items-center justify-center">
+        <div class="glow-bg"></div>
+        <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc">
+          <button class="cta-btn relative z-10 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+              <defs>
+                <linearGradient id="a" x1="3.2173" y1="15" x2="44.7812" y2="15" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#d93025" />
+                  <stop offset="1" stop-color="#ea4335" />
+                </linearGradient>
+                <linearGradient id="b" x1="20.7219" y1="47.6791" x2="41.5039" y2="11.6837"
+                  gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#fcc934" />
+                  <stop offset="1" stop-color="#fbbc04" />
+                </linearGradient>
+                <linearGradient id="c" x1="26.5981" y1="46.5015" x2="5.8161" y2="10.506" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#1e8e3e" />
+                  <stop offset="1" stop-color="#34a853" />
+                </linearGradient>
+              </defs>
+              <circle cx="24" cy="23.9947" r="12" style="fill:#fff" />
+              <path
+                d="M3.2154,36A24,24,0,1,0,12,3.2154,24,24,0,0,0,3.2154,36ZM34.3923,18A12,12,0,1,1,18,13.6077,12,12,0,0,1,34.3923,18Z"
+                style="fill:none" />
+              <path
+                d="M24,12H44.7812a23.9939,23.9939,0,0,0-41.5639.0029L13.6079,30l.0093-.0024A11.9852,11.9852,0,0,1,24,12Z"
+                style="fill:url(#a)" />
+              <circle cx="24" cy="24" r="9.5" style="fill:#1a73e8" />
+              <path
+                d="M34.3913,30.0029,24.0007,48A23.994,23.994,0,0,0,44.78,12.0031H23.9989l-.0025.0093A11.985,11.985,0,0,1,34.3913,30.0029Z"
+                style="fill:url(#b)" />
+              <path
+                d="M13.6086,30.0031,3.218,12.006A23.994,23.994,0,0,0,24.0025,48L34.3931,30.0029l-.0067-.0068a11.9852,11.9852,0,0,1-20.7778.007Z"
+                style="fill:url(#c)" />
+            </svg>
+            <span>Install for Chrome</span>
+          </button>
+        </a>
+      </div>
+
+      <div class="w-full max-w-3xl mx-auto mt-12 sm:mt-16 md:mt-20 px-4 text-center"
+        aria-label="Supported AI providers">
+        <div class="text-base sm:text-lg md:text-[19px] font-bold leading-[1.35] text-[rgba(39,39,42,0.86)] mb-1">
+          Works with leading AI providers.
+        </div>
+        <div
+          class="text-sm sm:text-base md:text-[16px] font-medium leading-[1.35] text-[rgba(82,82,91,0.58)] mb-8 sm:mb-10 md:mb-[52px]">
+          Bring the models you already use.
+        </div>
+        <div class="flex flex-col items-center gap-6 sm:gap-8 md:gap-[34px]">
+          <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-[clamp(44px,7vw,84px)] w-full">
+            <span class="provider-chip" role="img" aria-label="OpenAI ChatGPT" title="OpenAI ChatGPT"
+              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/openai.svg')">OpenAI</span>
+            <span class="provider-chip" role="img" aria-label="Google Gemini" title="Google Gemini"
+              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/gemini.svg')">Gemini</span>
+            <span class="provider-chip" role="img" aria-label="Anthropic Claude" title="Anthropic Claude"
+              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/anthropic.svg')">Claude</span>
+          </div>
+          <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-[clamp(44px,7vw,84px)] w-full">
+            <span class="provider-chip" role="img" aria-label="Perplexity" title="Perplexity"
+              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/perplexity.svg')">Perplexity</span>
+            <span class="provider-chip" role="img" aria-label="OpenRouter" title="OpenRouter"
+              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/openrouter.svg')">OpenRouter</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Feature Map -->
+  <section class="cmdk-feature-map" aria-labelledby="cmdk-search-feature-title">
+    <div class="cmdk-feature-map__inner">
+      <div class="feature-map-copy">
+        <p class="feature-map-kicker">TabCMDR feature map</p>
+        <h2 id="cmdk-search-feature-title">The complete browser command toolkit</h2>
+        <p>Everything opens from one palette: search, tab control, AI, utilities, and page actions.</p>
+      </div>
+
+      <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Right-side callouts -->
+        <path d="M1018 122 L1062 94 H1086" />
+        <circle cx="1018" cy="122" r="4" />
+        <path d="M1018 212 L1062 212 H1086" />
+        <circle cx="1018" cy="212" r="4" />
+        <path d="M1018 318 L1062 330 H1086" />
+        <circle cx="1018" cy="318" r="4" />
+        <path d="M1018 418 L1062 448 H1086" />
+        <circle cx="1018" cy="418" r="4" />
+        <path d="M1018 520 L1062 566 H1086" />
+        <circle cx="1018" cy="520" r="4" />
+
+        <!-- Left-side callouts -->
+        <path d="M520 114 L430 450 H366" />
+        <circle cx="520" cy="114" r="4" />
+        <path d="M520 220 L430 548 H366" />
+        <circle cx="520" cy="220" r="4" />
+        <path d="M520 318 L430 646 H366" />
+        <circle cx="520" cy="318" r="4" />
+        <path d="M520 418 L430 744 H366" />
+        <circle cx="520" cy="418" r="4" />
+        <path d="M520 520 L430 842 H366" />
+        <circle cx="520" cy="520" r="4" />
+      </svg>
+
+              <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-50%, 23%) rotate(352deg)">
+          <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(0, 0, 0, 0.835), 0 0 0 1px rgba(255, 255, 255, 0.05)">
+            <img src="./images/tabcmdr-tabs.png" />
+          </div>
+        </div>
+
+                <div class="feature-map-art" aria-hidden="true" style="transform: translate(-42%, 2%) rotate(0deg)">
+          <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(0, 0, 0, 0.609), 0 0 0 1px rgba(255, 255, 255, 0.05)">
+            <img src="./images/tabcmdr-tabs.png" />
+          </div>
+        </div>
+
+      <p class="feature-map-statement">One shortcut for your whole browser<span>.</span></p>
+
+      <div class="feature-callout-grid">
+        <article class="feature-callout feature-callout--search">
+          <span class="feature-callout__label">search</span>
+          <h3>Search everything</h3>
+          <p>Tabs, pinned tabs, bookmarks, history, downloads, recently closed pages, URLs, and web search engines.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--tabs">
+          <span class="feature-callout__label">tab actions</span>
+          <h3>Control messy tab bars</h3>
+          <p>Pin, mute, reload, duplicate, move, sort, suspend inactive tabs, and close duplicates or tab ranges.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--ai">
+          <span class="feature-callout__label">ai chat</span>
+          <h3>Bring your own models</h3>
+          <p>Chat with configured providers, custom presets, model selection, history, streaming, and page context.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--tools">
+          <span class="feature-callout__label">tools</span>
+          <h3>Utilities inside the palette</h3>
+          <p>Emoji search, to-dos, RSS feeds, weather, screenshots, QR codes, color picking, and quick commands.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--private">
+          <span class="feature-callout__label">privacy</span>
+          <h3>Local-first by default</h3>
+          <p>The extension keeps browser data on your device, with settings and saved tool state stored locally.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--keyboard">
+          <span class="feature-callout__label">keyboard</span>
+          <h3>Keyboard-first flow</h3>
+          <p>Open TabCmdr, type what you need, act on the result, and keep moving without reaching for the mouse.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--shortcuts">
+          <span class="feature-callout__label">shorthands</span>
+          <h3>Jump straight to a mode</h3>
+          <p>Use filters like :b, :h, :d, :s, :ai, :todo, :emoji, :rss, :wx, and :ss from the same input.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--math">
+          <span class="feature-callout__label">math and time</span>
+          <h3>Answers as you type</h3>
+          <p>Run calculations, unit conversion, color conversion, timezone lookups, date math, and Unix timestamps.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--capture">
+          <span class="feature-callout__label">capture</span>
+          <h3>Share what is on screen</h3>
+          <p>Copy or download visible-page screenshots, crop regions, generate QR codes, and copy picked colors.</p>
+        </article>
+
+        <article class="feature-callout feature-callout--sites">
+          <span class="feature-callout__label">site shortcuts</span>
+          <h3>Commands adapt to the page</h3>
+          <p>GitHub, YouTube, Gmail, Notion, Figma, Discord, GitLab, Jira, and X actions appear when relevant.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Video Section ═══ -->
+  <!-- <section class="w-full px-6 pb-24">
+    <div class="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+      <img
+        class="w-full block"
+        src="https://placehold.co/1200x675/1a1a1c/71717a?text=Demo+Video"
+        alt="TabCMDR demo preview"
+      />
+    </div>
+  </section> -->
+
+  <section class="cmdk-feature-map cmdk-feature-map--story cmdk-feature-map--invert"
+    aria-labelledby="cmdk-actions-map-title">
+    <div class="cmdk-feature-map__inner">
+      <div class="">
+      <p class="feature-story-statement feature-story-statement--right">Tabs, tools, and context<span>.</span> <br>One palette for everything<span>.</span></p>
+    </div>
+    </div>
+  </section>
+
+
+  <!-- AI CARD -->
+           <!-- Feature Map -->
+    <section class="cmdk-feature-map" aria-labelledby="cmdk-ai-feature-title">
+      <div class="cmdk-feature-map__inner">
+        <div class="feature-map-copy">
+          <p class="feature-map-kicker">AI, built into your browser</p>
+          <h2 id="cmdk-ai-feature-title">Your AI assistant lives at ⌘K</h2>
+          <p>Chat, research, write, and reason — without opening a new tab or leaving what you're doing.</p>
+        </div>
+
+        <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Left-side callouts pointing to Emoji features -->
+          <path d="M520 114 L430 450 H366" />
+          <circle cx="520" cy="114" r="4" />
+          <path d="M520 220 L430 580 H366" />
+          <circle cx="520" cy="220" r="4" />
+          <path d="M520 318 L430 680 H366" />
+          <circle cx="520" cy="318" r="4" />
+          <path d="M520 418 L430 790 H366" />
+          <circle cx="520" cy="418" r="4" />
+        </svg>
+
+        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
+        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+          <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(121, 53, 204, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05)">
+            <img src="./images/ai-ask-light.png" />
+          </div>
+        </div>
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-14%, 3%) rotate(0deg)">
+          <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgb(53 82 204 / 20%), 0 0 0 1px rgba(255, 255, 255, 0.05)">
+             <img src="./images/ai-chat-answer-light.png" />
+          </div>
+        </div>
+
+        <p class="feature-map-statement">Chat with AI, use <span style="color: #F0013D">@page</span> for context<span></span>.</span></p>
+
+        <div class="feature-callout-grid">
+          <article class="feature-callout feature-callout--ai-key">
+            <span class="feature-callout__label">bring your own key</span>
+            <h3>Any model, your API key</h3>
+            <p>Connect GPT-4, Claude, Gemini, Grok, Mistral, DeepSeek, or any OpenRouter model. Switch providers in seconds without leaving the palette.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--ai-access">
+            <span class="feature-callout__label">instant access</span>
+            <h3>Type :ai and start thinking</h3>
+            <p>Jump straight into a conversation from anywhere on the web. No new tab, no context switch — just type and ask.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--ai-context">
+            <span class="feature-callout__label">page context</span>
+            <h3>Ask about what's on screen</h3>
+            <p>Send the current page's content directly to your AI assistant. Summarize, translate, explain, or rewrite without copy-pasting a word.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--ai-privacy">
+            <span class="feature-callout__label">privacy first</span>
+            <h3>Your chats never touch our servers</h3>
+            <p>Messages go directly from your browser to the AI provider you choose. Nothing is stored in the cloud, logged, or shared — ever.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <!-- ./AI CARD END HERE -->
+
+
+  <section class="cmdk-feature-map cmdk-feature-map--story cmdk-feature-map--invert"
+    aria-labelledby="cmdk-actions-map-title">
+    <div class="cmdk-feature-map__inner">
+      <div class="">
+      <p class="feature-story-statement feature-story-statement--right">9+ AI providers <br>at your fingertips<span>.</span></p>
+    </div>
+    </div>
+  </section>
+
+  
+
+  <!-- AI CARD -->
+  <!-- Feature Map -->
+    <section class="cmdk-feature-map" aria-labelledby="cmdk-emoji-feature-title">
+      <div class="cmdk-feature-map__inner">
+        <div class="feature-map-copy">
+          <p class="feature-map-kicker">Emoji, the way it should work</p>
+          <h2 id="cmdk-emoji-feature-title">Find any emoji before you finish typing</h2>
+          <p>Fuzzy search across thousands of emojis. Type what you mean, pick what you want, and it's already on your clipboard.</p>
+        </div>
+
+        <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Left-side callouts pointing to Emoji features -->
+          <path d="M520 114 L430 450 H366" />
+          <circle cx="520" cy="114" r="4" />
+          <path d="M520 220 L430 580 H366" />
+          <circle cx="520" cy="220" r="4" />
+          <path d="M520 318 L430 680 H366" />
+          <circle cx="520" cy="318" r="4" />
+          <path d="M520 418 L430 790 H366" />
+          <circle cx="520" cy="418" r="4" />
+        </svg>
+
+        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
+        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+          <div class="cmdk-mock">
+            <img src="./images/emoji-flag.png" />
+          </div>
+        </div>
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-29%, 40%) rotate(3deg)">
+          <div class="cmdk-mock">
+            <img src="./images/emoji-all-light.png" />
+          </div>
+        </div>
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-6%, 15%) rotate(0deg)">
+          <div class="cmdk-mock">
+             <img src="./images/emoji-num-light.png" />
+          </div>
+        </div>
+
+        <p class="feature-map-statement">The right emoji, every time<span>.</span></p>
+
+        <div class="feature-callout-grid">
+          <article class="feature-callout feature-callout--emoji-fuzzy">
+            <span class="feature-callout__label">fuzzy search</span>
+            <h3>Typos welcome</h3>
+            <p>Type "smil", "laug", or "thumbs" and the right emoji surfaces instantly. No scrolling through grids, no guessing category names.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--emoji-access">
+            <span class="feature-callout__label">instant access</span>
+            <h3>Type :emoji and you're in</h3>
+            <p>Jump straight to the emoji picker from anywhere on the web with the :emoji shorthand. One keystroke, zero friction.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--emoji-copy">
+            <span class="feature-callout__label">copy in one click</span>
+            <h3>On your clipboard before you blink</h3>
+            <p>Select an emoji and it's copied instantly — ready to paste into any chat, doc, or text field without an extra step.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--emoji-unicode">
+            <span class="feature-callout__label">thousands of options</span>
+            <h3>The full Unicode set, searchable</h3>
+            <p>Every emoji from every category, all indexed and ranked by relevance. If it exists, you'll find it in under two seconds.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+  <section class="cmdk-feature-map cmdk-feature-map--story cmdk-feature-map--invert"
+    aria-labelledby="cmdk-actions-map-title">
+    <div class="cmdk-feature-map__inner">
+      <p class="feature-story-statement feature-story-statement--right">Your entire browser<span>.</span><br>One command away<span>.</span></p>
+    </div>
+  </section>
+
+   <!-- Feature Map -->
+    <section class="cmdk-feature-map" aria-labelledby="cmdk-math-feature-title">
+      <div class="cmdk-feature-map__inner">
+        <div class="feature-map-copy">
+          <p class="feature-map-kicker">Math & time, solved instantly</p>
+          <h2 id="cmdk-math-feature-title">Calculate anything, convert everything</h2>
+          <p>Math expressions, unit conversions, timezone lookups, date arithmetic, and Unix timestamps — all evaluated as you type.</p>
+        </div>
+
+        <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Left-side callouts pointing to Math features -->
+          <path d="M520 114 L430 420 H366" />
+          <circle cx="520" cy="114" r="4" />
+          <path d="M520 220 L430 545 H366" />
+          <circle cx="520" cy="220" r="4" />
+          <path d="M520 318 L430 680 H366" />
+          <circle cx="520" cy="318" r="4" />
+          <path d="M520 418 L430 800 H366" />
+          <circle cx="520" cy="418" r="4" />
+        </svg>
+
+        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
+        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+          <div class="cmdk-mock"  style="box-shadow: none;">
+            <img src="./images/calculator-time.png" />
+          </div>
+        </div>
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-17%, 45%) rotate(0deg)">
+          <div class="cmdk-mock" style="box-shadow: none;"> 
+             <img src="./images/calculator-num.png" />
+          </div>
+        </div>
+
+        <p class="feature-map-statement">
+          <span class="typing-prefix">Calculate anything, instantly</span>
+        </br>
+          <span class="typing-container">
+            <span class="typing-text" id="typing-calc"></span>
+            <span class="typing-cursor">|</span>
+          </span>
+        </p>
+
+
+        <div class="feature-callout-grid">
+          <article class="feature-callout feature-callout--math-expressions">
+            <span class="feature-callout__label">mathematical expressions</span>
+            <h3>Complex calculations, simple syntax</h3>
+            <p>Type "sqrt(144)" or "20% of 500" and get instant results. Supports functions, percentages, and scientific notation.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--math-units">
+            <span class="feature-callout__label">unit conversions</span>
+            <h3>Any unit to any unit</h3>
+            <p>Convert "100 km to miles" or "32°C to °F". Handles distance, temperature, data, time, and more.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--math-time">
+            <span class="feature-callout__label">time & timezones</span>
+            <h3>World clock in your palette</h3>
+            <p>Check "time in Tokyo" or calculate "now + 3 days". Supports timezone abbreviations and date arithmetic.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--math-colors">
+            <span class="feature-callout__label">color & radix</span>
+            <h3>Convert colors and bases</h3>
+            <p>Transform "rgb(255,0,0) to hex" or "255 to binary". Handles CSS colors and number base conversions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <section class="cmdk-feature-map cmdk-feature-map--story cmdk-feature-map--invert"
+    aria-labelledby="cmdk-actions-map-title">
+    <div class="cmdk-feature-map__inner">
+      <p class="feature-story-statement feature-story-statement--right">Calculator - weather - time <br>is now one keystroke away<span>.</span></p>
+    </div>
+  </section>
+
+   <section class="cmdk-feature-map" aria-labelledby="cmdk-tools-feature-title">
+      <div class="cmdk-feature-map__inner">
+        <div class="feature-map-copy">
+          <p class="feature-map-kicker">Built-in tools, zero setup</p>
+          <h2 id="cmdk-tools-feature-title">Everything you need, right in the palette</h2>
+          <p>AI chat, emoji picker, calculator, weather, to-dos, RSS feeds, screenshots, QR codes, and color picker — all accessible with a keystroke.</p>
+        </div>
+
+        <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Left-side callouts pointing to Tools features -->
+          <path d="M520 114 L430 450 H366" />
+          <circle cx="520" cy="114" r="4" />
+          <path d="M520 220 L430 580 H366" />
+          <circle cx="520" cy="220" r="4" />
+          <path d="M520 318 L430 680 H366" />
+          <circle cx="520" cy="318" r="4" />
+          <path d="M520 418 L430 790 H366" />
+          <circle cx="520" cy="418" r="4" />
+        </svg>
+
+        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
+        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+          <div class="cmdk-mock">
+            <img src="./images/tools-dark.png" />
+          </div>
+        </div>
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-29%, 40%) rotate(3deg)">
+          <div class="cmdk-mock">
+            <img src="./images/rss-light.png" />
+          </div>
+        </div>
+        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-6%, 15%) rotate(0deg)">
+          <div class="cmdk-mock">
+             <img src="./images/weather-light.png" />
+          </div>
+        </div>
+
+        <p class="feature-map-statement">10+ tools, one shortcut away<span>.</span></p>
+
+        <div class="feature-callout-grid">
+          <article class="feature-callout feature-callout--emoji-fuzzy">
+            <span class="feature-callout__label">ai & emoji</span>
+            <h3>Chat and express instantly</h3>
+            <p>Type :ai to chat with any AI model or :emoji to find the perfect emoji. Both tools work everywhere, no context switching needed.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--emoji-access">
+            <span class="feature-callout__label">calculator & time</span>
+            <h3>Math and Timezone lookups</h3>
+            <p>Calculate expressions, convert units, check time in any timezone, or do date arithmetic — all evaluated as you type.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--emoji-copy">
+            <span class="feature-callout__label">productivity tools</span>
+            <h3>To-Dos, RSS, and Weather</h3>
+            <p>Manage tasks with :todo, track feeds with :rss, or check weather with :wx. Your productivity tools live in the palette.</p>
+          </article>
+
+          <article class="feature-callout feature-callout--emoji-unicode">
+            <span class="feature-callout__label">capture & share</span>
+            <h3>Screenshots, QR Codes, Colors</h3>
+            <p>Capture visible areas with :ss, generate QR codes for URLs, or pick colors from the screen. Share-ready in one click.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <!-- ═══ Feature Cards ═══ -->
+  <section class="w-full bg-[#0f0f11]">
+    <div class="mx-auto max-w-7xl flex flex-col gap-12 px-10 py-12 max-[900px]:px-4 max-[900px]:py-6">
+
+
+      <!-- ═══ Testimonials ═══ -->
+      <div class="w-full py-16">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">What users are saying</h2>
+          <p class="text-white/40 text-lg">Here's what some of our users have to say about TabCmdr.</p>
+        </div>
+
+        <!-- Masonry grid — 4 columns on desktop, 2 on tablet, 1 on mobile -->
+        <div class="columns-1 sm:columns-2 lg:columns-4" style="column-gap: 1rem;">
+
+          <!-- Review 1 -->
+          <div class="break-inside-avoid mb-4 bg-white/[0.03] border border-white/[0.09] rounded-2xl p-6">
+            <div class="text-white/20 text-4xl font-serif leading-none mb-1">"</div>
+            <p class="text-white/60 text-md leading-relaxed mb-6">This tool makes browsing so much easier. No more
+              digging through tabs—everything is fast and accessible. Highly recommend it.</p>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-semibold text-white leading-none">Ashish Rangdal</p>
+                <p class="text-xs text-white/30 mt-0.5">Chrome Store</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="break-inside-avoid mb-4 bg-white/[0.03] border border-white/[0.09] rounded-2xl p-6">
+            <div class="text-white/20 text-4xl font-serif leading-none mb-1">"</div>
+            <p class="text-white/60 text-md leading-relaxed mb-6">I was part of the TabCMDR extension beta testing. When I
+              first started using this extension I was surprised at how quickly it became habit to use TabCMDR to find
+              tabs, downloaded files, bookmarks, and other information that would typically require a mouse but now with
+              TabCMDR can all be done with your keyboard. No tracking, no account, and no cloud connection is a bonus on
+              top of an already great extension.</p>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-semibold text-white leading-none">Dalyn Newby</p>
+                <p class="text-xs text-white/30 mt-0.5">Gumroad</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="break-inside-avoid mb-4 bg-white/[0.03] border border-white/[0.09] rounded-2xl p-6">
+            <div class="text-white/20 text-4xl font-serif leading-none mb-1">"</div>
+            <p class="text-white/60 text-md leading-relaxed mb-6">This extension is a lifesaver. When I have multiple
+              tabs open and struggle to find what I need, it makes everything quick and easy to access. Highly
+              recommended!</p>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-semibold text-white leading-none">Ajay K</p>
+                <p class="text-xs text-white/30 mt-0.5">Chrome Store</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="break-inside-avoid mb-4 bg-white/[0.03] border border-white/[0.09] rounded-2xl p-6">
+            <div class="text-white/20 text-4xl font-serif leading-none mb-1">"</div>
+            <p class="text-white/60 text-md leading-relaxed mb-6">The feature is very useful and works smoothly. The functionality is well thought out, and the UI is clean and user-friendly. Overall, a great extension experience.</p>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-semibold text-white leading-none">Beda Prakash Behera</p>
+                <p class="text-xs text-white/30 mt-0.5">Chrome Store</p>
+              </div>
+            </div>
+          </div>
+
+                    <div class="break-inside-avoid mb-4 bg-white/[0.03] border border-white/[0.09] rounded-2xl p-6">
+            <div class="text-white/20 text-4xl font-serif leading-none mb-1">"</div>
+            <p class="text-white/60 text-md leading-relaxed mb-6">It is a useful feature.It reallly helped me in my daily work.</p>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="text-sm font-semibold text-white leading-none">Mojala Kavya</p>
+                <p class="text-xs text-white/30 mt-0.5">Chrome Store</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ═══ CTA ═══ -->
+      <div class="w-full py-20 flex flex-col items-center justify-center text-center gap-6">
+
+        <!-- Brand -->
+        <div class="albert text-5xl md:text-7xl font-bold text-white tracking-wide"><span style="color: #F0013D;">t</span>ab<span style="color: #F0013D;">c</span>mdr</div>
+
+        <!-- CTA Button -->
+        <div class="relative inline-flex items-center justify-center mt-2">
+          <div class="glow-bg-white"></div>
+          <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc"
+            target="_blank" rel="noopener noreferrer">
+            <button class="cta-btn cta-btn-inverted relative z-10 text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+                <defs>
+                  <linearGradient id="cta2-a" x1="3.2173" y1="15" x2="44.7812" y2="15" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#d93025" />
+                    <stop offset="1" stop-color="#ea4335" />
+                  </linearGradient>
+                  <linearGradient id="cta2-b" x1="20.7219" y1="47.6791" x2="41.5039" y2="11.6837"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#fcc934" />
+                    <stop offset="1" stop-color="#fbbc04" />
+                  </linearGradient>
+                  <linearGradient id="cta2-c" x1="26.5981" y1="46.5015" x2="5.8161" y2="10.506"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#1e8e3e" />
+                    <stop offset="1" stop-color="#34a853" />
+                  </linearGradient>
+                </defs>
+                <circle cx="24" cy="23.9947" r="12" style="fill:#fff" />
+                <path
+                  d="M3.2154,36A24,24,0,1,0,12,3.2154,24,24,0,0,0,3.2154,36ZM34.3923,18A12,12,0,1,1,18,13.6077,12,12,0,0,1,34.3923,18Z"
+                  style="fill:none" />
+                <path
+                  d="M24,12H44.7812a23.9939,23.9939,0,0,0-41.5639.0029L13.6079,30l.0093-.0024A11.9852,11.9852,0,0,1,24,12Z"
+                  style="fill:url(#cta2-a)" />
+                <circle cx="24" cy="24" r="9.5" style="fill:#1a73e8" />
+                <path
+                  d="M34.3913,30.0029,24.0007,48A23.994,23.994,0,0,0,44.78,12.0031H23.9989l-.0025.0093A11.985,11.985,0,0,1,34.3913,30.0029Z"
+                  style="fill:url(#cta2-b)" />
+                <path
+                  d="M13.6086,30.0031,3.218,12.006A23.994,23.994,0,0,0,24.0025,48L34.3931,30.0029l-.0067-.0068a11.9852,11.9852,0,0,1-20.7778.007Z"
+                  style="fill:url(#cta2-c)" />
+              </svg>
+              <span>Install for Chrome</span>
+            </button>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- 7xl ends here -->
+  </section>
+
+
+  <footer class="border-t border-gray-200 py-4 px-6">
+    <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-gray-400">
+      <span>© 2026 TabCmdr</span>
+      <a href="https://tabcmdr.com/docs/" class="hover:text-black transition-colors duration-150">Docs</a>
+      <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc"
+        target="_blank" rel="noopener noreferrer" class="hover:text-black transition-colors duration-150">Chrome
+        Extension</a>
+      <a href="https://abhimanyu003.gumroad.com/l/tabcmdr?wanted=true" target="_blank" rel="noopener noreferrer"
+        class="hover:text-black transition-colors duration-150">Buy on Gumroad</a>
+      <a href="https://tabcmdr.com/docs/privacy/" class="hover:text-black transition-colors duration-150">Privacy</a>
+    </div>
+  </footer>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EMFSSHGMR"></script>
+  <script src="./assets/js/dotted-bg.min.js"></script>
+  <script src="./assets/js/timeline-beam.min.js"></script>
+  <script src="./assets/js/typing-calc.min.js"></script>
+  <script src="./assets/js/analytics.min.js"></script>
+</body>
+
+</html>

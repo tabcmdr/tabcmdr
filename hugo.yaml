@@ -1,0 +1,59 @@
+baseURL: https://tabcmdr.com/
+languageCode: en-us
+title: TabCmdr
+description: "TabCmdr — a fast, keyboard-driven command palette for your browser. Switch tabs, search bookmarks, run page commands, and more."
+
+enableGitInfo: false
+
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+menu:
+  main:
+    - name: Docs
+      pageRef: /docs
+      weight: 1
+    - name: Search
+      weight: 2
+      params:
+        type: search
+    - name: GitHub
+      weight: 3
+      url: "https://github.com/abhimanyu003/tabcmdr"
+      params:
+        icon: github
+
+params:
+  description: "TabCmdr — a fast, keyboard-driven command palette for your browser."
+
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: logo.svg
+      dark: logo-dark.svg
+      link: /
+      width: 40
+      height: 40
+
+  theme:
+    default: system
+    displayToggle: true
+
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      index: content
+      tokenize: forward
+
+  page:
+    displayPagination: true
+
+  editURL:
+    enable: false
