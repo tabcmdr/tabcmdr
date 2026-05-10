@@ -79,6 +79,7 @@
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="./assets/css/tailwind.min.css">
   <link rel="stylesheet" href="./assets/css/final.min.css">
+  <link rel="stylesheet" href="./assets/css/site-overrides.css">
   <link rel="stylesheet" href="./assets/css/typing.min.css">
 </head>
 
@@ -195,6 +196,11 @@
 
       <div class="w-full max-w-3xl mx-auto mt-12 sm:mt-16 md:mt-20 px-4 text-center"
         aria-label="Supported AI providers">
+        {{ $openAIIcon := resources.Get "icons/openai.svg" }}
+        {{ $geminiIcon := resources.Get "icons/gemini.svg" }}
+        {{ $anthropicIcon := resources.Get "icons/anthropic.svg" }}
+        {{ $perplexityIcon := resources.Get "icons/perplexity.svg" }}
+        {{ $openRouterIcon := resources.Get "icons/openrouter.svg" }}
         <div class="text-base sm:text-lg md:text-[19px] font-bold leading-[1.35] text-[rgba(39,39,42,0.86)] mb-1">
           Works with leading AI providers.
         </div>
@@ -205,17 +211,17 @@
         <div class="flex flex-col items-center gap-6 sm:gap-8 md:gap-[34px]">
           <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-[clamp(44px,7vw,84px)] w-full">
             <span class="provider-chip" role="img" aria-label="OpenAI ChatGPT" title="OpenAI ChatGPT"
-              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/openai.svg')">OpenAI</span>
+              style="--provider-icon:url('{{ $openAIIcon.RelPermalink }}')">OpenAI</span>
             <span class="provider-chip" role="img" aria-label="Google Gemini" title="Google Gemini"
-              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/gemini.svg')">Gemini</span>
+              style="--provider-icon:url('{{ $geminiIcon.RelPermalink }}')">Gemini</span>
             <span class="provider-chip" role="img" aria-label="Anthropic Claude" title="Anthropic Claude"
-              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/anthropic.svg')">Claude</span>
+              style="--provider-icon:url('{{ $anthropicIcon.RelPermalink }}')">Claude</span>
           </div>
           <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-[clamp(44px,7vw,84px)] w-full">
             <span class="provider-chip" role="img" aria-label="Perplexity" title="Perplexity"
-              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/perplexity.svg')">Perplexity</span>
+              style="--provider-icon:url('{{ $perplexityIcon.RelPermalink }}')">Perplexity</span>
             <span class="provider-chip" role="img" aria-label="OpenRouter" title="OpenRouter"
-              style="--provider-icon:url('https://unpkg.com/@lobehub/icons-static-svg@1.88.0/icons/openrouter.svg')">OpenRouter</span>
+              style="--provider-icon:url('{{ $openRouterIcon.RelPermalink }}')">OpenRouter</span>
           </div>
         </div>
       </div>
@@ -258,16 +264,15 @@
         <circle cx="520" cy="520" r="4" />
       </svg>
 
-              <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-50%, 23%) rotate(352deg)">
+        <div class="feature-map-art feature-map-art--tabs-background" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(0, 0, 0, 0.835), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-            <img src="./images/tabcmdr-tabs.png" />
+            {{ partial "processed-image.html" (dict "src" "images/tabcmdr-tabs.png") }}
           </div>
         </div>
 
-                <div class="feature-map-art" aria-hidden="true" style="transform: translate(-42%, 2%) rotate(0deg)">
+                <div class="feature-map-art feature-map-art--tabs-foreground" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(0, 0, 0, 0.609), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-            <img src="./images/tabcmdr-tabs.png" />
+            {{ partial "processed-image.html" (dict "src" "images/tabcmdr-tabs.png") }}
           </div>
         </div>
 
@@ -380,15 +385,14 @@
           <circle cx="520" cy="418" r="4" />
         </svg>
 
-        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
-        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+        <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(121, 53, 204, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-            <img src="./images/ai-ask-light.png" />
+            {{ partial "processed-image.html" (dict "src" "images/ai-ask-light.png") }}
           </div>
         </div>
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-14%, 3%) rotate(0deg)">
+        <div class="feature-map-art feature-map-art--ai-response" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgb(53 82 204 / 20%), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-             <img src="./images/ai-chat-answer-light.png" />
+             {{ partial "processed-image.html" (dict "src" "images/ai-chat-answer-light.png") }}
           </div>
         </div>
 
@@ -458,20 +462,19 @@
           <circle cx="520" cy="418" r="4" />
         </svg>
 
-        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
-        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+        <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock">
-            <img src="./images/emoji-flag.png" />
+            {{ partial "processed-image.html" (dict "src" "images/emoji-flag.png") }}
           </div>
         </div>
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-29%, 40%) rotate(3deg)">
+        <div class="feature-map-art feature-map-art--lower-left" aria-hidden="true">
           <div class="cmdk-mock">
-            <img src="./images/emoji-all-light.png" />
+            {{ partial "processed-image.html" (dict "src" "images/emoji-all-light.png") }}
           </div>
         </div>
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-6%, 15%) rotate(0deg)">
+        <div class="feature-map-art feature-map-art--right-offset" aria-hidden="true">
           <div class="cmdk-mock">
-             <img src="./images/emoji-num-light.png" />
+             {{ partial "processed-image.html" (dict "src" "images/emoji-num-light.png") }}
           </div>
         </div>
 
@@ -534,15 +537,14 @@
           <circle cx="520" cy="418" r="4" />
         </svg>
 
-        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
-        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+        <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock"  style="box-shadow: none;">
-            <img src="./images/calculator-time.png" />
+            {{ partial "processed-image.html" (dict "src" "images/calculator-time.png") }}
           </div>
         </div>
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-17%, 45%) rotate(0deg)">
+        <div class="feature-map-art feature-map-art--calculator-result" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: none;"> 
-             <img src="./images/calculator-num.png" />
+             {{ partial "processed-image.html" (dict "src" "images/calculator-num.png") }}
           </div>
         </div>
 
@@ -611,20 +613,19 @@
           <circle cx="520" cy="418" r="4" />
         </svg>
 
-        <!--  style="transform: translateX(-45%) rotate(348deg);"> -->
-        <div class="feature-map-art" aria-hidden="true" style="transform: translateX(-45%) rotate(357deg);">
+        <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock">
-            <img src="./images/tools-dark.png" />
+            {{ partial "processed-image.html" (dict "src" "images/tools-dark.png") }}
           </div>
         </div>
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-29%, 40%) rotate(3deg)">
+        <div class="feature-map-art feature-map-art--lower-left" aria-hidden="true">
           <div class="cmdk-mock">
-            <img src="./images/rss-light.png" />
+            {{ partial "processed-image.html" (dict "src" "images/rss-light.png") }}
           </div>
         </div>
-        <div class="feature-map-art" aria-hidden="true" style="transform: translate(-6%, 15%) rotate(0deg)">
+        <div class="feature-map-art feature-map-art--right-offset" aria-hidden="true">
           <div class="cmdk-mock">
-             <img src="./images/weather-light.png" />
+             {{ partial "processed-image.html" (dict "src" "images/weather-light.png") }}
           </div>
         </div>
 
