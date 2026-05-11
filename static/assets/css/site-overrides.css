@@ -32,3 +32,9 @@
   -webkit-transform: translate(-17%, 45%) rotate(0deg);
   transform: translate(-17%, 45%) rotate(0deg);
 }
+
+.cta-btn .install-browser-icon {
+  flex-shrink: 0;
+  height: 23px;
+  width: 23px;
+}
