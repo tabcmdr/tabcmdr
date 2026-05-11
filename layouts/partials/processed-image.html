@@ -6,7 +6,15 @@
   {{- if and (reflect.IsImageResourceProcessable $image) (gt $image.Width $maxWidth) -}}
     {{- $image = $image.Resize (printf "%dx lanczos" $maxWidth) -}}
   {{- end -}}
-  <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async" />
+  {{- if reflect.IsImageResourceProcessable $image -}}
+    {{- $webp := $image.Process "webp q95" -}}
+    <picture>
+      <source srcset="{{ $webp.RelPermalink }}" type="image/webp" />
+      <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async" />
+    </picture>
+  {{- else -}}
+    <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async" />
+  {{- end -}}
 {{- else -}}
   {{- errorf "Image resource not found: %s" $src -}}
 {{- end -}}
