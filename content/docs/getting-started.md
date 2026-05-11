@@ -35,6 +35,6 @@ That's it. No configuration required to get started.
 
 ## Trial & Licensing
 
-TabCmdr includes a free trial period. After the trial ends, you get a small number of free uses per day (the grace period). To unlock unlimited use, purchase a license key from [Gumroad](https://abhimanyu003.gumroad.com/l/cmdk-addon?wanted=true) and activate it from the Settings page.
+TabCmdr includes a free trial period. After the trial ends, you get a small number of free uses per day (the grace period). To unlock unlimited use, purchase a license key from [Gumroad](/buy?wanted=true) and activate it from the Settings page.
 
 See [Licensing]({{< relref "licensing" >}}) for full details.

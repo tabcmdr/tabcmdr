@@ -15,7 +15,7 @@ If you've used up your daily grace uses, TabCmdr will prompt you to activate a l
 
 ## Purchasing a License
 
-Buy a license key from the [TabCmdr page on Gumroad](https://abhimanyu003.gumroad.com/l/cmdk-addon?wanted=true). You'll receive a license key by email after purchase.
+Buy a license key from the [TabCmdr page on Gumroad](/buy?wanted=true). You'll receive a license key by email after purchase.
 
 ## Activating a License
 
