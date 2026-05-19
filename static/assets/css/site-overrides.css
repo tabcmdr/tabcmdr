@@ -38,3 +38,111 @@
   height: 23px;
   width: 23px;
 }
+
+/* ─── Feature Command Grid ─────────────────────────────── */
+.feature-cmd-grid-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  padding-top: 52px;
+}
+
+.feature-cmd-grid-kicker {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.feature-cmd-grid-kicker span {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: rgb(70 69 71);
+  line-height: 1.1;
+}
+
+@media (min-width: 560px) {
+  .feature-cmd-grid-kicker span {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .feature-cmd-grid-kicker span {
+    font-size: 3rem;
+  }
+}
+
+.feature-cmd-grid-wrap {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 58%, #000000cc 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 58%, #000000cc 100%);
+}
+
+@media (min-width: 560px) {
+  .feature-cmd-grid-wrap {
+    height: 360px;
+  }
+}
+
+.feature-cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  animation: feature-grid-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 560px) {
+  .feature-cmd-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+
+@keyframes feature-grid-scroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+.feature-cmd-tile {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 80px;
+  text-align: center;
+  transition: background 120ms ease;
+  cursor: default;
+}
+
+@media (min-width: 560px) {
+  .feature-cmd-tile {
+    height: 120px;
+  }
+}
+
+.feature-cmd-tile svg {
+  width: 35px;
+  height: 35px;
+  color: rgba(0, 0, 0, 0.55);
+  flex-shrink: 0;
+  transition: color 120ms ease;
+}
+
+.feature-cmd-tile-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(91 91 93);
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  padding: 0 8px;
+}
+
