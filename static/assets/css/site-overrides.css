@@ -39,18 +39,37 @@
   width: 23px;
 }
 
+/* ─── Hero section ─────────────────────────────────────── */
+@media (max-width: 560px) {
+  .hero-section {
+    padding-bottom: 4em !important;
+  }
+}
+
 /* ─── Feature Command Grid ─────────────────────────────── */
 .feature-cmd-grid-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: transparent;
-  padding-top: 52px;
+  padding-top: 28px;
+}
+
+@media (min-width: 768px) {
+  .feature-cmd-grid-section {
+    padding-top: 52px;
+  }
 }
 
 .feature-cmd-grid-kicker {
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .feature-cmd-grid-kicker {
+    padding-bottom: 50px;
+  }
 }
 
 .feature-cmd-grid-kicker span {
@@ -83,7 +102,7 @@
   mask-image: linear-gradient(to bottom, transparent 0%, black 22%, black 58%, #000000cc 100%);
 }
 
-@media (min-width: 560px) {
+@media (min-width: 768px) {
   .feature-cmd-grid-wrap {
     height: 360px;
   }
@@ -98,12 +117,11 @@
   will-change: transform;
 }
 
-@media (min-width: 560px) {
+@media (min-width: 768px) {
   .feature-cmd-grid {
     grid-template-columns: repeat(8, 1fr);
   }
 }
-
 
 @keyframes feature-grid-scroll {
   from { transform: translateY(0); }
@@ -119,30 +137,42 @@
   gap: 8px;
   height: 80px;
   text-align: center;
-  transition: background 120ms ease;
   cursor: default;
 }
 
-@media (min-width: 560px) {
+@media (min-width: 768px) {
   .feature-cmd-tile {
     height: 120px;
   }
 }
 
 .feature-cmd-tile svg {
-  width: 35px;
-  height: 35px;
-  color: rgba(0, 0, 0, 0.55);
+  width: 20px;
+  height: 20px;
+  color: rgb(91 91 93 / 70%);
   flex-shrink: 0;
-  transition: color 120ms ease;
+}
+
+@media (min-width: 768px) {
+  .feature-cmd-tile svg {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .feature-cmd-tile-label {
-  font-size: 12px;
+  font-size: 9px;
   font-weight: 500;
-  color: rgb(91 91 93);
+  color: rgb(91 91 93 / 70%);
   letter-spacing: 0.01em;
   line-height: 1.35;
-  padding: 0 8px;
+  padding: 0 6px;
+}
+
+@media (min-width: 768px) {
+  .feature-cmd-tile-label {
+    font-size: 12px;
+    padding: 0 8px;
+  }
 }
 
