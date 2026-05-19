@@ -1,5 +1,6 @@
 ---
 title: Bookmarks
+description: "Search your entire bookmark library from TabCmdr's command palette. Find and open any saved page instantly, no matter how deeply nested."
 weight: 3
 ---
 

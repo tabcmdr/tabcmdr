@@ -1,5 +1,6 @@
 ---
 title: Browsing History
+description: "Search your browser history from TabCmdr's command palette. Revisit any page quickly without remembering the exact URL."
 weight: 4
 ---
 

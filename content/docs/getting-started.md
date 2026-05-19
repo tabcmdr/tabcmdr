@@ -1,5 +1,6 @@
 ---
 title: Getting Started
+description: "Get started with TabCmdr — install the browser extension, open the command palette with ⌘K or Ctrl K, and start searching tabs, bookmarks, and more in seconds."
 weight: 1
 ---
 

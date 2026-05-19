@@ -1,5 +1,6 @@
 ---
 title: Documentation
+description: "Browse the official TabCmdr documentation. Learn how to install, configure, and use every feature of the keyboard-driven browser command palette."
 weight: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Tab Groups
+description: "Create, manage, and organize Chrome tab groups from TabCmdr's command palette. Group, rename, recolor, and move tabs without touching the tab bar."
 weight: 7
 ---
 

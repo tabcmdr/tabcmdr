@@ -1,5 +1,6 @@
 ---
 title: Tab Search & Switching
+description: "Search all your open tabs and switch to any one instantly with TabCmdr. Works across all windows — no mouse needed."
 weight: 2
 ---
 

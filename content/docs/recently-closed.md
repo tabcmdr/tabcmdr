@@ -1,5 +1,6 @@
 ---
 title: Recently Closed Tabs
+description: "Restore recently closed tabs and windows in one keystroke using TabCmdr. Never lose a tab accidentally again."
 weight: 6
 ---
 

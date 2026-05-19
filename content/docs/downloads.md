@@ -1,5 +1,6 @@
 ---
 title: Downloads
+description: "Access your recent downloads from TabCmdr's palette. Search, open, or remove downloaded files without leaving your current tab."
 weight: 5
 ---
 

@@ -3,7 +3,34 @@ languageCode: en-us
 title: TabCmdr
 description: "TabCmdr — a fast, keyboard-driven command palette for your browser. Switch tabs, search bookmarks, run page commands, and more."
 
-enableGitInfo: false
+enableGitInfo: true
+disableHugoGeneratorTag: true
+
+minify:
+  minifyOutput: true
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - Sitemap
+  section:
+    - HTML
+    - RSS
+
+markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false
+  goldmark:
+    renderer:
+      hardWraps: false
 
 module:
   imports:

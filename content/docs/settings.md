@@ -1,5 +1,6 @@
 ---
 title: Settings & Customization
+description: "Customize TabCmdr's appearance, manage optional permissions, reorder result categories, set your search engine, and configure site shortcuts and disabled domains."
 weight: 10
 ---
 

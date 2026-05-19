@@ -1,5 +1,6 @@
 ---
 title: TabCmdr Privacy Policy
+description: "TabCmdr's full privacy policy. Everything runs locally — no data collection, no tracking, no servers. Understand every permission the extension uses."
 weight: 10
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Clipboard
+description: "Copy URLs, screenshots, QR codes, and calculator results to your clipboard from TabCmdr. Clipboard access is optional and only writes, never reads."
 weight: 9
 ---
 

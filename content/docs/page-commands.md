@@ -1,5 +1,6 @@
 ---
 title: Page Commands
+description: "Run page actions from TabCmdr's palette: scroll, zoom, print, screenshot, copy URL, generate QR codes, and calculate math — no mouse required."
 weight: 8
 ---
 

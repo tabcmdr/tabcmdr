@@ -1,5 +1,6 @@
 ---
 title: Licensing
+description: "Learn about TabCmdr's free trial, grace period, and how to purchase and activate a license key. Fully offline-friendly with no subscriptions."
 weight: 11
 ---
 

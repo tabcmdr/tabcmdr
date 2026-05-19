@@ -1,5 +1,6 @@
 ---
 title: Keyboard Shortcuts
+description: "A complete reference for TabCmdr keyboard shortcuts. Open the palette, navigate results, and customize the default ⌘K / Ctrl K shortcut."
 weight: 12
 ---
 
