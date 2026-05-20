@@ -22,6 +22,9 @@ outputs:
   section:
     - HTML
     - RSS
+    - Sitemap
+  page:
+    - HTML
 
 markup:
   tableOfContents:
