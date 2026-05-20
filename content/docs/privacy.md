@@ -1,7 +1,7 @@
 ---
 title: TabCmdr Privacy Policy
 description: "TabCmdr's full privacy policy. Everything runs locally — no data collection, no tracking, no servers. Understand every permission the extension uses."
-weight: 10
+weight: 12
 ---
 
 TabCmdr is a command palette for your browser. It runs entirely inside your browser. We do not operate servers, collect data, or track you in any way.

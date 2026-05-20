@@ -5,6 +5,9 @@ description: "TabCmdr — a fast, keyboard-driven command palette for your brows
 
 enableGitInfo: true
 disableHugoGeneratorTag: true
+disableKinds:
+  - taxonomy
+  - term
 
 minify:
   minifyOutput: true
