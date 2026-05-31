@@ -1,0 +1,14 @@
+{
+  "tabcmdr": {
+    "product": "TabCmdr",
+    "price": 2.99,
+    "currency": "USD",
+    "available": true
+  },
+  "floatingbrowser": {
+    "product": "Floating Browser",
+    "price": 1.99,
+    "currency": "USD",
+    "available": true
+  }
+}
