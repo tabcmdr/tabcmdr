@@ -10,7 +10,7 @@ disableKinds:
   - term
 
 minify:
-  minifyOutput: true
+  minifyOutput: false
 
 sitemap:
   changefreq: weekly
