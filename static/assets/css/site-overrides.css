@@ -176,3 +176,14 @@
   }
 }
 
+/* Badge container for partner badges */
+.badge-container a,
+.badge-container img {
+  max-height: 100px;
+}
+
+.badge-container img {
+  width: auto;
+  height: auto;
+}
+
