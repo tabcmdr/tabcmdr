@@ -1,0 +1,68 @@
+# TabCmdr - Full Documentation
+
+> TabCmdr is an all-in-one browser productivity extension, tab manager, bookmark manager, history search tool, and AI-powered command center designed for power users, developers, researchers, students, and anyone who lives in their browser.
+
+Unlike cloud-based productivity tools, TabCmdr runs entirely inside your browser. No account required, no tracking, no external servers, and no data collection. Your tabs, bookmarks, browsing history, AI conversations, and settings stay on your device.
+
+## Core Features
+
+### Universal Browser Search
+- **Tab Search**: Instantly find and switch between open tabs across all browser windows using title, URL, or fuzzy search.
+- **Bookmark Search**: Search, open, and manage bookmarks directly from the command palette.
+- **History Search**: Quickly find previously visited websites and pages from recent activity or your full browsing history.
+- **Downloads Manager**: Search, open, and manage downloaded files without opening additional browser pages.
+- **Recently Closed Tabs**: Restore accidentally closed tabs and browsing sessions in seconds.
+
+### Advanced Tab Management
+- **Tab Manager**: Close, pin, unpin, mute, duplicate, reload, suspend, or move tabs with keyboard commands.
+- **Duplicate Tab Cleaner**: Detect and remove duplicate tabs instantly.
+- **Tab Organizer**: Sort tabs alphabetically while preserving pinned tabs.
+- **Tab Groups**: Create, organize, and manage Chrome tab groups efficiently.
+- **Memory Saver**: Suspend inactive tabs to reduce RAM and improve browser performance.
+- **Window Manager**: Merge multiple browser windows into one workspace.
+- **Split View Tabs**: Arrange tabs side-by-side using native browser tab grouping.
+
+### AI Assistant for Chrome
+Access an AI assistant directly from your browser command palette. Connect your preferred AI provider using your own API key and switch between AI models instantly. Get help with coding, writing, research, debugging, summarization, brainstorming, and productivity tasks. Conversations remain private and are stored locally on your device. Requests are sent directly to your selected AI provider.
+
+### Built-in Browser Productivity Tools
+- **Calendar Integration**: View upcoming events and join meetings with one command.
+- **RSS Reader**: Follow blogs, news websites, and favorite content sources.
+- **Weather Forecasts**: Check weather conditions and forecasts for multiple locations.
+- **Emoji Picker**: Search and insert emojis with intelligent fuzzy matching.
+- **Todo List**: Manage personal tasks directly from your browser.
+- **Screenshot Tool**: Capture visible tabs or selected screen regions.
+- **Calculator**: Perform calculations, percentages, currency conversions, and unit conversions.
+- **Time Zone Converter**: Convert time zones and check world clocks instantly.
+- **Color Picker**: Extract colors from web pages and copy HEX, RGB, or HSL values.
+- **QR Code Generator**: Create QR codes for URLs, text, contact information, and more.
+
+### Keyboard Shortcuts & Browser Commands
+- **Browser Commands**: Print page, view source, fullscreen mode, zoom controls, scrolling shortcuts.
+- **Copy Actions**: Copy page URL, page title, selected text, or browser information.
+- **Window Management**: Open new tabs, windows, and incognito sessions.
+- **Navigation Commands**: Reload, hard reload, back, forward, and browser navigation shortcuts.
+- **Quick Access Commands**: Use shortcuts like for tabs, for bookmarks, for history, for AI chat, and for calendar.
+
+### Customization & Personalization
+- **15+ Themes**: Dark Mode, Light Mode, Catppuccin, Dracula, Nord, Tokyo Night, Gruvbox, Rosé Pine, Solarized, and more.
+- **Automatic System Theme Sync**.
+- **Compact Mode** for maximum information density.
+- **Notch Mode** command bar for distraction-free workflows.
+- **Flexible Positioning**: Center, top, bottom, left, right, or corner layouts.
+- **Fuzzy Search Engine**: Find tabs, bookmarks, history entries, and commands even when search terms contain typos.
+
+---
+
+# Detailed Guides & Policies
+
+{{ range (where .Site.Pages "Section" "docs").ByWeight -}}
+{{- if not .IsSection }}
+---
+## {{ .Title }}
+
+> {{ .Description }}
+
+{{ .RawContent }}
+{{- end -}}
+{{- end -}}

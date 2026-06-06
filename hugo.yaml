@@ -20,17 +20,30 @@ sitemap:
   priority: 0.5
   filename: sitemap.xml
 
+outputFormats:
+  llms:
+    mediaType: text/plain
+    baseName: llms
+    isPlainText: true
+  llmsfull:
+    mediaType: text/plain
+    baseName: llms-full
+    isPlainText: true
+
 outputs:
   home:
     - HTML
     - RSS
     - Sitemap
+    - llms
+    - llmsfull
   section:
     - HTML
     - RSS
     - Sitemap
   page:
     - HTML
+
 
 markup:
   tableOfContents:
