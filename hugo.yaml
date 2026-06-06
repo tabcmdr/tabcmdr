@@ -11,6 +11,9 @@ disableKinds:
 
 minify:
   minifyOutput: true
+  tdewolff:
+    html:
+      keepQuotes: true
 
 sitemap:
   changefreq: weekly
