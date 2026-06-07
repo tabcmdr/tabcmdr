@@ -46,7 +46,8 @@
 <!-- Tailwind CSS -->
 <link rel="stylesheet" href="./assets/css/tailwind.min.css">
 <link rel="stylesheet" href="./assets/css/final.min.css">
-<link rel="stylesheet" href="./assets/css/site-overrides.css">
+{{ $overrides := resources.Get "css/site-overrides.css" | postCSS | minify }}
+<link rel="stylesheet" href="{{ $overrides.RelPermalink }}">
 <link rel="stylesheet" href="./assets/css/typing.min.css">
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#F0013D" />
@@ -77,7 +78,126 @@
 <body class="bg-white">
 
   <!-- Dotted glow background -->
-  <canvas id="dotted-bg"></canvas>
+  <div id="dotted-bg">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="dot-pattern" width="200" height="200" patternUnits="userSpaceOnUse">
+          <!-- Row 0 -->
+          <circle cx="10" cy="10" r="2" class="dot-a" />
+          <circle cx="30" cy="10" r="2" class="dot-b" />
+          <circle cx="50" cy="10" r="2" class="dot-c" />
+          <circle cx="70" cy="10" r="2" class="dot-d" />
+          <circle cx="90" cy="10" r="2" class="dot-e" />
+          <circle cx="110" cy="10" r="2" class="dot-a" />
+          <circle cx="130" cy="10" r="2" class="dot-b" />
+          <circle cx="150" cy="10" r="2" class="dot-c" />
+          <circle cx="170" cy="10" r="2" class="dot-d" />
+          <circle cx="190" cy="10" r="2" class="dot-e" />
+          <!-- Row 1 -->
+          <circle cx="10" cy="30" r="2" class="dot-c" />
+          <circle cx="30" cy="30" r="2" class="dot-d" />
+          <circle cx="50" cy="30" r="2" class="dot-e" />
+          <circle cx="70" cy="30" r="2" class="dot-a" />
+          <circle cx="90" cy="30" r="2" class="dot-b" />
+          <circle cx="110" cy="30" r="2" class="dot-c" />
+          <circle cx="130" cy="30" r="2" class="dot-d" />
+          <circle cx="150" cy="30" r="2" class="dot-e" />
+          <circle cx="170" cy="30" r="2" class="dot-a" />
+          <circle cx="190" cy="30" r="2" class="dot-b" />
+          <!-- Row 2 -->
+          <circle cx="10" cy="50" r="2" class="dot-e" />
+          <circle cx="30" cy="50" r="2" class="dot-a" />
+          <circle cx="50" cy="50" r="2" class="dot-b" />
+          <circle cx="70" cy="50" r="2" class="dot-c" />
+          <circle cx="90" cy="50" r="2" class="dot-d" />
+          <circle cx="110" cy="50" r="2" class="dot-e" />
+          <circle cx="130" cy="50" r="2" class="dot-a" />
+          <circle cx="150" cy="50" r="2" class="dot-b" />
+          <circle cx="170" cy="50" r="2" class="dot-c" />
+          <circle cx="190" cy="50" r="2" class="dot-d" />
+          <!-- Row 3 -->
+          <circle cx="10" cy="70" r="2" class="dot-b" />
+          <circle cx="30" cy="70" r="2" class="dot-c" />
+          <circle cx="50" cy="70" r="2" class="dot-d" />
+          <circle cx="70" cy="70" r="2" class="dot-e" />
+          <circle cx="90" cy="70" r="2" class="dot-a" />
+          <circle cx="110" cy="70" r="2" class="dot-b" />
+          <circle cx="130" cy="70" r="2" class="dot-c" />
+          <circle cx="150" cy="70" r="2" class="dot-d" />
+          <circle cx="170" cy="70" r="2" class="dot-e" />
+          <circle cx="190" cy="70" r="2" class="dot-a" />
+          <!-- Row 4 -->
+          <circle cx="10" cy="90" r="2" class="dot-d" />
+          <circle cx="30" cy="90" r="2" class="dot-e" />
+          <circle cx="50" cy="90" r="2" class="dot-a" />
+          <circle cx="70" cy="90" r="2" class="dot-b" />
+          <circle cx="90" cy="90" r="2" class="dot-c" />
+          <circle cx="110" cy="90" r="2" class="dot-d" />
+          <circle cx="130" cy="90" r="2" class="dot-e" />
+          <circle cx="150" cy="90" r="2" class="dot-a" />
+          <circle cx="170" cy="90" r="2" class="dot-b" />
+          <circle cx="190" cy="90" r="2" class="dot-c" />
+          <!-- Row 5 -->
+          <circle cx="10" cy="110" r="2" class="dot-a" />
+          <circle cx="30" cy="110" r="2" class="dot-c" />
+          <circle cx="50" cy="110" r="2" class="dot-e" />
+          <circle cx="70" cy="110" r="2" class="dot-b" />
+          <circle cx="90" cy="110" r="2" class="dot-d" />
+          <circle cx="110" cy="110" r="2" class="dot-a" />
+          <circle cx="130" cy="110" r="2" class="dot-c" />
+          <circle cx="150" cy="110" r="2" class="dot-e" />
+          <circle cx="170" cy="110" r="2" class="dot-b" />
+          <circle cx="190" cy="110" r="2" class="dot-d" />
+          <!-- Row 6 -->
+          <circle cx="10" cy="130" r="2" class="dot-b" />
+          <circle cx="30" cy="130" r="2" class="dot-d" />
+          <circle cx="50" cy="130" r="2" class="dot-a" />
+          <circle cx="70" cy="130" r="2" class="dot-c" />
+          <circle cx="90" cy="130" r="2" class="dot-e" />
+          <circle cx="110" cy="130" r="2" class="dot-b" />
+          <circle cx="130" cy="130" r="2" class="dot-d" />
+          <circle cx="150" cy="130" r="2" class="dot-a" />
+          <circle cx="170" cy="130" r="2" class="dot-c" />
+          <circle cx="190" cy="130" r="2" class="dot-e" />
+          <!-- Row 7 -->
+          <circle cx="10" cy="150" r="2" class="dot-c" />
+          <circle cx="30" cy="150" r="2" class="dot-e" />
+          <circle cx="50" cy="150" r="2" class="dot-b" />
+          <circle cx="70" cy="150" r="2" class="dot-d" />
+          <circle cx="90" cy="150" r="2" class="dot-a" />
+          <circle cx="110" cy="150" r="2" class="dot-c" />
+          <circle cx="130" cy="150" r="2" class="dot-e" />
+          <circle cx="150" cy="150" r="2" class="dot-b" />
+          <circle cx="170" cy="150" r="2" class="dot-d" />
+          <circle cx="190" cy="150" r="2" class="dot-a" />
+          <!-- Row 8 -->
+          <circle cx="10" cy="170" r="2" class="dot-d" />
+          <circle cx="30" cy="170" r="2" class="dot-a" />
+          <circle cx="50" cy="170" r="2" class="dot-c" />
+          <circle cx="70" cy="170" r="2" class="dot-e" />
+          <circle cx="90" cy="170" r="2" class="dot-b" />
+          <circle cx="110" cy="170" r="2" class="dot-d" />
+          <circle cx="130" cy="170" r="2" class="dot-a" />
+          <circle cx="150" cy="170" r="2" class="dot-c" />
+          <circle cx="170" cy="170" r="2" class="dot-e" />
+          <circle cx="190" cy="170" r="2" class="dot-b" />
+          <!-- Row 9 -->
+          <circle cx="10" cy="190" r="2" class="dot-e" />
+          <circle cx="30" cy="190" r="2" class="dot-b" />
+          <circle cx="50" cy="190" r="2" class="dot-d" />
+          <circle cx="70" cy="190" r="2" class="dot-a" />
+          <circle cx="90" cy="190" r="2" class="dot-c" />
+          <circle cx="110" cy="190" r="2" class="dot-e" />
+          <circle cx="130" cy="190" r="2" class="dot-b" />
+          <circle cx="150" cy="190" r="2" class="dot-d" />
+          <circle cx="170" cy="190" r="2" class="dot-a" />
+          <circle cx="190" cy="190" r="2" class="dot-c" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#dot-pattern)" />
+    </svg>
+  </div>
+
 
   <nav class="
       fixed top-3 right-5 z-[60]
@@ -1073,7 +1193,6 @@
     </div>
   </footer>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EMFSSHGMR"></script>
-  <script src="./assets/js/dotted-bg.min.js"></script>
   <script src="./assets/js/timeline-beam.min.js"></script>
   <script src="./assets/js/typing-calc.min.js"></script>
   <script src="./assets/js/browser-install-cta.js"></script>

@@ -187,3 +187,73 @@
   height: auto;
 }
 
+/* Lightweight CSS Dotted Background replacement */
+#dotted-bg {
+  mask-image: linear-gradient(to right, black 0%, transparent 38%, transparent 60%, black 100%) !important;
+}
+
+#dotted-bg svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+#dotted-bg pattern {
+  animation: patternDrift 80s linear infinite !important;
+}
+
+@media (max-width: 768px) {
+  #dotted-bg svg {
+    transform: scale(1) !important;
+    transform-origin: top left !important;
+  }
+}
+
+#dotted-bg circle {
+  fill: rgb(0, 0, 0) !important;
+  r: 2.3px !important; /* Adjust this value to increase/decrease bubble size */
+  transition: fill 0.3s;
+}
+
+
+.dark #dotted-bg circle {
+  fill: rgb(255, 255, 255) !important;
+}
+
+.dot-a { animation: pulse-a 7s ease-in-out infinite; }
+.dot-b { animation: pulse-b 7s ease-in-out infinite; }
+.dot-c { animation: pulse-c 7s ease-in-out infinite; }
+.dot-d { animation: pulse-d 7s ease-in-out infinite; }
+.dot-e { animation: pulse-e 7s ease-in-out infinite; }
+
+@keyframes pulse-a {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.16; }
+}
+@keyframes pulse-b {
+  0%, 100% { opacity: 0.14; }
+  50% { opacity: 0.28; }
+}
+@keyframes pulse-c {
+  0%, 100% { opacity: 0.22; }
+  50% { opacity: 0.08; }
+}
+@keyframes pulse-d {
+  0%, 100% { opacity: 0.10; }
+  50% { opacity: 0.22; }
+}
+@keyframes pulse-e {
+  0%, 100% { opacity: 0.26; }
+  50% { opacity: 0.12; }
+}
+
+@keyframes patternDrift {
+  0% {
+    x: 0px;
+    y: 0px;
+  }
+  100% {
+    x: 60px;
+    y: 60px;
+  }
+}
