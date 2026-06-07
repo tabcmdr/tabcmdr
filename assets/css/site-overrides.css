@@ -202,19 +202,18 @@
   animation: patternDrift 80s linear infinite !important;
 }
 
+#dotted-bg circle {
+  fill: rgb(0, 0, 0);
+  r: 2x !important;
+  transition: fill 0.3s;
+}
+
 @media (max-width: 768px) {
   #dotted-bg svg {
     transform: scale(1) !important;
     transform-origin: top left !important;
   }
 }
-
-#dotted-bg circle {
-  fill: rgb(0, 0, 0) !important;
-  r: 2.3px !important; /* Adjust this value to increase/decrease bubble size */
-  transition: fill 0.3s;
-}
-
 
 .dark #dotted-bg circle {
   fill: rgb(255, 255, 255) !important;
