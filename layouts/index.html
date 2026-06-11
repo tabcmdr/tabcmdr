@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="Content-Signal" content="ai-train=yes, search=yes, ai-input=yes" />
   <!-- Primary Meta Tags -->
-  <title>TabCmdr - Command Palette For Your Browser</title>
-  <meta name="title" content="TabCmdr - Command Palette For Your Browser" />
-  <meta name="description" content="Powerful command palette extension for your browser. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts. Privacy-first design." />
+  <title>TabCmdr - Command Palette &amp; Tab Manager for Browser</title>
+  <meta name="title" content="TabCmdr - Command Palette & Tab Manager for Browser" />
+  <meta name="description" content="TabCmdr is a command palette for Browser. Search tabs, bookmarks, and history in one keystroke, plus AI chat, a calculator, and 50+ tools. No account, no tracking, works offline." />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
   <link rel="canonical" href="https://tabcmdr.com/" />
@@ -15,8 +15,8 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tabcmdr.com/" />
-  <meta property="og:title" content="TabCmdr: Command Palette for your browser" />
-  <meta property="og:description" content="Powerful command palette extension for your browser. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts." />
+  <meta property="og:title" content="TabCmdr - Command Palette & Tab Manager for Browser" />
+  <meta property="og:description" content="Find any tab, bookmark, or page in one keystroke. AI chat, calculator, emoji picker, and 50+ tools, all inside ⌘K. Private and works offline." />
   <meta property="og:image" content="{{ "og-image.png" | absURL }}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -27,8 +27,8 @@
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://tabcmdr.com/" />
-  <meta property="twitter:title" content="TabCmdr: Command Palette for your browser" />
-  <meta property="twitter:description" content="Powerful command palette extension for your browser. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts." />
+  <meta property="twitter:title" content="TabCmdr - Command Palette & Tab Manager for Browser" />
+  <meta property="twitter:description" content="Find any tab, bookmark, or page in one keystroke. AI chat, calculator, emoji picker, and 50+ tools, all inside ⌘K. Private and works offline." />
   <meta property="twitter:image" content="{{ "twitter-card.png" | absURL }}" />
   <meta property="twitter:image:alt" content="TabCmdr Command Palette Extension - Search tabs, AI chat, calculator in one keystroke" />
   
@@ -58,9 +58,19 @@
   "name": "TabCmdr",
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome, Edge, Brave, Arc",
+  "browserRequirements": "Requires a Chromium-based browser",
   "description": "Powerful command palette extension for your browser. Search tabs, bookmarks, history instantly. Built-in AI chat, calculator, emoji picker, and 50+ keyboard shortcuts. Privacy-first design.",
   "url": "https://tabcmdr.com/",
   "downloadUrl": "https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc",
+  "featureList": [
+    "Search tabs, bookmarks, history, downloads, and recently closed pages",
+    "Tab manager: pin, mute, sort, suspend, and close duplicate tabs",
+    "AI chat with OpenAI, Claude, Gemini, Perplexity, and OpenRouter using your own API key",
+    "Inline calculator, unit converter, timezone and date math",
+    "Emoji picker, weather, to-do list, RSS reader, screenshots, QR codes, and color picker",
+    "Keyboard-first workflow with ⌘K / Ctrl K shortcut",
+    "Privacy-first: all data stays on your device, works offline"
+  ],
   "publisher": {
     "@type": "Organization",
     "name": "TabCmdr",
@@ -71,6 +81,14 @@
     "price": "2.99",
     "priceCurrency": "USD"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "TabCmdr",
+  "url": "https://tabcmdr.com/"
 }
 </script>
 </head>
@@ -245,27 +263,31 @@
     <div class="max-w-4xl w-full">
 
       <!-- Brand -->
-       <div class="fancy-underline albert text-5xl font-extrabold tracking-tight text-black md:text-7xl"><span style="color: #F0013D;">t</span>ab<span style="color: #F0013D;">c</span>mdr</div>
+       <div class="hero-stagger hero-stagger-1 fancy-underline albert text-5xl font-extrabold tracking-tight text-black md:text-7xl"><span style="color: #F0013D;">t</span>ab<span style="color: #F0013D;">c</span>mdr</div>
 
-      <!-- Tagline -->
-      <div class="text-md text-gray-500 mb-[6rem]">
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <!-- Keystroke hook -->
+      <div class="hero-stagger hero-stagger-2 hero-kbd-row" aria-label="Press Command K or Control K to open TabCmdr">
+          <kbd class="hero-kbd hero-kbd-pulse" data-kbd-mod>⌘</kbd>
+          <span class="hero-kbd-plus">+</span>
+          <kbd class="hero-kbd hero-kbd-pulse hero-kbd-pulse-delay">K</kbd>
+          <span class="hero-kbd-divider" aria-hidden="true"></span>
+          <span class="hero-kbd-caption">and your whole browser obeys</span>
       </div>
 
       <!-- Heading -->
-      <div class="relative">
+      <div class="relative hero-stagger hero-stagger-3">
         <div class="h1glow"></div>
         <h1 class="text-[32px] leading-[1.2] sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 tracking-tight-03">
           The command palette <br>your browser was missing
         </h1>
       </div>
       <p
-        class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight mb-12 sm:mb-16 md:mb-20 text-black tracking-tight-03">
-        Search and navigate through tabs, bookmarks, recently closed and more...
+        class="hero-stagger hero-stagger-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight mb-12 sm:mb-16 md:mb-20 text-black tracking-tight-03">
+        Stop digging through 40 tabs. Find any tab, bookmark, or recently closed page in one keystroke and keep your focus.
       </p>
 
       <!-- CTA Button -->
-      <div class="relative inline-flex items-center justify-center">
+      <div class="hero-stagger hero-stagger-5 relative inline-flex items-center justify-center">
         <div class="glow-bg"></div>
         <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc">
           <button class="cta-btn relative z-10 text-white" data-install-browser-cta>
@@ -275,7 +297,12 @@
         </a>
       </div>
 
-      <div class="w-full max-w-3xl mx-auto mt-12 sm:mt-16 md:mt-20 px-4 text-center"
+      <!-- Trust microcopy -->
+      <p class="hero-stagger hero-stagger-6 hero-trust text-sm text-gray-500">
+        Free trial &middot; No account &middot; No tracking
+      </p>
+
+      <div class="hero-stagger hero-stagger-7 w-full max-w-3xl mx-auto mt-12 sm:mt-16 md:mt-20 px-4 text-center"
         aria-label="Supported AI providers">
         {{ $openAIIcon := resources.Get "icons/openai.svg" }}
         {{ $geminiIcon := resources.Get "icons/gemini.svg" }}
@@ -577,7 +604,7 @@
       <div class="feature-map-copy">
         <p class="feature-map-kicker">TabCMDR feature map</p>
         <h2 id="cmdk-search-feature-title">The complete browser command toolkit</h2>
-        <p>Command Palette for Tabs, Bookmarks, History, Closed Tabs & Tools.</p>
+        <p>Stop hunting for that lost tab. Type a few letters and jump right to it. Works for bookmarks, history, and closed tabs too.</p>
       </div>
 
       <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
@@ -624,61 +651,61 @@
         <article class="feature-callout feature-callout--search">
           <span class="feature-callout__label">search</span>
           <h3>Search everything</h3>
-          <p>Tabs, pinned tabs, bookmarks, history, downloads, recently closed pages, URLs, and web search engines.</p>
+          <p>One search box for your tabs, bookmarks, history, downloads, recently closed pages, and the web.</p>
         </article>
 
         <article class="feature-callout feature-callout--tabs">
           <span class="feature-callout__label">tab actions</span>
           <h3>Control messy tab bars</h3>
-          <p>Pin, Mute, Reload, Duplicate, Move, Sort, Suspend inactive tabs, and Close duplicates.</p>
+          <p>Pin, mute, sort, or move any tab. Close duplicates and suspend the ones you're not using.</p>
         </article>
 
         <article class="feature-callout feature-callout--ai">
           <span class="feature-callout__label">ai chat</span>
           <h3>Bring your own models</h3>
-          <p>Chat with configured providers, custom presets, model selection, history, streaming, and page context.</p>
+          <p>Plug in your own API key and chat with ChatGPT, Claude, Gemini, and six more providers.</p>
         </article>
 
         <article class="feature-callout feature-callout--tools">
           <span class="feature-callout__label">tools</span>
           <h3>Utilities inside the palette</h3>
-          <p>Emoji picker, To-Dos, RSS feeds, Weather, Screenshot, QR codes, Color Picker, and Quick commands.</p>
+          <p>An emoji picker, to-do list, RSS reader, weather, screenshots, QR codes, and a color picker built in.</p>
         </article>
 
         <article class="feature-callout feature-callout--private">
           <span class="feature-callout__label">privacy</span>
           <h3>Local-first by default</h3>
-          <p>The extension keeps browser data on your device, with settings and saved tool state stored locally.</p>
+          <p>Everything stays on your computer. No account, no tracking, and nothing sent to a server.</p>
         </article>
 
         <article class="feature-callout feature-callout--keyboard">
           <span class="feature-callout__label">keyboard</span>
           <h3>Keyboard-first flow</h3>
-          <p>Open TabCmdr and quickly search tabs, pinned-tabs, history, recently closed, and keep moving without reaching for the mouse.</p>
+          <p>Do everything with your keyboard. Find a tab, run a command, and keep typing without touching the mouse.</p>
         </article>
 
         <article class="feature-callout feature-callout--shortcuts">
           <span class="feature-callout__label">shorthands</span>
-          <h3>Jump straight to a tools</h3>
-          <p>Use filters :b, :h, :d, :s, :ai, :todo, :emoji, :rss, :wx, and :ss, quick jump to tools</p>
+          <h3>Jump straight to any tool</h3>
+          <p>Short codes like :b, :h, :ai, :todo, and :emoji take you straight to the tool you need.</p>
         </article>
 
         <article class="feature-callout feature-callout--math">
           <span class="feature-callout__label">math and time</span>
           <h3>Answers as you type</h3>
-          <p>Quick calculations, unit conversion, color conversion, timezone lookups, date math, and Unix timestamps.</p>
+          <p>Type 2+2, 100 km to miles, or time in Tokyo and the answer shows up before you press Enter.</p>
         </article>
 
         <article class="feature-callout feature-callout--capture">
           <span class="feature-callout__label">capture</span>
           <h3>Share what is on screen</h3>
-          <p>Screenshot visible-page screenshots, crop regions, Generate QR codes, and Color Picker.</p>
+          <p>Take a screenshot, crop it, make a QR code for the page, or grab a color from your screen.</p>
         </article>
 
         <article class="feature-callout feature-callout--sites">
           <span class="feature-callout__label">site shortcuts</span>
           <h3>Commands adapt to the page</h3>
-          <p>GitHub, YouTube, Gmail, Notion, Figma, Discord, GitLab, Jira, and X actions appear when relevant.</p>
+          <p>On YouTube you get player controls. On Gmail, mail actions. Works on GitHub, Notion, Figma, and more.</p>
         </article>
       </div>
     </div>
@@ -712,7 +739,7 @@
         <div class="feature-map-copy">
           <p class="feature-map-kicker">AI, built into your browser</p>
           <h2 id="cmdk-ai-feature-title">Your AI assistant lives at ⌘K</h2>
-          <p>Chat, research, write, and reason: without opening a new tab or leaving what you're doing.</p>
+          <p>Ask questions, sum up long pages, and write drafts without opening a new tab or losing your place.</p>
         </div>
 
         <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
@@ -738,31 +765,31 @@
           </div>
         </div>
 
-        <p class="feature-map-statement">Chat with AI, use <span style="color: #F0013D">@page</span> for context<span></span>.</span></p>
+        <p class="feature-map-statement">Chat with AI, use <span style="color: #F0013D">@page</span> for context<span>.</span></p>
 
         <div class="feature-callout-grid">
           <article class="feature-callout feature-callout--ai-key">
             <span class="feature-callout__label">bring your own key</span>
             <h3>Any model, your API key</h3>
-            <p>Connect GPT, Claude, Gemini, Grok, Mistral, DeepSeek, or any OpenRouter model. Switch providers in seconds without leaving the palette.</p>
+            <p>Works with ChatGPT, Claude, Gemini, Grok, Mistral, DeepSeek, and OpenRouter. Pick one, or switch between them whenever you like.</p>
           </article>
 
           <article class="feature-callout feature-callout--ai-access">
             <span class="feature-callout__label">instant access</span>
             <h3>Type :ai and start thinking</h3>
-            <p>Jump straight into a conversation from anywhere on the web. No new tab, no context switch: just type and ask.</p>
+            <p>Start a conversation from any page. No new tab needed, just type :ai and ask your question.</p>
           </article>
 
           <article class="feature-callout feature-callout--ai-context">
             <span class="feature-callout__label">page context</span>
             <h3>Ask about what's on screen</h3>
-            <p>Send the current page's content directly to your AI assistant. Summarize, translate, explain, or rewrite without copy-pasting a word.</p>
+            <p>Add @page to your message and the AI can read the page you're on. Handy for summaries, translations, and explanations.</p>
           </article>
 
           <article class="feature-callout feature-callout--ai-privacy">
             <span class="feature-callout__label">privacy first</span>
             <h3>Your chats never touch our servers</h3>
-            <p>Messages go directly from your browser to the AI provider you choose. Nothing is stored in the cloud, logged, or shared: ever.</p>
+            <p>Messages go straight from your browser to the AI company you picked. There's no TabCmdr server in the middle.</p>
           </article>
         </div>
       </div>
@@ -826,25 +853,25 @@
           <article class="feature-callout feature-callout--emoji-fuzzy">
             <span class="feature-callout__label">fuzzy search</span>
             <h3>Typos welcome</h3>
-            <p>Type "smil", "laug", or "thumbs" and the right emoji surfaces instantly. No scrolling through grids, no guessing category names.</p>
+            <p>Type "smil", "laug", or "thumbs" and the right emoji still shows up. No scrolling through grids trying to guess the category.</p>
           </article>
 
           <article class="feature-callout feature-callout--emoji-access">
             <span class="feature-callout__label">instant access</span>
             <h3>Type :emoji and you're in</h3>
-            <p>Jump straight to the emoji picker from anywhere on the web with the :emoji shorthand. One keystroke, zero friction.</p>
+            <p>Open the emoji picker from any page by typing :emoji, or just :em if you're in a hurry.</p>
           </article>
 
           <article class="feature-callout feature-callout--emoji-copy">
             <span class="feature-callout__label">copy in one click</span>
             <h3>On your clipboard before you blink</h3>
-            <p>Select an emoji and it's copied instantly: ready to paste into any chat, doc, or text field without an extra step.</p>
+            <p>Click an emoji and it's copied, ready to paste into any chat or doc. No extra steps.</p>
           </article>
 
           <article class="feature-callout feature-callout--emoji-unicode">
             <span class="feature-callout__label">thousands of options</span>
             <h3>The full Unicode set, searchable</h3>
-            <p>Every emoji from every category, all indexed and ranked by relevance. If it exists, you'll find it in under two seconds.</p>
+            <p>Every emoji from every category is in there. If it exists, you'll find it in a couple of seconds.</p>
           </article>
         </div>
       </div>
@@ -864,7 +891,7 @@
         <div class="feature-map-copy">
           <p class="feature-map-kicker">Math & Time Conversion Instantly</p>
           <h2 id="cmdk-math-feature-title">Calculate anything, convert everything</h2>
-          <p>Math expressions, unit conversions, timezone lookups, date arithmetic, and Unix timestamps: all evaluated as you type.</p>
+          <p>No need to open a calculator app or search the web. Type the question and the answer shows up while you write.</p>
         </div>
 
         <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
@@ -904,25 +931,25 @@
           <article class="feature-callout feature-callout--math-expressions">
             <span class="feature-callout__label">mathematical expressions</span>
             <h3>Complex calculations, simple syntax</h3>
-            <p>Type "sqrt(144)" or "20% of 500" and get instant results. Supports functions, percentages, and scientific notation.</p>
+            <p>Type "sqrt(144)" or "20% of 500" and the result is right there. Percentages, functions, powers, all of it.</p>
           </article>
 
           <article class="feature-callout feature-callout--math-units">
             <span class="feature-callout__label">unit conversions</span>
             <h3>Any unit to any unit</h3>
-            <p>Convert "100 km to miles" or "32°C to °F". Handles distance, temperature, data, time, and more.</p>
+            <p>Convert "100 km to miles" or "32°C to °F". Distance, temperature, file sizes, speed, and plenty more.</p>
           </article>
 
           <article class="feature-callout feature-callout--math-time">
             <span class="feature-callout__label">time & timezones</span>
             <h3>World clock in your palette</h3>
-            <p>Check "time in Tokyo" or calculate "now + 3 days". Supports timezone abbreviations and date arithmetic.</p>
+            <p>Ask "time in Tokyo" or "now + 3 days" and get the answer straight away. It knows over 100 cities.</p>
           </article>
 
           <article class="feature-callout feature-callout--math-colors">
             <span class="feature-callout__label">color & radix</span>
             <h3>Convert colors and bases</h3>
-            <p>Transform "rgb(255,0,0) to hex" or "255 to binary". Handles CSS colors and number base conversions.</p>
+            <p>Turn "rgb(255,0,0)" into hex, or "255" into binary. Made for designers and developers.</p>
           </article>
         </div>
       </div>
@@ -940,7 +967,7 @@
         <div class="feature-map-copy">
           <p class="feature-map-kicker">Built-in tools, zero setup</p>
           <h2 id="cmdk-tools-feature-title">Everything you need, right in the palette</h2>
-          <p>AI chat, emoji picker, calculator, weather, to-dos, RSS feeds, screenshots, QR codes, and color picker: all accessible with a keystroke.</p>
+          <p>Weather, to-dos, screenshots, QR codes, RSS, and emoji. The small stuff stays one keystroke away.</p>
         </div>
 
         <svg class="feature-map-lines" viewBox="0 0 1480 980" preserveAspectRatio="none" aria-hidden="true">
@@ -977,25 +1004,25 @@
           <article class="feature-callout feature-callout--emoji-fuzzy">
             <span class="feature-callout__label">ai & emoji</span>
             <h3>Chat and express instantly</h3>
-            <p>Type :ai to chat with any AI model or :emoji to find the perfect emoji. Both tools work everywhere, no context switching needed.</p>
+            <p>Type :ai to ask an AI something, or :emoji to find the right emoji. Both work on any page.</p>
           </article>
 
           <article class="feature-callout feature-callout--emoji-access">
             <span class="feature-callout__label">calculator & time</span>
-            <h3>Math and Timezone lookups</h3>
-            <p>Calculate expressions, convert units, check time in any timezone, or do date arithmetic: all evaluated as you type.</p>
+            <h3>Math and timezone lookups</h3>
+            <p>Do quick math, convert units, or check the time anywhere in the world while you type.</p>
           </article>
 
           <article class="feature-callout feature-callout--emoji-copy">
             <span class="feature-callout__label">productivity tools</span>
-            <h3>To-Dos, RSS, and Weather</h3>
-            <p>Manage tasks with :todo, track feeds with :rss, or check weather with :wx. Your productivity tools live in the palette.</p>
+            <h3>To-dos, RSS, and weather</h3>
+            <p>Jot down tasks with :todo, follow your favorite sites with :rss, and check the weather with :wx.</p>
           </article>
 
           <article class="feature-callout feature-callout--emoji-unicode">
             <span class="feature-callout__label">capture & share</span>
-            <h3>Screenshots, QR Codes, Colors</h3>
-            <p>Capture visible areas with :ss, generate QR codes for URLs, or pick colors from the screen. Share-ready in one click.</p>
+            <h3>Screenshots, QR codes, colors</h3>
+            <p>Grab a screenshot with :ss, turn a link into a QR code, or pick any color off the screen.</p>
           </article>
         </div>
       </div>
@@ -1091,6 +1118,9 @@
         <!-- Brand -->
         <div class="albert text-5xl md:text-7xl font-bold text-white tracking-wide"><span style="color: #F0013D;">t</span>ab<span style="color: #F0013D;">c</span>mdr</div>
 
+        <h2 class="cta-closing-title font-bold text-white tracking-tight">Your whole browser, one keystroke away.</h2>
+        <p class="cta-closing-sub">Install once, press <kbd class="cta-kbd">⌘K</kbd>, and stop wasting time hunting for tabs.</p>
+
         <!-- CTA Button -->
         <div class="relative inline-flex items-center justify-center mt-2">
           <div class="glow-bg-white"></div>
@@ -1102,6 +1132,8 @@
             </button>
           </a>
         </div>
+
+        <p class="text-sm text-white/40">Free trial &middot; No account &middot; No tracking</p>
 
       </div>
 
@@ -1196,6 +1228,13 @@
   <script src="./assets/js/timeline-beam.min.js"></script>
   <script src="./assets/js/typing-calc.min.js"></script>
   <script src="./assets/js/browser-install-cta.js"></script>
+  <script>
+    if (!/Mac|iPhone|iPad/.test(navigator.platform || '')) {
+      document.querySelectorAll('[data-kbd-mod]').forEach(function (el) {
+        el.textContent = 'Ctrl';
+      });
+    }
+  </script>
   <script src="./assets/js/analytics.min.js"></script>
 </body>
 

@@ -46,6 +46,273 @@
   }
 }
 
+/* ─── Hero entrance (staggered fade-up on load) ────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-stagger-1 { animation-delay: 0.05s; }
+  .hero-stagger-2 { animation-delay: 0.18s; }
+  .hero-stagger-3 { animation-delay: 0.32s; }
+  .hero-stagger-4 { animation-delay: 0.46s; }
+  .hero-stagger-5 { animation-delay: 0.60s; }
+  .hero-stagger-6 { animation-delay: 0.74s; }
+  .hero-stagger-7 { animation-delay: 0.88s; }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Hero ⌘K hint chip ────────────────────────────────── */
+.hero-kbd-row {
+  margin-top: 30px;
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.hero-kbd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px 8px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 12px 32px -12px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-kbd-chip:hover {
+  border-color: rgba(240, 1, 61, 0.22);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 16px 40px -12px rgba(240, 1, 61, 0.18);
+}
+
+.hero-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 9px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f6 100%);
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 1px rgba(15, 23, 42, 0.06),
+    0 2px 3px rgba(15, 23, 42, 0.06);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #1a1a1c;
+}
+
+.hero-kbd-plus {
+  color: rgb(161 161 170);
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 -1px;
+}
+
+.hero-kbd-divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 6px 0 8px;
+  background: rgba(17, 17, 17, 0.1);
+}
+
+.hero-kbd-caption {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: rgb(82 82 91);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-kbd-pulse {
+    animation: kbd-press 3.4s ease-in-out infinite;
+  }
+  .hero-kbd-pulse-delay {
+    animation-delay: 0.14s;
+  }
+}
+
+@keyframes kbd-press {
+  0%, 10%, 100% {
+    transform: translateY(0);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 1px rgba(15, 23, 42, 0.06),
+      0 2px 3px rgba(15, 23, 42, 0.06);
+  }
+  5% {
+    transform: translateY(1.5px);
+    box-shadow:
+      inset 0 1px 2px rgba(15, 23, 42, 0.1),
+      0 0 0 rgba(15, 23, 42, 0);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-kbd-row {
+    margin-top: 22px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-kbd-chip {
+    padding: 7px 14px 7px 8px;
+  }
+  .hero-kbd {
+    min-width: 30px;
+    height: 30px;
+    font-size: 13.5px;
+    border-radius: 7px;
+  }
+  .hero-kbd-divider {
+    margin: 0 4px 0 6px;
+  }
+  .hero-kbd-caption {
+    font-size: 12.5px;
+  }
+}
+
+.hero-trust {
+  margin-top: 24px;
+}
+
+/* ─── Feature map alignment ────────────────────────────── */
+/* Align the copy column with the callout column (callouts
+   sit at left: 78px; the copy block shipped at 72px). */
+@media (min-width: 1321px) {
+  .feature-map-copy {
+    left: 78px;
+  }
+}
+
+/* ─── FAQ ──────────────────────────────────────────────── */
+.faq-title {
+  font-size: 1.875rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 768px) {
+  .faq-title {
+    font-size: 3rem;
+  }
+  .faq-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.7);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item[open] {
+  border-color: rgba(240, 1, 61, 0.35);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  color: #f0013d;
+  transition: transform 0.25s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  padding: 0 20px 18px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgb(82 82 91);
+}
+
+.faq-item kbd,
+.cta-kbd {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom-width: 2px;
+  background: #f6f6f7;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #111;
+}
+
+.cta-kbd {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* ─── Final CTA closing copy ───────────────────────────── */
+.cta-closing-title {
+  font-size: 1.5rem;
+}
+
+.cta-closing-sub {
+  max-width: 36rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 768px) {
+  .cta-closing-title {
+    font-size: 2.25rem;
+  }
+  .cta-closing-sub {
+    font-size: 1.125rem;
+  }
+}
+
 /* ─── Feature Command Grid ─────────────────────────────── */
 .feature-cmd-grid-section {
   display: flex;
@@ -185,6 +452,53 @@
 .badge-container img {
   width: auto;
   height: auto;
+}
+
+/* Mobile: lay the 9 badges out as a 3x3 grid. Badge images carry
+   inline height/width styles, so the overrides need !important. */
+@media (max-width: 640px) {
+  .badge-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px !important;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .badge-container > a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    height: auto !important;
+  }
+
+  .badge-container img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 128px;
+  }
+
+  /* Tiny Startups is an HTML badge, not an image; compact it to fit */
+  .badge-container > a[href*="tinystartups"] {
+    gap: 6px !important;
+    padding: 6px 8px !important;
+  }
+
+  .badge-container > a[href*="tinystartups"] svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .badge-container > a[href*="tinystartups"] span span:nth-child(2) {
+    font-size: 11px !important;
+  }
+
+  .badge-container > a[href*="tinystartups"] span span:nth-child(3) {
+    display: none;
+  }
 }
 
 /* Lightweight CSS Dotted Background replacement */
