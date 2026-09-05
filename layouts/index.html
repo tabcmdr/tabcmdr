@@ -43,12 +43,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
 
-<!-- Tailwind CSS -->
-<link rel="stylesheet" href="./assets/css/tailwind.min.css">
-<link rel="stylesheet" href="./assets/css/final.min.css">
-{{ $overrides := resources.Get "css/site-overrides.css" | postCSS | minify }}
-<link rel="stylesheet" href="{{ $overrides.RelPermalink }}">
-<link rel="stylesheet" href="./assets/css/typing.min.css">
+{{ $styles := slice
+  (resources.Get "css/tailwind.css")
+  (resources.Get "css/final.css")
+  (resources.Get "css/site-overrides.css")
+  (resources.Get "css/typing.css")
+  | resources.Concat "css/site.css" | postCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 <link rel="manifest" href="/site.webmanifest" />
 <meta name="theme-color" content="#F0013D" />
 <script type="application/ld+json">
@@ -78,9 +79,37 @@
   },
   "offers": {
     "@type": "Offer",
-    "price": "2.99",
-    "priceCurrency": "USD"
+    "url": "https://tabcmdr.com/buy",
+    "price": "{{ site.Params.price }}",
+    "priceCurrency": "{{ site.Params.priceCurrency }}",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "TabCmdr",
+      "url": "https://tabcmdr.com/"
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "{{ site.Params.price }}",
+      "priceCurrency": "{{ site.Params.priceCurrency }}",
+      "billingDuration": 1,
+      "unitCode": "ANN"
+    }
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TabCmdr",
+  "url": "https://tabcmdr.com/",
+  "logo": "{{ "apple-touch-icon.png" | absURL }}",
+  "sameAs": [
+    "{{ site.Params.chromeWebStoreURL }}",
+    "{{ site.Params.repositoryURL }}",
+    "{{ site.Params.gumroadURL }}"
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -240,23 +269,22 @@
     " aria-label="Primary">
     <a href="https://tabcmdr.com/docs/">Docs</a>
     <a href="https://tabcmdr.com/docs/privacy/">Privacy</a>
-    <span class="w-px h-6 mx-[5px] bg-black/[0.13] max-[560px]:mx-0.5" aria-hidden="true"></span>
-    <a href="/buy?wanted=true" target="_blank" rel="noopener noreferrer">Buy from
-      Gumroad</a>
-
     <span class="w-px h-6 mx-[5px] bg-black/[0.13] max-[560px]:mx-0.5 max-[420px]:hidden" aria-hidden="true"></span>
     <span class="max-[420px]:hidden">
-      <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc"
-        target="_blank" rel="noopener noreferrer" aria-label="Download TabCMDR from the Chrome Web Store">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M12 3v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-          <path d="M5 17v2h14v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-        <span>Install</span>
-      </a>
+      <a href="/buy?wanted=true" target="_blank" rel="nofollow noopener noreferrer">Buy from Gumroad</a>
     </span>
+
+    <span class="w-px h-6 mx-[5px] bg-black/[0.13] max-[560px]:mx-0.5" aria-hidden="true"></span>
+    <a href="{{ site.Params.chromeWebStoreURL }}"
+      target="_blank" rel="noopener noreferrer" aria-label="Download TabCmdr from the Chrome Web Store">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 3v11m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M5 17v2h14v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      <span>Install</span>
+    </a>
   </nav>
 
   <section class="flex items-start justify-center text-center px-6 pt-24 pb-[8rem] hero-section">
@@ -1144,8 +1172,8 @@
 <div class="border-t border-gray-200 py-4 px-6">
   <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-4 badge-container">
     <!-- tinystartups · Launched on Tiny Startups -->
-    <a href="https://www.tinystartups.com/startup/tabcmdr-fast-switch-tabs-bookmarks-history-closed-tabs-tools" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:10px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#3525E6,#D81FE0,#22B8F0) border-box;border:2px solid transparent;color:#0E0B1F;height:40px;box-sizing:border-box;max-height:100px;">
+    <a href="https://www.tinystartups.com/startup/tabcmdr-fast-switch-tabs-bookmarks-history-closed-tabs-tools" target="_blank"
+      style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:10px;text-decoration:none;font-family:'Inter',system-ui,sans-serif;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#3525E6,#D81FE0,#22B8F0) border-box;border:2px solid transparent;color:#0E0B1F;height:40px;box-sizing:border-box;max-height:100px;" rel="nofollow sponsored noopener noreferrer">
       <svg width="24" height="24" viewBox="0 0 100 100">
         <defs><linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
           <stop offset="0%" stop-color="#3525E6"/><stop offset="55%" stop-color="#D81FE0"/><stop offset="100%" stop-color="#22B8F0"/>
@@ -1159,56 +1187,50 @@
       </span>
     </a>
 
-    <a href="https://easylaunch.dev/productivity/tabcmdr-all-in-one-tab-manager-and-browser-search" target="_blank" rel="noopener">
+    <a href="https://easylaunch.dev/productivity/tabcmdr-all-in-one-tab-manager-and-browser-search" target="_blank" rel="nofollow sponsored noopener noreferrer">
       <img src="https://easylaunch.dev/badge/easylaunch-badge-light.svg"
-          alt="Featured on EasyLaunch" width="134" height="40" style="height: 40px; max-height: 100px; width: auto;" />
+          alt="Featured on EasyLaunch" width="134" height="40" style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" />
     </a>
 
     <a
       href="https://nicklaunches.com/products/tabcmdr/?utm_source=tabcmdr.com&utm_medium=badge&utm_campaign=featured"
-      target="_blank"
-      rel="noopener"
-    >
+      target="_blank" rel="nofollow sponsored noopener noreferrer">
       <img
         src="https://nicklaunches.com/badges/featured.svg"
         alt="TabCmdr on Nick Launches"
         width="174"
         height="40"
-        style="height: 40px; max-height: 100px; width: auto;"
-      />
+        style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" />
     </a>
 
     <a
       href="https://findly.tools/tabcmdr-ultimate-tab-manager-command-palette?utm_source=tabcmdr-ultimate-tab-manager-command-palette"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+      target="_blank" rel="nofollow sponsored noopener noreferrer">
       <img
         src="https://findly.tools/badges/findly-tools-badge-light.svg"
         alt="Featured on Findly.tools"
         width="127"
         height="40"
-        style="height: 40px; max-height: 100px; width: auto;"
-      />
+        style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" />
     </a>
-    <a href="https://huzzler.so/products/IfdwpR9PN5/tabcmdr-fast-tab-switcher?utm_source=huzzler_product_website&utm_medium=badge&utm_campaign=free_listing" target="_blank" rel="noopener noreferrer">
-      <img alt="Huzzler Embed Badge" src="https://huzzler.so/assets/images/embeddable-badges/featured.png" width="116" height="40" style="height: 40px; max-height: 100px; width: auto;" />
+    <a href="https://huzzler.so/products/IfdwpR9PN5/tabcmdr-fast-tab-switcher?utm_source=huzzler_product_website&utm_medium=badge&utm_campaign=free_listing" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <img alt="Huzzler Embed Badge" src="https://huzzler.so/assets/images/embeddable-badges/featured.png" width="116" height="40" style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" />
     </a>
 
     <a href="https://launch-list.org/product/tabcmdr-command-palette"
-      target="_blank">
+      target="_blank" rel="nofollow sponsored noopener noreferrer">
       <img style="height: 40px; max-height: 100px; width: auto;"
           src="https://launch-list.org/badges/svg/launch_list_badge_live.svg"
-          alt="Launch List Badge" />
+          alt="Launch List Badge" width="138" height="40" loading="lazy" decoding="async" />
     </a>
 
-    <a href="https://saasgrow.app?ref=tabcmdr.com" target="_blank" rel="noopener">
-      <img src="https://saasgrow.app/api/badge?type=featured&style=light" alt="TabCmdr on SaaSGrow" width="240" height="54" style="height: 40px; max-height: 100px; width: auto;" />
+    <a href="https://saasgrow.app?ref=tabcmdr.com" target="_blank" rel="nofollow sponsored noopener noreferrer">
+      <img src="https://saasgrow.app/api/badge?type=featured&style=light" alt="TabCmdr on SaaSGrow" width="240" height="54" style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" />
     </a>
 
-    <a href="https://marketingdb.live" target="_blank" rel="noopener noreferrer nofollow sponsored"><img src="https://marketingdb.live/badge.svg" alt="Listed on MarketingDB" width="190" height="44" style="height: 40px; max-height: 100px; width: auto;"/></a>
+    <a href="https://marketingdb.live" target="_blank" rel="nofollow sponsored noopener noreferrer"><img src="https://marketingdb.live/badge.svg" alt="Listed on MarketingDB" width="190" height="44" style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" /></a>
   
-    <a href="https://wired.business" target="_blank"><img src="https://wired.business/badge3-white.svg" alt="Featured on Wired Business" width="200" height="44" style="height: 40px; max-height: 100px; width: auto;"></a>
+    <a href="https://wired.business" target="_blank" rel="nofollow sponsored noopener noreferrer"><img src="https://wired.business/badge3-white.svg" alt="Featured on Wired Business" width="200" height="44" style="height: 40px; max-height: 100px; width: auto;" loading="lazy" decoding="async" /></a>
   </div>
 </div>
 
@@ -1216,10 +1238,11 @@
     <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-xs text-gray-400">
       <span>© 2026 TabCmdr</span>
       <a href="https://tabcmdr.com/docs/" class="hover:text-black transition-colors duration-150">Docs</a>
-      <a href="https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc"
+      <a href="https://tabcmdr.com/docs/about/" class="hover:text-black transition-colors duration-150">About</a>
+      <a href="{{ site.Params.chromeWebStoreURL }}"
         target="_blank" rel="noopener noreferrer" class="hover:text-black transition-colors duration-150">Chrome
         Extension</a>
-      <a href="/buy" target="_blank" rel="noopener noreferrer"
+      <a href="/buy" target="_blank" rel="nofollow noopener noreferrer"
         class="hover:text-black transition-colors duration-150">Buy on Gumroad</a>
       <a href="https://tabcmdr.com/docs/privacy/" class="hover:text-black transition-colors duration-150">Privacy</a>
     </div>

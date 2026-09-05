@@ -1,8 +1,12 @@
 ---
 title: Licensing
-description: "Learn about TabCmdr's free trial, grace period, and how to purchase and activate a license key. Fully offline-friendly with no subscriptions."
+description: "TabCmdr costs $3.99 per year after a free trial. Learn how the trial, grace period, and license activation work, and what the extension stores on your device."
 weight: 13
 ---
+
+## Pricing
+
+TabCmdr costs **$3.99 per year**. The subscription renews automatically each year through Gumroad, and you can cancel it at any time from your Gumroad account. One license unlocks every feature — there are no separate tiers, add-ons, or in-app purchases.
 
 ## Free Trial
 
@@ -37,9 +41,9 @@ If re-validation fails (e.g., you're offline), TabCmdr continues working with th
 
 TabCmdr works fully offline. The only thing that requires a network connection is license activation and periodic re-validation. All other features run entirely inside your browser.
 
-## Refunds & Cancellations
+## Cancellation
 
-If a license is refunded or cancelled on Gumroad, the next re-validation will detect this and the extension will revert to grace-period mode.
+You can cancel the yearly renewal at any time from your Gumroad account. Your license stays active until the end of the period you already paid for. Once the subscription lapses, the next re-validation detects it and the extension reverts to grace-period mode.
 
 ## What Is Stored
 

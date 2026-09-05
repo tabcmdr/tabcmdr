@@ -76,6 +76,12 @@ menu:
 params:
   description: "TabCmdr — a fast, keyboard-driven command palette for your browser."
 
+  price: "3.99"
+  priceCurrency: "USD"
+  chromeWebStoreURL: "https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc"
+  gumroadURL: "https://abhimanyu003.gumroad.com/l/tabcmdr"
+  repositoryURL: "https://github.com/abhimanyu003/tabcmdr"
+
   navbar:
     displayTitle: true
     displayLogo: true

@@ -110,4 +110,6 @@ TabCmdr does not request access to Gmail, Google Drive, Contacts, or any other G
 
 ## Questions?
 
-If you have questions about how TabCmdr handles your data, open an issue on the repository or reach out directly. Happy to clarify anything.
+If you have questions about how TabCmdr handles your data, open an issue at [github.com/abhimanyu003/tabcmdr/issues](https://github.com/abhimanyu003/tabcmdr/issues). Happy to clarify anything.
+
+TabCmdr is built and maintained by [@abhimanyu003](https://github.com/abhimanyu003) — see [About TabCmdr](/docs/about/) for who is behind the extension and how it is funded.
