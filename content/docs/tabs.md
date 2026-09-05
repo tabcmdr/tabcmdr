@@ -1,12 +1,12 @@
 ---
 title: Tab Search & Switching
-description: "Search all your open tabs and switch to any one instantly with TabCmdr. Works across all windows — no mouse needed."
+description: "Search all your open tabs and switch to any one instantly with TabCmdr. Works across all windows - no mouse needed."
 weight: 2
 ---
 
 ## Overview
 
-TabCmdr lets you search all your open tabs and jump to any one of them instantly — no scrolling through a tab bar, no hunting with the mouse.
+TabCmdr lets you search all your open tabs and jump to any one of them instantly - no scrolling through a tab bar, no hunting with the mouse.
 
 This feature is always available. It uses the `tabs` permission, which is granted automatically when you install the extension.
 
@@ -23,9 +23,9 @@ TabCmdr searches across all open windows, not just the current one.
 
 Each tab result shows:
 
-- **Favicon** — the site's icon for quick visual recognition
-- **Title** — the page title
-- **URL** — the full address
+- **Favicon** - the site's icon for quick visual recognition
+- **Title** - the page title
+- **URL** - the full address
 
 ## Tab State Indicators
 

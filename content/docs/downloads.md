@@ -26,10 +26,10 @@ Downloads access requires an optional permission. To enable it:
 
 ## What Each Result Shows
 
-- **Filename** — the name of the downloaded file
-- **Source URL** — where the file was downloaded from
-- **File size** — how large the file is
-- **State** — whether the download is complete, in progress, or interrupted
+- **Filename** - the name of the downloaded file
+- **Source URL** - where the file was downloaded from
+- **File size** - how large the file is
+- **State** - whether the download is complete, in progress, or interrupted
 
 ## Privacy
 

@@ -6,7 +6,7 @@ weight: 9
 
 ## Overview
 
-TabCmdr can copy things to your clipboard — URLs, screenshots, QR codes, and calculator results — when you explicitly trigger a copy action.
+TabCmdr can copy things to your clipboard - URLs, screenshots, QR codes, and calculator results - when you explicitly trigger a copy action.
 
 ## Enabling Clipboard Access
 
@@ -29,7 +29,7 @@ Clipboard write access requires an optional permission. To enable it:
 ## What TabCmdr Does NOT Do
 
 - TabCmdr **never reads** your clipboard. It only writes to it.
-- Clipboard access is only used when you explicitly run a copy command — never automatically.
+- Clipboard access is only used when you explicitly run a copy command - never automatically.
 
 ## Privacy
 

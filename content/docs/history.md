@@ -6,7 +6,7 @@ weight: 4
 
 ## Overview
 
-TabCmdr can search your browsing history so you can quickly revisit pages you've been to before — even if you don't remember the exact URL.
+TabCmdr can search your browsing history so you can quickly revisit pages you've been to before - even if you don't remember the exact URL.
 
 ## Enabling History Search
 

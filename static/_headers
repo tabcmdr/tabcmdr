@@ -5,7 +5,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000
 
-/images/*_hu_*
+/images/*
   Cache-Control: public, max-age=31536000, immutable
 
 /css/*

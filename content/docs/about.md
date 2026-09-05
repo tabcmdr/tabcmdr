@@ -12,7 +12,7 @@ The browser is where most work happens, and it is the one place without a comman
 
 ## How it is funded
 
-TabCmdr is funded directly by the people who use it, at **$3.99 per year**. That is the whole business model. There are no ads, no sponsored results, no analytics sold to anyone, and no free tier propped up by harvesting data — which is what makes it possible to run the extension entirely on your device. See [Licensing](/docs/licensing/) for how the trial and renewal work.
+TabCmdr is funded directly by the people who use it, at **$3.99 per year**. That is the whole business model. There are no ads, no sponsored results, no analytics sold to anyone, and no free tier propped up by harvesting data - which is what makes it possible to run the extension entirely on your device. See [Licensing](/docs/licensing/) for how the trial and renewal work.
 
 ## How it is built
 
@@ -22,6 +22,6 @@ TabCmdr runs entirely inside your browser. There is no TabCmdr server to send an
 
 Bug reports, feature requests, and questions all go to the same place:
 
-- **[GitHub Issues](https://github.com/abhimanyu003/tabcmdr/issues)** — the fastest way to reach me, and the best place for anything other people might hit too.
+- **[GitHub Issues](https://github.com/abhimanyu003/tabcmdr/issues)** - the fastest way to reach me, and the best place for anything other people might hit too.
 
-If you are evaluating TabCmdr for a team and need something answered before installing it, open an issue and say so — permission and data-handling questions get answered first.
+If you are evaluating TabCmdr for a team and need something answered before installing it, open an issue and say so - permission and data-handling questions get answered first.

@@ -14,7 +14,7 @@ The bookmarks feature requires an optional permission. To enable it:
 
 1. Open the TabCmdr **Settings** page (click the extension icon → Settings).
 2. Find the **Bookmarks** toggle and turn it on.
-3. Your browser will ask you to confirm the permission — click **Allow**.
+3. Your browser will ask you to confirm the permission - click **Allow**.
 
 You can revoke this permission at any time from the same settings page.
 

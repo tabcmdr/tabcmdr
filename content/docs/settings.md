@@ -28,8 +28,8 @@ Enable **Compact mode** to reduce the size of the palette and show more results 
 
 Choose where the palette appears on screen:
 
-- **Center** (default) — appears in the middle of the viewport
-- **Top** — appears near the top of the screen
+- **Center** (default) - appears in the middle of the viewport
+- **Top** - appears near the top of the screen
 
 ## Permissions
 
@@ -71,4 +71,4 @@ TabCmdr will no longer activate on pages matching that domain.
 
 ## Settings Sync
 
-Your settings are stored in `browser.storage.sync` and automatically synced across all devices where you're signed into the same browser account. No TabCmdr account or server is involved — sync happens entirely through your browser.
+Your settings are stored in `browser.storage.sync` and automatically synced across all devices where you're signed into the same browser account. No TabCmdr account or server is involved - sync happens entirely through your browser.

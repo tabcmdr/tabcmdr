@@ -1,7 +1,7 @@
 baseURL: https://tabcmdr.com/
 languageCode: en-us
 title: TabCmdr
-description: "TabCmdr — a fast, keyboard-driven command palette for your browser. Switch tabs, search bookmarks, run page commands, and more."
+description: "TabCmdr - a fast, keyboard-driven command palette for your browser. Switch tabs, search bookmarks, run page commands, and more."
 
 enableGitInfo: true
 disableHugoGeneratorTag: true
@@ -74,7 +74,7 @@ menu:
         icon: github
 
 params:
-  description: "TabCmdr — a fast, keyboard-driven command palette for your browser."
+  description: "TabCmdr - a fast, keyboard-driven command palette for your browser."
 
   price: "3.99"
   priceCurrency: "USD"

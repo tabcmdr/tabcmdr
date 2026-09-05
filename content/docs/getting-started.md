@@ -1,12 +1,12 @@
 ---
 title: Getting Started
-description: "Get started with TabCmdr — install the browser extension, open the command palette with ⌘K or Ctrl K, and start searching tabs, bookmarks, and more in seconds."
+description: "Get started with TabCmdr - install the browser extension, open the command palette with ⌘K or Ctrl K, and start searching tabs, bookmarks, and more in seconds."
 weight: 1
 ---
 
 ## What is TabCmdr?
 
-TabCmdr is a browser extension that brings a fast, keyboard-driven command palette to your browser. Press a shortcut, type what you want — switch tabs, search bookmarks, run page commands, copy URLs, and more — all without touching the mouse.
+TabCmdr is a browser extension that brings a fast, keyboard-driven command palette to your browser. Press a shortcut, type what you want - switch tabs, search bookmarks, run page commands, copy URLs, and more - all without touching the mouse.
 
 Everything runs locally inside your browser. No accounts, no servers, no tracking.
 
@@ -28,7 +28,7 @@ The palette opens as an overlay on top of the current page. Press **`Escape`** o
 
 Once the palette is open:
 
-1. Start typing — results appear instantly as you type.
+1. Start typing - results appear instantly as you type.
 2. Use **`↑`** / **`↓`** arrow keys to move through results.
 3. Press **`Enter`** to execute the selected item.
 

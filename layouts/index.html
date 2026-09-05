@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="Content-Signal" content="ai-train=yes, search=yes, ai-input=yes" />
   <!-- Primary Meta Tags -->
-  <title>TabCmdr - Command Palette &amp; Tab Manager for Browser</title>
-  <meta name="title" content="TabCmdr - Command Palette & Tab Manager for Browser" />
-  <meta name="description" content="TabCmdr is a command palette for Browser. Search tabs, bookmarks, and history in one keystroke, plus AI chat, a calculator, and 50+ tools. No account, no tracking, works offline." />
+  <title>Chrome Command Palette &amp; Tab Manager - TabCmdr</title>
+  <meta name="title" content="Chrome Command Palette &amp; Tab Manager - TabCmdr" />
+  <meta name="description" content="Command palette extension for Chrome. Search tabs, bookmarks, and history in one keystroke, plus AI chat and 50+ tools. No tracking." />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="English" />
   <link rel="canonical" href="https://tabcmdr.com/" />
@@ -15,22 +15,22 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tabcmdr.com/" />
-  <meta property="og:title" content="TabCmdr - Command Palette & Tab Manager for Browser" />
-  <meta property="og:description" content="Find any tab, bookmark, or page in one keystroke. AI chat, calculator, emoji picker, and 50+ tools, all inside ⌘K. Private and works offline." />
+  <meta property="og:title" content="TabCmdr - Command Palette &amp; Tab Manager for Chrome" />
+  <meta property="og:description" content="Find any tab, bookmark, or page in Chrome in one keystroke. AI chat, calculator, emoji picker, and 50+ tools, all inside ⌘K. Private and works offline." />
   <meta property="og:image" content="{{ "og-image.png" | absURL }}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="TabCmdr Command Palette Extension - Search tabs, AI chat, calculator in one keystroke" />
+  <meta property="og:image:alt" content="The TabCmdr command palette open over a list of Chrome tabs, under the tagline “The command palette your browser was missing”" />
   <meta property="og:site_name" content="TabCmdr" />
   <meta property="og:locale" content="en_US" />
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://tabcmdr.com/" />
-  <meta property="twitter:title" content="TabCmdr - Command Palette & Tab Manager for Browser" />
-  <meta property="twitter:description" content="Find any tab, bookmark, or page in one keystroke. AI chat, calculator, emoji picker, and 50+ tools, all inside ⌘K. Private and works offline." />
+  <meta property="twitter:title" content="TabCmdr - Command Palette &amp; Tab Manager for Chrome" />
+  <meta property="twitter:description" content="Find any tab, bookmark, or page in Chrome in one keystroke. AI chat, calculator, emoji picker, and 50+ tools, all inside ⌘K. Private and works offline." />
   <meta property="twitter:image" content="{{ "twitter-card.png" | absURL }}" />
-  <meta property="twitter:image:alt" content="TabCmdr Command Palette Extension - Search tabs, AI chat, calculator in one keystroke" />
+  <meta property="twitter:image:alt" content="The TabCmdr command palette open over a list of Chrome tabs, under the tagline “The command palette your browser was missing”" />
   
   <!-- Favicon and Icons -->
 <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
@@ -554,7 +554,7 @@
         <span class="feature-cmd-tile-label">Unix Timestamps</span>
       </div>
 
-      <!-- tiles 36–40: pad to 40 so rows divide evenly at 5 and 8 cols -->
+      <!-- tiles 36-40: pad to 40 so rows divide evenly at 5 and 8 cols -->
       <div class="feature-cmd-tile">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="14" height="14" rx="2"/><rect x="3" y="3" width="14" height="14" rx="2"/></svg>
         <span class="feature-cmd-tile-label">Duplicate Tab</span>
@@ -663,13 +663,13 @@
 
         <div class="feature-map-art feature-map-art--tabs-background" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(0, 0, 0, 0.835), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-            {{ partial "processed-image.html" (dict "src" "images/tabcmdr-tabs.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/tabcmdr-tabs.png" "alt" "") }}
           </div>
         </div>
 
                 <div class="feature-map-art feature-map-art--tabs-foreground" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(0, 0, 0, 0.609), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-            {{ partial "processed-image.html" (dict "src" "images/tabcmdr-tabs.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/tabcmdr-tabs.png" "alt" "TabCmdr command palette in dark mode listing open Chrome tabs - Pinterest, Netflix, Hacker News, YouTube and GitHub - with pin, mute and close actions on the selected row") }}
           </div>
         </div>
 
@@ -784,12 +784,12 @@
 
         <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgba(121, 53, 204, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-            {{ partial "processed-image.html" (dict "src" "images/ai-ask-light.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/ai-ask-light.png" "alt" "TabCmdr AI provider list showing ChatGPT, Gemini, Groq, Mistral, Perplexity and Grok, each with its model name, ready to switch with one keystroke") }}
           </div>
         </div>
         <div class="feature-map-art feature-map-art--ai-response" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: 0 24px 80px rgb(53 82 204 / 20%), 0 0 0 1px rgba(255, 255, 255, 0.05)">
-             {{ partial "processed-image.html" (dict "src" "images/ai-chat-answer-light.png") }}
+             {{ partial "processed-image.html" (dict "src" "images/ai-chat-answer-light.png" "alt" "TabCmdr AI chat answering the prompt “summarize current @Page” with a page summary, running on groq llama-3.1-8b-instant without leaving the tab") }}
           </div>
         </div>
 
@@ -861,17 +861,17 @@
 
         <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock">
-            {{ partial "processed-image.html" (dict "src" "images/emoji-flag.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/emoji-flag.png" "alt" "TabCmdr emoji picker searching “flag” in dark mode, with Chequered Flag selected above a grid of national flag emoji") }}
           </div>
         </div>
         <div class="feature-map-art feature-map-art--lower-left" aria-hidden="true">
           <div class="cmdk-mock">
-            {{ partial "processed-image.html" (dict "src" "images/emoji-all-light.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/emoji-all-light.png" "alt" "TabCmdr emoji picker browsing the Smileys & Emotion category, with Grinning Face selected and press-Enter-to-copy shown") }}
           </div>
         </div>
         <div class="feature-map-art feature-map-art--right-offset" aria-hidden="true">
           <div class="cmdk-mock">
-             {{ partial "processed-image.html" (dict "src" "images/emoji-num-light.png") }}
+             {{ partial "processed-image.html" (dict "src" "images/emoji-num-light.png" "alt" "TabCmdr emoji picker scrolled to the Symbols set - arrows, zodiac signs, media controls and keycap numbers - with the keycap 9 symbol selected") }}
           </div>
         </div>
 
@@ -936,12 +936,12 @@
 
         <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock"  style="box-shadow: none;">
-            {{ partial "processed-image.html" (dict "src" "images/calculator-time.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/calculator-time.png" "alt" "Typing “time in usa” into TabCmdr returns all 10 US time zones - Eastern, Central, Mountain, Pacific, Alaska and Hawaii - with local time and UTC offset") }}
           </div>
         </div>
         <div class="feature-map-art feature-map-art--calculator-result" aria-hidden="true">
           <div class="cmdk-mock" style="box-shadow: none;"> 
-             {{ partial "processed-image.html" (dict "src" "images/calculator-num.png") }}
+             {{ partial "processed-image.html" (dict "src" "images/calculator-num.png" "alt" "TabCmdr inline calculator solving “12 + 12 + 10% of 750” to 99 as you type, with options to run the same string as a Google, Bing or DuckDuckGo search") }}
           </div>
         </div>
 
@@ -1012,17 +1012,17 @@
 
         <div class="feature-map-art feature-map-art--tilted-lead" aria-hidden="true">
           <div class="cmdk-mock">
-            {{ partial "processed-image.html" (dict "src" "images/tools-dark.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/tools-dark.png" "alt" "TabCmdr page commands in dark mode - Print Page, View Page Source, Reload, Hard Reload, Close Tab, Undo Close Tab and Zoom - each runnable from the palette") }}
           </div>
         </div>
         <div class="feature-map-art feature-map-art--lower-left" aria-hidden="true">
           <div class="cmdk-mock">
-            {{ partial "processed-image.html" (dict "src" "images/rss-light.png") }}
+            {{ partial "processed-image.html" (dict "src" "images/rss-light.png" "alt" "TabCmdr RSS reader showing 20 unread items filtered to Ars Technica, with feed chips for NYT Top Stories, BBC News, The Verge and Hacker News") }}
           </div>
         </div>
         <div class="feature-map-art feature-map-art--right-offset" aria-hidden="true">
           <div class="cmdk-mock">
-             {{ partial "processed-image.html" (dict "src" "images/weather-light.png") }}
+             {{ partial "processed-image.html" (dict "src" "images/weather-light.png" "alt" "TabCmdr weather tool showing conditions for Jaipur, New York, London, Tokyo and San Francisco with feels-like, humidity, UV index and sunrise times") }}
           </div>
         </div>
 
@@ -1077,7 +1077,7 @@
           <div class="break-inside-avoid mb-4 bg-white/[0.03] border border-white/[0.09] rounded-2xl p-6">
             <div class="text-white/20 text-4xl font-serif leading-none mb-1">"</div>
             <p class="text-white/60 text-md leading-relaxed mb-6">This tool makes browsing so much easier. No more
-              digging through tabs—everything is fast and accessible. Highly recommend it.</p>
+              digging through tabs-everything is fast and accessible. Highly recommend it.</p>
             <div class="flex items-center gap-3">
               <div>
                 <p class="text-sm font-semibold text-white leading-none">Ashish Rangdal</p>

@@ -23,7 +23,7 @@ Once enabled:
 1. Open the palette with **`⌘ K`** / **`Ctrl K`**.
 2. Search for "recently closed" or type part of the page title.
 3. Select the tab you want to restore.
-4. Press **`Enter`** — the tab reopens exactly where you left it.
+4. Press **`Enter`** - the tab reopens exactly where you left it.
 
 ## Undo Close Tab
 

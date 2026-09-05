@@ -6,7 +6,7 @@ weight: 13
 
 ## Pricing
 
-TabCmdr costs **$3.99 per year**. The subscription renews automatically each year through Gumroad, and you can cancel it at any time from your Gumroad account. One license unlocks every feature — there are no separate tiers, add-ons, or in-app purchases.
+TabCmdr costs **$3.99 per year**. The subscription renews automatically each year through Gumroad, and you can cancel it at any time from your Gumroad account. One license unlocks every feature - there are no separate tiers, add-ons, or in-app purchases.
 
 ## Free Trial
 

@@ -31,7 +31,7 @@ weight: 11
 
 The default shortcut is `⌘ K` / `Ctrl K`. If this conflicts with a site you use, you have two options:
 
-1. **Disable TabCmdr on that domain** — add the domain to your Disabled Domains list in Settings. The shortcut won't fire on that site.
-2. **Change the extension shortcut** — go to your browser's extension keyboard shortcut settings:
+1. **Disable TabCmdr on that domain** - add the domain to your Disabled Domains list in Settings. The shortcut won't fire on that site.
+2. **Change the extension shortcut** - go to your browser's extension keyboard shortcut settings:
    - **Chrome:** `chrome://extensions/shortcuts`
    - **Firefox:** `about:addons` → gear icon → Manage Extension Shortcuts

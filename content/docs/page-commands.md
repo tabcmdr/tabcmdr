@@ -1,12 +1,12 @@
 ---
 title: Page Commands
-description: "Run page actions from TabCmdr's palette: scroll, zoom, print, screenshot, copy URL, generate QR codes, and calculate math — no mouse required."
+description: "Run page actions from TabCmdr's palette: scroll, zoom, print, screenshot, copy URL, generate QR codes, and calculate math - no mouse required."
 weight: 8
 ---
 
 ## Overview
 
-TabCmdr includes a set of commands that act directly on the page you're currently viewing. These are always available — no extra permissions needed beyond the required `activeTab` permission.
+TabCmdr includes a set of commands that act directly on the page you're currently viewing. These are always available - no extra permissions needed beyond the required `activeTab` permission.
 
 Open the palette and type any of the command names below to find and run them.
 
@@ -39,7 +39,7 @@ Open the palette and type any of the command names below to find and run them.
 |---|---|
 | Capture screenshot | Takes a screenshot of the visible area of the current tab |
 
-After capturing, you can copy the screenshot image to your clipboard (requires the **clipboardWrite** optional permission — see [Clipboard]({{< relref "clipboard" >}})).
+After capturing, you can copy the screenshot image to your clipboard (requires the **clipboardWrite** optional permission - see [Clipboard]({{< relref "clipboard" >}})).
 
 ## Copying the Current URL
 
