@@ -1,0 +1,23 @@
+{{- $item := .item }}
+{{- $kind := .kind }}
+<div class="pal-item{{ if .selected }} is-selected{{ end }}" role="option" aria-selected="{{ if .selected }}true{{ else }}false{{ end }}">
+  {{- if eq $kind "downloads" }}
+  <span class="pal-glyph" aria-hidden="true"><svg class="icon"><use href="#i-file"/></svg></span>
+  {{- else }}
+  {{- partial "features/favicon.html" (dict "host" $item.host) }}
+  {{- end }}
+  <span class="pal-text">
+    <span class="pal-title">{{ $item.title }}</span>
+    {{- if eq $kind "bookmarks" }}
+    <span class="pal-sub">{{ (urls.Parse $item.url).Host }}</span>
+    {{- else if eq $kind "closed" }}
+    <span class="pal-sub">Recently closed</span>
+    {{- else if eq $kind "downloads" }}
+    <span class="pal-sub">{{ $item.status }}</span>
+    {{- else }}
+    <span class="pal-sub">{{ $item.url }}</span>
+    {{- end }}
+  </span>
+  {{- with $item.folder }}<span class="pal-meta">{{ . }}</span>{{ end }}
+  {{- with $item.when }}<span class="pal-meta">{{ . }}</span>{{ end }}
+</div>

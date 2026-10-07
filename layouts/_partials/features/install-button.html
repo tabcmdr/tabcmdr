@@ -1,0 +1,7 @@
+{{- $app := hugo.Data.features.app }}
+{{- $variant := .variant | default "dark" }}
+{{- $size := .size | default "large" }}
+<a class="button button-{{ $variant }} button-{{ $size }}" href="{{ $app.storeURL }}" target="_blank" rel="noopener" data-install-browser-cta>
+  <img class="button-browser" src="{{ "icons/browsers/chrome.svg" | relURL }}" width="20" height="20" alt="" data-install-browser-icon>
+  <span data-install-browser-label>Install for Chrome</span>
+</a>

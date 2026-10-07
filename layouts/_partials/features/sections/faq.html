@@ -1,0 +1,17 @@
+<section class="section band-paper" id="faq" aria-labelledby="faq-title">
+  <div class="container faq-layout">
+    <header class="section-head" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg></span>FAQ</p>
+      <h2 class="headline" id="faq-title">Questions before you install.</h2>
+      <p class="lead-sm">More in the <a class="text-link" href="{{ "docs/" | relURL }}">documentation</a>.</p>
+    </header>
+    <div class="faq-list" data-reveal>
+      {{- range hugo.Data.features.faq }}
+      <details class="faq-item" name="faq">
+        <summary>{{ .question }}<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>{{ .answer }}</p>
+      </details>
+      {{- end }}
+    </div>
+  </div>
+</section>

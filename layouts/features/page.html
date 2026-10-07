@@ -1,0 +1,49 @@
+{{ define "main" }}
+  {{- partial "features/page/hero.html" . }}
+  {{- $demo := .Params.demo }}
+  {{- if eq $demo.layout "wide" }}
+  <section class="feature-stage" aria-label="Live demo of {{ lower .LinkTitle }}">
+    {{- partial (printf "features/demos/%s.html" $demo.name) (dict "tour" $demo.tour "demo" $demo) }}
+  </section>
+  {{- with .Params.how }}
+  <section class="section section-tight" aria-labelledby="how-title">
+    <div class="container">
+      <header class="section-head is-centered" data-reveal>
+        <h2 class="headline-sm" id="how-title">{{ $.Params.howTitle | default "How it works" }}</h2>
+      </header>
+      {{- partial "features/page/how.html" (dict "steps" . "row" true) }}
+    </div>
+  </section>
+  {{- end }}
+  {{- else }}
+  <section class="section feature-demo {{ $demo.band }}" id="demo" aria-labelledby="how-title">
+    <div class="container split">
+      <div class="split-copy" data-reveal>
+        <p class="eyebrow">Live demo</p>
+        <h2 class="headline" id="how-title">{{ .Params.howTitle | default "How it works" }}</h2>
+        {{- partial "features/page/how.html" (dict "steps" .Params.how) }}
+      </div>
+      {{- partial (printf "features/demos/%s.html" $demo.name) (dict "tour" $demo.tour "demo" $demo) }}
+    </div>
+  </section>
+  {{- end }}
+  {{- $band := "band-paper" }}
+  {{- if eq $demo.band "band-paper" }}
+    {{- $band = "" }}
+  {{- end }}
+  {{- range slice "showcase" "details" "faq" "related" }}
+    {{- if index $.Params . }}
+      {{- $.Store.Set (printf "%sBand" .) $band }}
+      {{- if eq $band "band-paper" }}
+        {{- $band = "" }}
+      {{- else }}
+        {{- $band = "band-paper" }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- partial "features/page/showcase.html" . }}
+  {{- partial "features/page/details.html" . }}
+  {{- partial "features/page/faq.html" . }}
+  {{- partial "features/page/related.html" . }}
+  {{- partial "features/sections/cta.html" . }}
+{{ end }}

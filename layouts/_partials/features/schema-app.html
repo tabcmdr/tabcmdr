@@ -1,0 +1,23 @@
+{{- $app := hugo.Data.features.app }}
+{{- $home := site.Home.Permalink }}
+{{- $hub := "features/" | absURL }}
+{{- $offer := dict "@type" "Offer" "price" $app.price "priceCurrency" $app.currency "url" ($app.buyURL | absURL) "availability" "https://schema.org/InStock" "description" (printf "%d-day free trial, then a one-time license" $app.trialDays) }}
+{{- $rating := dict "@type" "AggregateRating" "ratingValue" $app.rating "ratingCount" $app.ratingCount "bestRating" "5" "worstRating" "1" }}
+{{- $software := dict
+  "@type" "SoftwareApplication"
+  "@id" (printf "%s#app" $hub)
+  "name" $app.name
+  "url" $hub
+  "image" ("og-image.png" | absURL)
+  "screenshot" ("og-image.png" | absURL)
+  "applicationCategory" $app.category
+  "applicationSubCategory" $app.subCategory
+  "operatingSystem" (delimit $app.browsers ", ")
+  "downloadUrl" $app.storeURL
+  "installUrl" $app.storeURL
+  "featureList" $app.features
+  "offers" $offer
+  "aggregateRating" $rating
+  "publisher" (dict "@id" (printf "%s#organization" $home))
+}}
+{{- return $software }}

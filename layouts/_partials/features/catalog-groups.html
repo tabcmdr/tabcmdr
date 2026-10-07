@@ -1,0 +1,17 @@
+{{- $groups := hugo.Data.features.catalog }}
+<div class="catalog-groups">
+  {{- range $index, $group := $groups }}
+  <div class="catalog-group" id="group-{{ $group.id }}">
+    <header class="catalog-head" data-reveal>
+      <p class="catalog-number">{{ printf "%02d" (add $index 1) }}<span>{{ len $group.items }} features</span></p>
+      <h2 class="catalog-group-title">{{ $group.title }}</h2>
+      <p class="catalog-group-text">{{ $group.text }}</p>
+    </header>
+    <ul class="catalog-grid" role="list">
+      {{- range $group.items }}
+      {{- partial "features/catalog-card.html" (dict "item" .) }}
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+</div>

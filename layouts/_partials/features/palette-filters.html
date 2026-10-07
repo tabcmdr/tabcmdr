@@ -1,0 +1,24 @@
+{{- $active := .active | default "all" }}
+{{- $interactive := .interactive | default false }}
+{{- $filters := slice
+  (dict "id" "all" "label" "All")
+  (dict "id" "tabs" "label" "Tabs")
+  (dict "id" "bookmarks" "label" "Bookmarks")
+  (dict "id" "history" "label" "History")
+  (dict "id" "downloads" "label" "Downloads")
+  (dict "id" "closed" "label" "Recently Closed")
+  (dict "id" "tools" "label" "Tools")
+}}
+{{- if $interactive }}
+<div class="pal-filters" role="group" aria-label="Filter results">
+  {{- range $filters }}
+  <button class="pal-filter{{ if eq .id $active }} is-active{{ end }}" type="button" data-filter="{{ .id }}" aria-pressed="{{ if eq .id $active }}true{{ else }}false{{ end }}">{{ .label }}</button>
+  {{- end }}
+</div>
+{{- else }}
+<div class="pal-filters" aria-hidden="true">
+  {{- range $filters }}
+  <span class="pal-filter{{ if eq .id $active }} is-active{{ end }}">{{ .label }}</span>
+  {{- end }}
+</div>
+{{- end }}

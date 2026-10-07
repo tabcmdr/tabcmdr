@@ -1,0 +1,6 @@
+{{- $html := . | markdownify }}
+{{- $html = replaceRE `<code>` `<code class="inline-code">` $html }}
+{{- $html = replaceRE `\[kbd:mod\]` `<kbd class="kbd" data-mod-key>⌘</kbd>` $html }}
+{{- $html = replaceRE `\[kbd:([^\]]+)\]` `<kbd class="kbd">$1</kbd>` $html }}
+{{- $html = replaceRE `((?:<kbd[^>]*>[^<]*</kbd>){2,})` `<span class="kbd-group">$1</span>` $html }}
+{{- $html | safeHTML -}}

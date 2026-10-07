@@ -1,0 +1,23 @@
+<ol class="steps{{ if not .row }} is-vertical{{ end }}" role="list">
+  {{- range $index, $step := .steps }}
+  <li class="step" data-reveal>
+    <div class="step-visual">
+      {{- with $step.keys }}
+      <span class="step-keys">
+        {{- range . }}
+        {{- if eq . "mod" }}<kbd class="step-key" data-mod-key>⌘</kbd>{{ else }}<kbd class="step-key">{{ . }}</kbd>{{ end }}
+        {{- end -}}
+      </span>
+      {{- end }}
+      {{- with $step.typed }}
+      <span class="step-typed"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span>{{ if hasPrefix . ":" }}<span class="token-colon">:</span>{{ strings.TrimPrefix ":" . }}{{ else }}{{ . }}{{ end }}</span><i class="caret" aria-hidden="true"></i></span>
+      {{- end }}
+    </div>
+    <div class="step-copy">
+      <p class="step-number">Step {{ add $index 1 }}</p>
+      <h3 class="step-title">{{ $step.title }}</h3>
+      <p class="step-text">{{ partial "features/rich.html" $step.text }}</p>
+    </div>
+  </li>
+  {{- end }}
+</ol>

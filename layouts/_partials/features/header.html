@@ -1,0 +1,35 @@
+{{- $app := hugo.Data.features.app }}
+{{- $hub := "" }}
+{{- if not .IsSection }}
+  {{- $hub = "features/" | relURL }}
+{{- end }}
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="TabCmdr home">
+      <img class="brand-logo" src="{{ "logo.svg" | relURL }}" width="48" height="32" alt="">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav-links" role="list">
+        {{- if .IsHome }}
+        <li><a href="#search">Tab search</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#all-features">Features</a></li>
+        <li class="nav-wide"><a href="#shorthands">Shortcuts</a></li>
+        <li><a href="#ai">AI chat</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        {{- else }}
+        <li><a href="{{ $hub }}#all-features"{{ if .IsSection }} aria-current="page"{{ end }}>All features</a></li>
+        <li><a href="{{ $hub }}#search">Tab search</a></li>
+        <li><a href="{{ $hub }}#commands">Commands</a></li>
+        <li class="nav-wide"><a href="{{ $hub }}#answers">Calculator</a></li>
+        <li><a href="{{ $hub }}#ai">AI chat</a></li>
+        <li><a href="{{ $hub }}#tools">Tools</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="header-link" href="{{ "docs/" | relURL }}">Docs</a>
+      {{- partial "features/install-button.html" (dict "variant" "dark" "size" "small") }}
+    </div>
+  </div>
+</header>

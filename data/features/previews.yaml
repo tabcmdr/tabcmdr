@@ -1,0 +1,241 @@
+search-open-tabs:
+  type: palette
+  query: "pull"
+  highlight: ["pull"]
+  group: "Tabs"
+  rows:
+    - { host: github.com, title: "Pull requests · acme/web", sub: "https://github.com/acme/web/pulls", selected: true }
+    - { host: github.com, title: "Pull requests · acme/design-system", sub: "https://github.com/acme/design-system/pulls" }
+
+search-bookmarks:
+  type: palette
+  query: ":b design"
+  highlight: ["design"]
+  group: "Bookmarks"
+  rows:
+    - { host: notion.so, title: "Design tokens - acme wiki", sub: "www.notion.so", meta: "Bookmarks bar › Work", selected: true }
+    - { host: figma.com, title: "Component library - Figma", sub: "www.figma.com", meta: "Bookmarks bar › Work › Design" }
+
+search-history:
+  type: palette
+  query: ":h invoice"
+  highlight: ["invoice"]
+  group: "History"
+  rows:
+    - { host: dashboard.stripe.com, title: "Invoice #2041 - Stripe", sub: "https://dashboard.stripe.com/invoices/in_2041", meta: "2h ago", selected: true }
+    - { host: drive.google.com, title: "Contractor invoices - Google Drive", sub: "https://drive.google.com/drive/folders/invoices", meta: "Yesterday" }
+
+recently-closed-tabs:
+  type: palette
+  query: ":r"
+  group: "Recently Closed"
+  rows:
+    - { host: docs.google.com, title: "Expense report October", sub: "Recently closed", meta: "2m ago", selected: true }
+    - { host: timeout.com, title: "Lisbon day trips - Time Out", sub: "Recently closed", meta: "18m ago" }
+
+search-downloads:
+  type: palette
+  query: ":d invoice"
+  highlight: ["invoice"]
+  group: "Downloads"
+  rows:
+    - { glyph: i-file, title: "invoice-2041.pdf", sub: "182.0 KB", selected: true }
+    - { glyph: i-file, title: "invoice-2017.pdf", sub: "176.4 KB" }
+
+web-search:
+  type: palette
+  query: ":s tailwind grid"
+  highlight: ["tailwind grid"]
+  group: "Search"
+  rows:
+    - { host: google.com, title: "Search \"tailwind grid\" on Google", sub: "Search with Google", selected: true }
+    - { host: duckduckgo.com, title: "Search \"tailwind grid\" on DuckDuckGo", sub: "Search with DuckDuckGo" }
+
+close-duplicate-tabs:
+  wide: true
+  type: strip
+  toast: "Closed 2 duplicates"
+  tabs:
+    - { host: github.com, title: "Pull requests" }
+    - { host: github.com, title: "Pull requests", state: gone }
+    - { host: docs.google.com, title: "Q3 roadmap", state: active }
+    - { host: mail.google.com, title: "Inbox" }
+    - { host: mail.google.com, title: "Inbox", state: gone }
+
+close-tabs-left-right:
+  type: strip
+  toast: "Closed 3 tabs"
+  tabs:
+    - { host: docs.google.com, title: "Q3 roadmap", state: active }
+    - { host: news.ycombinator.com, title: "Hacker News", state: gone }
+    - { host: youtube.com, title: "Design review", state: gone }
+    - { host: notion.so, title: "Launch plan", state: gone }
+
+merge-windows:
+  type: palette
+  query: ":c merge"
+  highlight: ["merge"]
+  group: "Commands"
+  toast: "Merged 3 tabs into one window"
+  rows:
+    - { glyph: i-layers, title: "Merge All Windows into One", sub: "Page command", selected: true }
+
+suspend-inactive-tabs:
+  type: strip
+  toast: "Suspended 4 tabs"
+  tabs:
+    - { host: docs.google.com, title: "Q3 roadmap", state: active }
+    - { host: mail.google.com, title: "Inbox", state: dim }
+    - { host: github.com, title: "Pull requests", state: dim }
+    - { host: news.ycombinator.com, title: "Hacker News", state: dim }
+    - { host: notion.so, title: "Launch plan", state: dim }
+
+sort-tabs:
+  type: strip
+  toast: "Sorted 5 tabs alphabetically"
+  tabs:
+    - { host: calendar.google.com, title: "Calendar" }
+    - { host: news.ycombinator.com, title: "Hacker News" }
+    - { host: mail.google.com, title: "Inbox", state: active }
+    - { host: notion.so, title: "Launch plan" }
+    - { host: github.com, title: "Pull requests" }
+
+tab-actions:
+  wide: true
+  type: palette
+  query: "acme"
+  highlight: ["acme"]
+  group: "Tabs"
+  actions: true
+  rows:
+    - { host: github.com, title: "Pull requests · acme/web", sub: "https://github.com/acme/web/pulls", selected: true }
+    - { host: vercel.com, title: "Deployments - acme-web - Vercel", sub: "https://vercel.com/acme/web/deployments" }
+
+tab-groups:
+  type: palette
+  query: ":c group"
+  highlight: ["group"]
+  group: "Commands"
+  toast: "Removed from group"
+  rows:
+    - { glyph: i-ungroup, title: "Remove Tab from Group", sub: "Page command", selected: true }
+
+page-commands:
+  type: palette
+  query: ":c zoom"
+  highlight: ["zoom"]
+  group: "Commands"
+  rows:
+    - { glyph: i-zoom-in, title: "Zoom In", sub: "Page command", selected: true }
+    - { glyph: i-zoom-out, title: "Zoom Out", sub: "Page command" }
+
+site-shortcuts:
+  type: palette
+  query: "go to"
+  highlight: ["go to"]
+  group: "Commands"
+  note: "on github.com"
+  rows:
+    - { glyph: i-command, title: "Go to Issues Tab", sub: "Page command", selected: true }
+    - { glyph: i-command, title: "Go to Pull Requests Tab", sub: "Page command" }
+
+screenshots:
+  type: palette
+  query: ":c screenshot"
+  highlight: ["screenshot"]
+  group: "Commands"
+  rows:
+    - { glyph: i-camera, title: "Screenshot Area - Copy to Clipboard", sub: "Page command", selected: true }
+    - { glyph: i-camera, title: "Full Page Screenshot - Download as PNG", sub: "Page command" }
+
+color-picker:
+  type: color
+
+ruler:
+  type: ruler
+
+qr-code:
+  type: qr
+
+calculator:
+  wide: true
+  type: answer
+  query: "20% of 4500"
+  group: "Calculator"
+  rows:
+    - { expression: "20% of 4500", result: "900" }
+
+time-zones:
+  type: answer
+  query: "time in tokyo"
+  group: "Calculator"
+  rows:
+    - { expression: "time in tokyo", result: "4:46 AM", meta: "JST · UTC+09:00" }
+
+color-conversion:
+  type: answer
+  query: "#f0013d to rgb"
+  group: "Calculator"
+  rows:
+    - { expression: "#f0013d to rgb", result: "rgb(240, 1, 61)" }
+
+developer-tools:
+  wide: true
+  type: answer
+  query: ":tx launch plan"
+  group: "Text Transform"
+  rows:
+    - { expression: "camelCase", result: "launchPlan" }
+    - { expression: "snake_case", result: "launch_plan" }
+    - { expression: "kebab-case", result: "launch-plan" }
+
+ai-chat:
+  wide: true
+  type: chat
+  prompt: "summarize"
+
+emoji-picker:
+  type: emoji
+  emoji: ["😀", "😂", "🥰", "😎", "🚀", "🎉", "👍", "🔥", "✅", "💡", "🙌", "👀"]
+
+todo-list:
+  type: list
+  variant: todo
+  rows:
+    - { label: "Send Q3 roadmap to design", done: true }
+    - { label: "Review PR #219" }
+    - { label: "Book flights to Lisbon" }
+
+rss-reader:
+  type: list
+  variant: rss
+  rows:
+    - { label: "BBC News", color: "#bb1919" }
+    - { label: "Hacker News", color: "#ff6600" }
+    - { label: "The Verge", color: "#5200ff" }
+
+weather:
+  type: list
+  variant: weather
+  rows:
+    - { label: "Jaipur", value: "31°" }
+    - { label: "London", value: "14°" }
+    - { label: "Tokyo", value: "22°" }
+
+themes:
+  wide: true
+  type: swatches
+  themes: [dracula, nord, tokyoNight, catppuccinLatte, githubLight, solarizedLight]
+
+layouts:
+  type: layouts
+
+custom-shortcut:
+  type: keys
+  keys: ["mod", "K"]
+  note: "or record your own"
+
+private-by-design:
+  wide: true
+  type: chips
+  chips: ["No account", "No analytics", "Stays in your browser"]

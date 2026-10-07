@@ -1,0 +1,69 @@
+{{- $sources := slice
+  (dict "token" ":t" "title" "Open tabs" "text" "Tabs from every window, plus commands." "example" ":t pull" "chip" "Open tabs and commands")
+  (dict "token" ":b" "title" "Bookmarks" "text" "Every saved bookmark, without opening folders." "example" ":b design" "chip" "Bookmarks only")
+  (dict "token" ":h" "title" "History" "text" "Pages you visited, by title or address." "example" ":h invoice" "chip" "History only")
+  (dict "token" ":d" "title" "Downloads" "text" "Find a file, show it in its folder or copy its source." "example" ":d invoice" "chip" "Downloads only")
+  (dict "token" ":r" "title" "Recently closed" "text" "Tabs you closed, newest first." "example" ":r lisbon" "chip" "Closed tabs only")
+  (dict "token" ":p" "title" "Pinned tabs" "text" "Only the tabs you pinned." "example" ":p" "chip" "Pinned tabs only")
+  (dict "token" ":c" "title" "Commands" "text" "The 47 browser commands, and site shortcuts on supported sites." "example" ":c zoom" "chip" "Commands only")
+  (dict "token" ":s" "title" "Web search" "text" "Search Google, Bing, DuckDuckGo, Brave or Yahoo." "example" ":s tailwind grid" "chip" "Search engines")
+}}
+{{- $answers := slice
+  (dict "token" ":tx" "title" "Text case" "text" "UPPER, lower, Title, camelCase, snake_case and more." "example" ":tx launch plan" "chip" "Text case answers")
+  (dict "token" ":uuid" "title" "UUID" "text" "A new v4 UUID, ready to copy." "example" ":uuid" "chip" "A new UUID")
+  (dict "token" ":pwd" "title" "Password" "text" "A random password. Add a length, like :pwd 24." "example" ":pwd 24" "chip" "A random password")
+}}
+{{- $tools := slice
+  (dict "token" ":ai" "title" "AI chat" "text" "Chat with the provider you set as default." "example" ":ai" "chip" "Opens AI chat")
+  (dict "token" ":emoji" "alias" ":em" "title" "Emoji" "text" "Search emoji by name and copy one." "example" ":emoji" "chip" "Opens Emoji")
+  (dict "token" ":todo" "alias" ":td" "title" "To-do list" "text" "Add a task, check it off later." "example" ":todo" "chip" "Opens To-do list")
+  (dict "token" ":rss" "title" "RSS reader" "text" "Latest headlines from your feeds." "example" ":rss" "chip" "Opens RSS reader")
+  (dict "token" ":wx" "title" "Weather" "text" "Current conditions for your places." "example" ":wx" "chip" "Opens Weather")
+  (dict "token" ":ss" "title" "Screenshot" "text" "Capture the page or a selected area." "example" ":ss" "chip" "Opens Screenshot")
+  (dict "token" ":cp" "title" "Color picker" "text" "Sample a color from the screen." "example" ":cp" "chip" "Opens Color picker")
+  (dict "token" ":rl" "title" "Ruler" "text" "Measure elements and drag guides." "example" ":rl" "chip" "Opens Ruler")
+}}
+{{- $first := index $sources 0 }}
+<section class="section" id="shorthands" aria-labelledby="shorthands-title" data-shorthands>
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-keyboard"/></svg></span>Shorthands</p>
+      <h2 class="headline" id="shorthands-title">Type a shortcut. <span class="muted">Go straight there.</span></h2>
+      <p class="lead">You can use every shortcut below in the TabCmdr search box. Press <span class="kbd-group"><kbd class="kbd" data-mod-key>⌘</kbd><kbd class="kbd">K</kbd></span> on any page and start with a colon.</p>
+    </header>
+
+    <div class="sh-bar" aria-hidden="true" data-reveal data-shorthand-bar>
+      <svg class="icon"><use href="#i-search"/></svg>
+      <span class="sh-typed"><span class="token-colon">:</span><span class="sh-token" data-shorthand-key>{{ strings.TrimPrefix ":" $first.token }}</span><span data-shorthand-rest>{{ strings.TrimPrefix $first.token $first.example }}</span><i class="sh-caret"></i></span>
+      <span class="sh-chip is-visible" data-shorthand-chip>{{ $first.chip }}</span>
+    </div>
+
+    <div class="sh-sheet" data-shorthand-sheet>
+      <div class="sh-column" data-reveal>
+        <h3 class="sh-label">Search one place<span>Add words after it</span></h3>
+        <ul class="sh-list" role="list">
+          {{- range $index, $item := $sources }}
+          {{- partial "features/shorthand-item.html" (dict "item" $item "active" (eq $index 0)) }}
+          {{- end }}
+        </ul>
+      </div>
+      <div class="sh-column" data-reveal>
+        <h3 class="sh-label">Open a tool<span>Opens as you type it</span></h3>
+        <ul class="sh-list" role="list">
+          {{- range $tools }}
+          {{- partial "features/shorthand-item.html" (dict "item" .) }}
+          {{- end }}
+        </ul>
+      </div>
+      <div class="sh-column sh-column-wide" data-reveal>
+        <h3 class="sh-label">Get an answer<span>Enter copies it</span></h3>
+        <ul class="sh-list sh-list-row" role="list">
+          {{- range $answers }}
+          {{- partial "features/shorthand-item.html" (dict "item" .) }}
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+    <p class="sh-tip" data-reveal><b>Rather not type?</b> Press <kbd class="kbd">Tab</kbd> in the search box to step through the filters, such as Bookmarks, History and Tools.</p>
+  </div>
+</section>

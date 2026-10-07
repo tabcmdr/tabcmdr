@@ -1,0 +1,205 @@
+- id: find
+  title: "Find anything in your browser"
+  text: "One search box for open tabs, bookmarks, history, downloads and the tabs you closed."
+  items:
+    - id: search-open-tabs
+      title: "Find any open tab in seconds"
+      text: "Type a few letters of a title or address and jump to the tab, even in another window."
+      icon: i-search
+      token: ":t"
+      section: search
+    - id: search-bookmarks
+      title: "Open a bookmark without digging through folders"
+      text: "Search every bookmark by name or address, wherever it's filed."
+      icon: i-bookmark
+      token: ":b"
+      docs: bookmarks
+    - id: search-history
+      title: "Get back to a page you saw last week"
+      text: "Search your browsing history from the page you're on, without opening the history page."
+      icon: i-history
+      token: ":h"
+      docs: history
+    - id: recently-closed-tabs
+      title: "Reopen a tab you closed by mistake"
+      text: "The tabs you closed are listed newest first. Press Enter to bring one back."
+      icon: i-undo
+      token: ":r"
+      docs: recently-closed
+    - id: search-downloads
+      title: "Find a downloaded file by name"
+      text: "Open the file, show it in its folder or copy the address it came from."
+      icon: i-download
+      token: ":d"
+      docs: downloads
+    - id: web-search
+      title: "Search the web from any page"
+      text: "Send what you typed to Google, Bing, DuckDuckGo, Brave or Yahoo."
+      icon: i-globe
+      token: ":s"
+      section: shorthands
+
+- id: tidy
+  title: "Clean up a crowded tab bar"
+  text: "Commands that act on every tab at once, so you don't close them one by one."
+  items:
+    - id: close-duplicate-tabs
+      title: "Close every duplicate tab at once"
+      text: "Find pages open more than once in any window and keep a single copy of each."
+      icon: i-copy-minus
+      token: ":c"
+      section: commands
+    - id: close-tabs-left-right
+      title: "Close the tabs you're done with"
+      text: "Close every tab to the left, to the right, or all but the one you're on. Pinned tabs stay."
+      icon: i-arrow-right-line
+      docs: page-commands
+    - id: merge-windows
+      title: "Put every window's tabs into one"
+      text: "Merge All Windows into One moves your tabs into the window you're in and closes the rest."
+      icon: i-layers
+      docs: page-commands
+    - id: suspend-inactive-tabs
+      title: "Free up memory from tabs you aren't using"
+      text: "Unload the tabs in this window that you're not looking at. They reload when you click them."
+      icon: i-moon
+      docs: page-commands
+    - id: sort-tabs
+      title: "Sort tabs alphabetically"
+      text: "Put the tabs in this window in A to Z order, with pinned tabs sorted among themselves."
+      icon: i-sort
+      docs: page-commands
+    - id: tab-actions
+      title: "Pin, mute or move a tab without switching to it"
+      text: "Every tab in the list can reload, mute, pin, duplicate, move to a new window or close."
+      icon: i-pin
+      docs: tabs
+    - id: tab-groups
+      title: "Take a tab out of its group"
+      text: "Remove the current tab from its tab group with one command."
+      icon: i-ungroup
+      docs: tab-groups
+
+- id: page
+  title: "Control the page you're on"
+  text: "Page commands and site shortcuts, so you can stop reaching for menus."
+  items:
+    - id: page-commands
+      title: "Zoom, print, scroll or reload from the keyboard"
+      text: "Hard reload, view source, full screen, copy the URL or title, open incognito and more."
+      icon: i-terminal
+      docs: page-commands
+    - id: site-shortcuts
+      title: "Use GitHub, Gmail and Figma from the keyboard"
+      text: "208 site actions for nine sites appear next to your tabs when you're on them."
+      icon: i-command
+      section: sites
+    - id: screenshots
+      title: "Screenshot the page or an area"
+      text: "Capture the visible page, an area you drag or the full page. Copy it or save a PNG."
+      icon: i-camera
+      token: ":ss"
+      section: tools
+    - id: color-picker
+      title: "Grab any color on screen"
+      text: "See the HEX and RGB value under your cursor and copy the hex code."
+      icon: i-pipette
+      token: ":cp"
+      section: tools
+    - id: ruler
+      title: "Measure elements on the page"
+      text: "See an element's size, the gap to the next one, and drag guides out of the rulers."
+      icon: i-ruler
+      token: ":rl"
+      section: tools
+    - id: qr-code
+      title: "Send the page to your phone"
+      text: "Show a QR code for the current page, made on your computer and offline."
+      icon: i-qr
+      section: tools
+
+- id: answers
+  title: "Get answers without a new tab"
+  text: "Results show up at the top of the list while you type. Enter copies them."
+  items:
+    - id: calculator
+      title: "Do math and unit conversions as you type"
+      text: "Percentages, functions, weights, distances, data sizes and CSS lengths."
+      icon: i-calculator
+      section: answers
+    - id: time-zones
+      title: "Check the time in another city"
+      text: "Ask for the time in a city or zone, do date math, or convert a Unix timestamp."
+      icon: i-clock
+      section: answers
+    - id: color-conversion
+      title: "Convert colors and number bases"
+      text: "Switch between HEX, RGB and HSL, or between decimal, hex, octal and binary."
+      icon: i-palette
+      section: answers
+    - id: developer-tools
+      title: "Change text case, make a UUID or a password"
+      text: "camelCase, snake_case and five more case styles, plus UUIDs and random passwords."
+      icon: i-key
+      token: ":tx"
+      section: answers
+
+- id: tools
+  title: "Tools that would otherwise need a tab"
+  text: "Open them from the Tools filter or with a shorthand."
+  items:
+    - id: ai-chat
+      title: "Ask AI about the page you're reading"
+      text: "Chat with nine providers using your own API key, and add @page to include the page."
+      icon: i-sparkles
+      token: ":ai"
+      section: ai
+    - id: emoji-picker
+      title: "Find and copy any emoji"
+      text: "Search 1,900+ emoji by name, pick a skin tone and copy it."
+      icon: i-smile
+      token: ":emoji"
+      section: tools
+    - id: todo-list
+      title: "Keep a quick to-do list"
+      text: "Add a task from any page and check it off later."
+      icon: i-square-check
+      token: ":todo"
+      section: tools
+    - id: rss-reader
+      title: "Read your feeds without a reader app"
+      text: "Headlines from your RSS feeds, newest first, with a color for each feed."
+      icon: i-rss
+      token: ":rss"
+      section: tools
+    - id: weather
+      title: "Check the weather for up to 15 places"
+      text: "Current conditions from Open-Meteo, with no API key to set up."
+      icon: i-cloud
+      token: ":wx"
+      section: tools
+
+- id: own
+  title: "Make it yours"
+  text: "Looks, layout and shortcut, set the way you work."
+  items:
+    - id: themes
+      title: "Match your editor with 28 themes"
+      text: "Dracula, Nord, Tokyo Night, Catppuccin and 24 more, or follow your system."
+      icon: i-palette
+      section: themes
+    - id: layouts
+      title: "Pick a full palette, Spotlight or Notch"
+      text: "Three layouts, from the full list to a compact bar at the top of the window."
+      icon: i-layout
+      section: themes
+    - id: custom-shortcut
+      title: "Open TabCmdr with your own shortcut"
+      text: "Record a different shortcut if another app already uses ⌘K or Ctrl+K."
+      icon: i-keyboard
+      docs: keyboard-shortcuts
+    - id: private-by-design
+      title: "Keep your browsing data on your device"
+      text: "No account, no analytics, and your tabs and history aren't sent anywhere."
+      icon: i-shield
+      section: privacy

@@ -1,0 +1,117 @@
+{{- $preview := .preview }}
+{{- $type := $preview.type }}
+{{- $tabActions := slice "i-rotate" "i-volume" "i-pin" "i-copy" "i-incognito" "i-ungroup" "i-maximize" "i-link" "i-x" }}
+<div class="pv pv--{{ $type }}" aria-hidden="true">
+  {{- if or (eq $type "palette") (eq $type "answer") }}
+  <div class="pv-pal">
+    <div class="pv-search">
+      <svg class="icon"><use href="#i-search"/></svg>
+      <span class="pv-query">{{ if hasPrefix $preview.query ":" }}<span class="token-colon">:</span>{{ strings.TrimPrefix ":" $preview.query }}{{ else }}{{ $preview.query }}{{ end }}<i class="pv-caret"></i></span>
+    </div>
+    <div class="pv-list{{ if eq (len $preview.rows) 1 }} is-single{{ end }}">
+      <p class="pv-group"><span>{{ $preview.group }}</span>{{ with $preview.note }}<span class="pv-note">{{ . }}</span>{{ end }}</p>
+      {{- if eq $type "answer" }}
+      {{- range $index, $row := $preview.rows }}
+      <div class="pv-calc{{ if eq $index 0 }} is-selected{{ end }}">
+        <span class="pv-expr">{{ $row.expression }}</span>
+        <svg class="icon"><use href="#i-arrow-right"/></svg>
+        <span class="pv-result">{{ $row.result }}{{ with $row.meta }}<small>{{ . }}</small>{{ end }}</span>
+      </div>
+      {{- end }}
+      {{- else }}
+      {{- range $preview.rows }}
+      <div class="pv-row{{ if .selected }} is-selected{{ end }}">
+        {{- with .glyph }}
+        <span class="pv-glyph"><svg class="icon"><use href="#{{ . }}"/></svg></span>
+        {{- else }}
+        {{- partial "features/favicon.html" (dict "host" .host "class" "fav-xs") }}
+        {{- end }}
+        <span class="pv-text">
+          <span class="pv-title">{{ partial "features/mocks/mark.html" (dict "text" .title "terms" $preview.highlight) }}</span>
+          <span class="pv-sub">{{ partial "features/mocks/mark.html" (dict "text" .sub "terms" $preview.highlight) }}</span>
+        </span>
+        {{- if and $preview.actions .selected }}
+        <span class="pv-actions">{{ range $tabActions }}<span><svg class="icon"><use href="#{{ . }}"/></svg></span>{{ end }}</span>
+        {{- end }}
+        {{- with .meta }}<span class="pv-meta">{{ . }}</span>{{ end }}
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+  {{- else if eq $type "strip" }}
+  <div class="pv-window">
+    <div class="pv-bar">
+      <span class="pv-traffic"><i></i><i></i><i></i></span>
+      <span class="pv-strip">
+        {{- range $preview.tabs }}
+        <span class="pv-tab{{ with .state }} is-{{ . }}{{ end }}">{{ partial "features/favicon.html" (dict "host" .host "class" "fav-xs") }}<span>{{ .title }}</span></span>
+        {{- end }}
+      </span>
+    </div>
+    <div class="pv-page"><i></i><i></i><i></i><i></i></div>
+  </div>
+  {{- else if eq $type "list" }}
+  <ul class="pv-card pv-items pv-items-{{ $preview.variant }}">
+    {{- range $preview.rows }}
+    <li{{ if .done }} class="is-done"{{ end }}>
+      {{- if eq $preview.variant "todo" }}<i class="pv-check"><svg class="icon"><use href="#i-check"/></svg></i>{{ end }}
+      {{- if eq $preview.variant "rss" }}<b class="pv-feed" style="--feed: {{ .color | safeCSS }}">{{ .label }}</b><i class="pv-line"></i>{{ else }}<span>{{ .label }}</span>{{ end }}
+      {{- with .value }}<b>{{ . }}</b>{{ end }}
+    </li>
+    {{- end }}
+  </ul>
+  {{- else if eq $type "chat" }}
+  <div class="pv-card pv-chat">
+    <p class="pv-bubble">{{ $preview.prompt }} <span class="ai-page-tag">@page</span></p>
+    <div class="pv-reply">
+      <span class="pv-avatar"><svg class="icon"><use href="#i-sparkles"/></svg></span>
+      <span class="pv-lines"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+  {{- else if eq $type "emoji" }}
+  <div class="pv-card pv-emoji">{{ range $index, $emoji := $preview.emoji }}<span{{ if eq $index 4 }} class="is-selected"{{ end }}>{{ $emoji }}</span>{{ end }}</div>
+  {{- else if eq $type "swatches" }}
+  <div class="pv-swatches">
+    {{- range where hugo.Data.features.themes "id" "in" $preview.themes }}
+    <span class="pv-swatch" style="--t-bg: {{ .bg | safeCSS }}; --t-text: {{ .text | safeCSS }}; --t-caret: {{ .caret | safeCSS }}"><b>{{ .name }}</b><i></i><i></i></span>
+    {{- end }}
+  </div>
+  {{- else if eq $type "layouts" }}
+  <div class="pv-layouts">
+    <span class="pv-layout is-palette"><span class="pv-frame"><i></i></span>Palette</span>
+    <span class="pv-layout is-spotlight"><span class="pv-frame"><i></i></span>Spotlight</span>
+    <span class="pv-layout is-notch"><span class="pv-frame"><i></i></span>Notch</span>
+  </div>
+  {{- else if eq $type "keys" }}
+  <div class="pv-keys">
+    <span class="kbd-group">{{ range $preview.keys }}{{ if eq . "mod" }}<kbd class="step-key" data-mod-key>⌘</kbd>{{ else }}<kbd class="step-key">{{ . }}</kbd>{{ end }}{{ end }}</span>
+    <span class="pv-caption">{{ $preview.note }}</span>
+  </div>
+  {{- else if eq $type "chips" }}
+  <div class="pv-chips">
+    <span class="pv-lock"><svg class="icon"><use href="#i-shield"/></svg></span>
+    <span class="pv-chip-list">{{ range $preview.chips }}<span><svg class="icon"><use href="#i-check"/></svg>{{ . }}</span>{{ end }}</span>
+  </div>
+  {{- else if eq $type "color" }}
+  <div class="pv-card pv-color">
+    <span class="color-loupe"></span>
+    <span class="color-values"><b>#F0013D</b><span>rgb(240, 1, 61)</span></span>
+  </div>
+  {{- else if eq $type "ruler" }}
+  <div class="pv-card pv-ruler">
+    <span class="ruler-top"></span><span class="ruler-left"></span>
+    <span class="ruler-box"><span>button 148 × 40</span></span>
+    <span class="ruler-gap">24px</span>
+    <span class="ruler-box ruler-box-next"></span>
+  </div>
+  {{- else if eq $type "qr" }}
+  <div class="pv-card pv-qr">
+    {{ (resources.Get "images/qr-tabcmdr.svg").Content | safeHTML }}
+    <span>QR Code for Current Page</span>
+  </div>
+  {{- end }}
+  {{- with $preview.toast }}
+  <p class="pv-toast">{{ . }}</p>
+  {{- end }}
+</div>

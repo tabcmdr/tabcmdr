@@ -1,0 +1,26 @@
+{{- $app := hugo.Data.features.app }}
+{{- $reviews := slice
+  (dict "name" "Dalyn Newby" "source" "Gumroad" "text" "I was part of the TabCMDR extension beta testing. When I first started using this extension I was surprised at how quickly it became habit to use TabCMDR to find tabs, downloaded files, bookmarks, and other information that would typically require a mouse but now with TabCMDR can all be done with your keyboard. No tracking, no account, and no cloud connection is a bonus on top of an already great extension.")
+  (dict "name" "Ashish Rangdal" "source" "Chrome Web Store" "text" "This tool makes browsing so much easier. No more digging through tabs, everything is fast and accessible. Highly recommend it.")
+  (dict "name" "Ajay K" "source" "Chrome Web Store" "text" "This extension is a lifesaver. When I have multiple tabs open and struggle to find what I need, it makes everything quick and easy to access. Highly recommended!")
+  (dict "name" "Beda Prakash Behera" "source" "Chrome Web Store" "text" "The feature is very useful and works smoothly. The functionality is well thought out, and the UI is clean and user-friendly. Overall, a great extension experience.")
+}}
+<section class="section section-tight" id="reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <header class="reviews-head" data-reveal>
+      <h2 class="headline-sm" id="reviews-title">What people say about TabCmdr.</h2>
+      <a class="rating" href="{{ $app.storeURL }}" target="_blank" rel="noopener">
+        <span class="rating-stars" aria-hidden="true">{{ range seq 5 }}<svg class="icon"><use href="#i-star"/></svg>{{ end }}</span>
+        <span><b>{{ $app.rating }}</b> out of 5 from {{ $app.ratingCount }} ratings on the Chrome Web Store</span>
+      </a>
+    </header>
+    <div class="reviews">
+      {{- range $reviews }}
+      <figure class="review" data-reveal>
+        <blockquote><p>{{ .text }}</p></blockquote>
+        <figcaption><b>{{ .name }}</b><span>{{ .source }}</span></figcaption>
+      </figure>
+      {{- end }}
+    </div>
+  </div>
+</section>

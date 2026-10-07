@@ -1,0 +1,18 @@
+<div class="pal pal-card pal-mini">
+  <div class="pal-search">
+    <svg class="icon"><use href="#i-search"/></svg>
+    <span class="pal-query">acme pull<i class="caret"></i></span>
+    <kbd class="pal-esc">ESC</kbd>
+  </div>
+  <div class="pal-list pal-list-auto">
+    <p class="pal-group">Tabs</p>
+    <div class="pal-item is-selected">
+      {{- partial "features/favicon.html" (dict "host" "github.com") -}}
+      <span class="pal-text"><span class="pal-title"><mark>Pull</mark> requests · <mark>acme</mark>/web</span><span class="pal-sub">https://github.com/<mark>acme</mark>/web/<mark>pull</mark>s</span></span>
+    </div>
+    <div class="pal-item">
+      {{- partial "features/favicon.html" (dict "host" "github.com") -}}
+      <span class="pal-text"><span class="pal-title"><mark>Pull</mark> requests · <mark>acme</mark>/design-system</span><span class="pal-sub">https://github.com/<mark>acme</mark>/design-system/<mark>pull</mark>s</span></span>
+    </div>
+  </div>
+</div>

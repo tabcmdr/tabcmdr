@@ -1,0 +1,33 @@
+{{- with .Params.showcase }}
+<section class="section showcase{{ with $.Store.Get "showcaseBand" }} {{ . }}{{ end }}" aria-labelledby="showcase-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <p class="eyebrow">In detail</p>
+      <h2 class="headline-sm" id="showcase-title">{{ .title }}</h2>
+      {{- with .lead }}
+      <p class="lead">{{ partial "features/rich.html" . }}</p>
+      {{- end }}
+    </header>
+    <div class="showcase-rows">
+      {{- range $index, $row := .rows }}
+      <article class="showcase-row{{ if modBool $index 2 }}{{ else }} is-reversed{{ end }}" aria-labelledby="showcase-{{ $index }}">
+        <div class="showcase-copy" data-reveal>
+          <h3 class="showcase-title" id="showcase-{{ $index }}">{{ $row.title }}</h3>
+          <p class="showcase-text">{{ partial "features/rich.html" $row.text }}</p>
+          {{- with $row.points }}
+          <ul class="checklist showcase-points" role="list">
+            {{- range . }}
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>{{ partial "features/rich.html" . }}</span></li>
+            {{- end }}
+          </ul>
+          {{- end }}
+        </div>
+        <div class="showcase-visual"{{ if not $row.interactive }} aria-hidden="true"{{ end }} data-reveal>
+          {{- partial (printf "features/%s.html" $row.mock) (dict "page" $ "row" $row) }}
+        </div>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}

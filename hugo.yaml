@@ -25,7 +25,6 @@ outputs:
   section:
     - HTML
     - RSS
-    - Sitemap
   page:
     - HTML
 
@@ -44,6 +43,9 @@ module:
 
 menu:
   main:
+    - name: Features
+      pageRef: /features
+      weight: 1
     - name: Docs
       pageRef: /docs
       weight: 1

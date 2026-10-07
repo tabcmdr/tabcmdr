@@ -1,0 +1,284 @@
+groups:
+  - id: sources
+    label: "Search one place"
+    note: "Add words after it"
+    items:
+      - token: ":t"
+        title: "Open tabs"
+        text: "Tabs from every window, plus commands."
+        scene: source
+        source: tabs
+        query: "pull"
+        tries: ["pull", "figma", "inbox"]
+        info: "Searches the open tabs in every window by title and address. Pinned tabs and matching commands show up too. Enter switches to the tab."
+        link: "/features/search-open-tabs/"
+      - token: ":b"
+        title: "Bookmarks"
+        text: "Every saved bookmark, without opening folders."
+        scene: source
+        source: bookmarks
+        query: "design"
+        tries: ["design", "okr", "react"]
+        info: "Searches every bookmark by name, address and folder, and shows where each one is filed. Enter opens it in a new tab."
+        link: "/features/search-bookmarks/"
+      - token: ":h"
+        title: "History"
+        text: "Pages you visited, by title or address."
+        scene: source
+        source: history
+        query: "invoice"
+        tries: ["invoice", "lisbon", "linear"]
+        info: "Searches the pages you visited by title and address, newest first. Enter opens the page in a new tab."
+        link: "/features/search-history/"
+      - token: ":d"
+        title: "Downloads"
+        text: "Find a file, show it in its folder or copy its source."
+        scene: source
+        source: downloads
+        query: "invoice"
+        tries: ["invoice", "csv", "roadmap"]
+        info: "Searches your last 100 downloads by file name. Enter opens the file, or shows it in its folder while it's still downloading or missing."
+        link: "/features/search-downloads/"
+      - token: ":r"
+        title: "Recently closed"
+        text: "Tabs you closed, newest first."
+        scene: source
+        source: closed
+        query: ""
+        tries: ["lisbon", "notes"]
+        info: "Lists the tabs you closed, newest first, with how long ago you closed each one. Enter reopens the tab."
+        link: "/features/recently-closed-tabs/"
+      - token: ":p"
+        title: "Pinned tabs"
+        text: "Only the tabs you pinned."
+        scene: source
+        source: pinned
+        query: ""
+        tries: ["slack", "calendar"]
+        info: "Lists only your pinned tabs, from every window. Enter switches to the tab."
+        link: "/features/search-open-tabs/"
+      - token: ":c"
+        title: "Commands"
+        text: "The 47 browser commands, and site shortcuts on supported sites."
+        scene: source
+        source: commands
+        query: "close"
+        tries: ["close", "zoom", "screenshot"]
+        info: "Lists all 47 browser commands, from Zoom In to Close Duplicate Tabs. Enter runs the highlighted one."
+        link: "/features/close-duplicate-tabs/"
+      - token: ":s"
+        title: "Web search"
+        text: "Search Google, Bing, DuckDuckGo, Brave or Yahoo."
+        scene: source
+        source: search
+        query: "tailwind grid"
+        tries: ["tailwind grid", "weather lisbon"]
+        info: "Turns what you typed into a search on Google, Bing or DuckDuckGo. Yahoo and Brave Search can be turned on in settings. Enter searches with the highlighted engine."
+        link: "/features/web-search/"
+  - id: tools
+    label: "Open a tool"
+    note: "Opens as you type it"
+    items:
+      - token: ":ai"
+        title: "AI chat"
+        text: "Chat with the provider you set as default."
+        scene: ai
+        info: "Opens a chat with the provider you set as default, using your own API key. Add @page and the page you're on goes along with your message. The replies here are samples."
+        link: "/features/#ai"
+      - token: ":emoji"
+        alias: ":em"
+        title: "Emoji"
+        text: "Search emoji by name and copy one."
+        scene: emoji
+        query: ""
+        tries: ["rocket", "heart", "thumbs"]
+        info: "Search 1,900+ emoji by name and pick a skin tone. Enter copies the emoji, and Shift+Enter copies its :name: instead."
+        link: "/features/#tools"
+      - token: ":todo"
+        alias: ":td"
+        title: "To-do list"
+        text: "Add a task, check it off later."
+        scene: todo
+        info: "Type a task and press Enter to save it. Check tasks off, delete them, or clear everything you've finished."
+        link: "/features/#tools"
+      - token: ":rss"
+        title: "RSS reader"
+        text: "Latest headlines from your feeds."
+        scene: rss
+        info: "Shows the latest articles from your feeds, newest first. Six feeds come set up and you can add your own. Pick a feed to see only its articles."
+        link: "/features/#tools"
+      - token: ":wx"
+        title: "Weather"
+        text: "Current conditions for your places."
+        scene: weather
+        query: ""
+        tries: ["london", "tokyo"]
+        info: "Shows current conditions for your places from Open-Meteo, with no API key to set up. Add up to 15 places in settings, and type to filter them."
+        link: "/features/#tools"
+      - token: ":ss"
+        title: "Screenshot"
+        text: "Capture the page or a selected area."
+        scene: screenshot
+        info: "Copies or saves the visible page, an area you draw, or the full page as a PNG. Area commands let you draw a selection on the page first."
+        link: "/features/#tools"
+      - token: ":cp"
+        title: "Color picker"
+        text: "Sample a color from the screen."
+        scene: colorpicker
+        info: "Move over the page to see the HEX and RGB values under your cursor. Click to copy the hex code, or press Esc to cancel."
+        link: "/features/#tools"
+      - token: ":rl"
+        title: "Ruler"
+        text: "Measure elements and drag guides."
+        scene: ruler
+        info: "Hover an element to see its tag and size. Click to select it, then hover another element to see the gap between them. Press C to copy the selected size."
+        link: "/features/#tools"
+  - id: answers
+    label: "Get an answer"
+    note: "Enter copies it"
+    items:
+      - token: ":tx"
+        title: "Text case"
+        text: "UPPER, lower, Title, camelCase, snake_case and more."
+        scene: answer
+        query: "launch plan"
+        tries: ["launch plan", "userId"]
+        info: "Turns your text into seven case styles, from UPPER CASE to kebab-case. Click a result or press Enter to copy it."
+        link: "/features/#answers"
+      - token: ":uuid"
+        title: "UUID"
+        text: "A new v4 UUID, ready to copy."
+        scene: answer
+        query: ""
+        refresh: true
+        info: "Makes a new random v4 UUID each time. Click it or press Enter to copy it."
+        link: "/features/#answers"
+      - token: ":pwd"
+        title: "Password"
+        text: "A random password. Add a length, like :pwd 24."
+        scene: answer
+        query: "24"
+        tries: ["16", "24", "20 a", "8 n"]
+        info: "Makes a random password, 16 characters by default. Add a length like :pwd 24, then a for letters and digits only, c for letters only or n for digits only."
+        link: "/features/#answers"
+
+ai:
+  provider: "anthropic · claude-3-5-sonnet-20241022"
+  prompts:
+    - text: "summarize @page"
+      title: "Q3 roadmap: summary"
+      body: "The doc sets three goals for the quarter, each with an owner and a date: ship onboarding flow v3 by August 15, move every plan to the new checkout, and bring dashboard load time under 2 s."
+    - text: "turn @page into a checklist"
+      title: "Q3 roadmap checklist"
+      body: "1. Finish the onboarding flow v3 designs. 2. Fix ENG-482, the sticky header on Safari. 3. Launch the new checkout for all plans. 4. Get dashboard load time under 2 s."
+    - text: "translate the intro of @page to Spanish"
+      title: "Introducción"
+      body: "Este trimestre nos centramos en tres metas: lanzar el nuevo flujo de bienvenida, pasar la facturación al nuevo proceso de pago y reducir el tiempo de carga del panel a menos de dos segundos."
+
+emoji:
+  - { char: "😀", name: "grinning face", short: "grinning", cat: "Smileys & Emotion" }
+  - { char: "😃", name: "smiling face with open mouth", short: "smiley", cat: "Smileys & Emotion" }
+  - { char: "😄", name: "smiling face with open mouth and smiling eyes", short: "smile", cat: "Smileys & Emotion" }
+  - { char: "😁", name: "grinning face with smiling eyes", short: "grin", cat: "Smileys & Emotion" }
+  - { char: "😆", name: "smiling face with open mouth and tightly-closed eyes", short: "laughing", cat: "Smileys & Emotion" }
+  - { char: "😅", name: "smiling face with open mouth and cold sweat", short: "sweat_smile", cat: "Smileys & Emotion" }
+  - { char: "🤣", name: "rolling on the floor laughing", short: "rolling_on_the_floor_laughing", cat: "Smileys & Emotion" }
+  - { char: "😂", name: "face with tears of joy", short: "joy", cat: "Smileys & Emotion" }
+  - { char: "🙂", name: "slightly smiling face", short: "slightly_smiling_face", cat: "Smileys & Emotion" }
+  - { char: "😉", name: "winking face", short: "wink", cat: "Smileys & Emotion" }
+  - { char: "😊", name: "smiling face with smiling eyes", short: "blush", cat: "Smileys & Emotion" }
+  - { char: "😇", name: "smiling face with halo", short: "innocent", cat: "Smileys & Emotion" }
+  - { char: "🥰", name: "smiling face with smiling eyes and three hearts", short: "smiling_face_with_3_hearts", cat: "Smileys & Emotion" }
+  - { char: "😍", name: "smiling face with heart-shaped eyes", short: "heart_eyes", cat: "Smileys & Emotion" }
+  - { char: "🤩", name: "grinning face with star eyes", short: "star-struck", cat: "Smileys & Emotion" }
+  - { char: "😘", name: "face throwing a kiss", short: "kissing_heart", cat: "Smileys & Emotion" }
+  - { char: "🤔", name: "thinking face", short: "thinking_face", cat: "Smileys & Emotion" }
+  - { char: "😴", name: "sleeping face", short: "sleeping", cat: "Smileys & Emotion" }
+  - { char: "🥳", name: "face with party horn and party hat", short: "partying_face", cat: "Smileys & Emotion" }
+  - { char: "😎", name: "smiling face with sunglasses", short: "sunglasses", cat: "Smileys & Emotion" }
+  - { char: "❤️", name: "heavy black heart", short: "heart", cat: "Smileys & Emotion" }
+  - { char: "💯", name: "hundred points symbol", short: "100", cat: "Smileys & Emotion" }
+  - { char: "👋", name: "waving hand sign", short: "wave", cat: "People & Body", tones: true }
+  - { char: "👍", name: "thumbs up sign", short: "+1", cat: "People & Body", tones: true }
+  - { char: "👏", name: "clapping hands sign", short: "clap", cat: "People & Body", tones: true }
+  - { char: "🙌", name: "person raising both hands in celebration", short: "raised_hands", cat: "People & Body", tones: true }
+  - { char: "🙏", name: "person with folded hands", short: "pray", cat: "People & Body", tones: true }
+  - { char: "💪", name: "flexed biceps", short: "muscle", cat: "People & Body", tones: true }
+  - { char: "👀", name: "eyes", short: "eyes", cat: "People & Body" }
+  - { char: "🐶", name: "dog face", short: "dog", cat: "Animals & Nature" }
+  - { char: "🦊", name: "fox face", short: "fox_face", cat: "Animals & Nature" }
+  - { char: "🐱", name: "cat face", short: "cat", cat: "Animals & Nature" }
+  - { char: "🐛", name: "bug", short: "bug", cat: "Animals & Nature" }
+  - { char: "🌸", name: "cherry blossom", short: "cherry_blossom", cat: "Animals & Nature" }
+  - { char: "🌱", name: "seedling", short: "seedling", cat: "Animals & Nature" }
+  - { char: "🍎", name: "red apple", short: "apple", cat: "Food & Drink" }
+  - { char: "🍕", name: "slice of pizza", short: "pizza", cat: "Food & Drink" }
+  - { char: "🍩", name: "doughnut", short: "doughnut", cat: "Food & Drink" }
+  - { char: "☕", name: "hot beverage", short: "coffee", cat: "Food & Drink" }
+  - { char: "🌍", name: "earth globe europe-africa", short: "earth_africa", cat: "Travel & Places" }
+  - { char: "🏠", name: "house building", short: "house", cat: "Travel & Places" }
+  - { char: "✈️", name: "airplane", short: "airplane", cat: "Travel & Places" }
+  - { char: "🚀", name: "rocket", short: "rocket", cat: "Travel & Places" }
+  - { char: "⭐", name: "white medium star", short: "star", cat: "Travel & Places" }
+  - { char: "🔥", name: "fire", short: "fire", cat: "Travel & Places" }
+  - { char: "✨", name: "sparkles", short: "sparkles", cat: "Activities" }
+  - { char: "🎉", name: "party popper", short: "tada", cat: "Activities" }
+  - { char: "🏆", name: "trophy", short: "trophy", cat: "Activities" }
+  - { char: "🎯", name: "direct hit", short: "dart", cat: "Activities" }
+  - { char: "💻", name: "personal computer", short: "computer", cat: "Objects" }
+  - { char: "💡", name: "electric light bulb", short: "bulb", cat: "Objects" }
+  - { char: "📌", name: "pushpin", short: "pushpin", cat: "Objects" }
+  - { char: "📎", name: "paperclip", short: "paperclip", cat: "Objects" }
+  - { char: "🔒", name: "lock", short: "lock", cat: "Objects" }
+  - { char: "✅", name: "white heavy check mark", short: "white_check_mark", cat: "Symbols" }
+
+skinTones:
+  - { key: "", label: "Default", swatch: "#FFCD71" }
+  - { key: "1F3FB", label: "Light", swatch: "#FDDBB4" }
+  - { key: "1F3FC", label: "Medium-Light", swatch: "#EFC08E" }
+  - { key: "1F3FD", label: "Medium", swatch: "#CF9366" }
+  - { key: "1F3FE", label: "Medium-Dark", swatch: "#A66C3B" }
+  - { key: "1F3FF", label: "Dark", swatch: "#5E3826" }
+
+todos:
+  - { text: "Review PR #219", done: false }
+  - { text: "Book flights to Lisbon", done: false }
+  - { text: "Send Q3 roadmap to design", done: true }
+
+feeds:
+  - "BBC News"
+  - "NYT > Top Stories"
+  - "Hacker News: Front Page"
+  - "The Verge"
+  - "Ars Technica - All content"
+  - "Articles on Smashing Magazine"
+
+articles:
+  - { feed: "BBC News", when: "1m ago", width: 88 }
+  - { feed: "NYT > Top Stories", when: "4m ago", width: 72 }
+  - { feed: "Hacker News: Front Page", when: "9m ago", width: 80 }
+  - { feed: "The Verge", when: "27m ago", width: 64 }
+  - { feed: "Ars Technica - All content", when: "41m ago", width: 76 }
+  - { feed: "BBC News", when: "46m ago", width: 70 }
+  - { feed: "Articles on Smashing Magazine", when: "2h ago", width: 84 }
+  - { feed: "Hacker News: Front Page", when: "3h ago", width: 60 }
+
+places:
+  - { name: "Jaipur", country: "India", zone: "Asia/Kolkata", temp: 31, condition: "Partly cloudy", emoji: "⛅", feels: 33, min: 26, max: 34, humidity: 38, uv: "7.2", wind: 11, dir: "W", sunrise: "6:18 AM", sunset: "6:02 PM" }
+  - { name: "London", country: "United Kingdom", zone: "Europe/London", temp: 14, condition: "Light rain", emoji: "🌧️", feels: 12, min: 9, max: 15, humidity: 81, uv: "1.8", wind: 19, dir: "SW", sunrise: "7:10 AM", sunset: "6:31 PM" }
+  - { name: "Tokyo", country: "Japan", zone: "Asia/Tokyo", temp: 22, condition: "Overcast", emoji: "☁️", feels: 22, min: 18, max: 24, humidity: 64, uv: "3.4", wind: 9, dir: "NE", sunrise: "5:39 AM", sunset: "5:13 PM" }
+
+screenshots:
+  - { title: "Screenshot - Copy to Clipboard", sub: "Capture the visible tab and copy as image", icon: i-camera, toast: "Screenshot copied" }
+  - { title: "Screenshot - Download as PNG", sub: "Capture the visible tab and save as PNG", icon: i-camera, toast: "Screenshot saved" }
+  - { title: "Screenshot Area - Copy to Clipboard", sub: "Draw a selection, then copy the cropped area", icon: i-crop, toast: "Area copied" }
+  - { title: "Screenshot Area - Download as PNG", sub: "Draw a selection, then save the cropped area", icon: i-crop, toast: "Area screenshot saved" }
+  - { title: "Full Page Screenshot - Copy to Clipboard", sub: "Scroll and stitch the entire page, then copy as image", icon: i-monitor, toast: "Full page screenshot copied" }
+  - { title: "Full Page Screenshot - Download as PNG", sub: "Scroll and stitch the entire page, then save as PNG", icon: i-monitor, toast: "Full page screenshot saved" }
+
+extras:
+  - token: "qr"
+    title: "QR code"
+    scene: qr
+    info: "QR Code for Current Page shows a QR code for the page you're on, made on your computer. Copy Image puts it on your clipboard, and Esc closes it."
+    link: "/features/#tools"

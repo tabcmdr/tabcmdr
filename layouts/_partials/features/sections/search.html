@@ -1,0 +1,19 @@
+<section class="section chapter" id="search" aria-labelledby="search-title">
+  <div class="container split">
+    <div class="split-copy" data-reveal>
+      <p class="eyebrow"><code class="token"><span class="token-colon">:</span>t</code>Tab search</p>
+      <h2 class="headline" id="search-title">Tab search across every window. <span class="muted">Type a few letters, press Enter.</span></h2>
+      <p class="lead">TabCmdr lists the open tabs from all your windows in one place. Type part of a title or an address and the matches rank as you type, even when the tab sits in another window.</p>
+      <ul class="benefits" role="list">
+        <li><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg></span><p><b>Act on a tab without switching to it.</b> Each row can reload, mute, pin, duplicate, open in incognito, move to a new window, copy its URL or close.</p></li>
+        <li><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-undo"/></svg></span><p><b>Pinned and closed tabs, too.</b> <code class="inline-code">:p</code> lists pinned tabs and <code class="inline-code">:r</code> brings back tabs you closed.</p></li>
+        <li><span class="benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-keyboard"/></svg></span><p><b>Close as you go.</b> <kbd class="kbd" data-mod-key>⌘</kbd><kbd class="kbd">⌫</kbd> closes the highlighted tab and keeps the list open.</p></li>
+      </ul>
+      {{- with site.GetPage "/features/search-open-tabs" }}
+      <p class="chapter-link"><a class="link-arrow" href="{{ .RelPermalink }}">Read the tab search guide <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      {{- end }}
+    </div>
+
+    {{- partial "features/demos/row-actions.html" . }}
+  </div>
+</section>

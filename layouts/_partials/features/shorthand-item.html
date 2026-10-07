@@ -1,0 +1,8 @@
+{{- $item := .item }}
+<li class="sh-item{{ if .active }} is-active{{ end }}" data-shorthand="{{ $item.token }}" data-shorthand-example="{{ $item.example }}" data-shorthand-chip="{{ $item.chip }}">
+  <kbd class="sh-key"><span class="token-colon">:</span>{{ strings.TrimPrefix ":" $item.token }}</kbd>
+  <span class="sh-copy">
+    <b>{{ $item.title }}{{ with $item.alias }}<span class="sh-alias">or {{ . }}</span>{{ end }}</b>
+    <span>{{ $item.text }}</span>
+  </span>
+</li>

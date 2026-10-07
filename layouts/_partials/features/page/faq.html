@@ -1,0 +1,19 @@
+{{- with .Params.faq }}
+<section class="section{{ with $.Store.Get "faqBand" }} {{ . }}{{ end }}" id="faq" aria-labelledby="faq-title">
+  <div class="container faq-layout">
+    <header class="section-head" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg></span>FAQ</p>
+      <h2 class="headline" id="faq-title">{{ $.Params.faqTitle | default (printf "Questions about %s" (lower $.LinkTitle)) }}</h2>
+      <p class="lead-sm">More in the <a class="text-link" href="{{ with $.Params.docs }}{{ printf "docs/%s/" . | relURL }}{{ else }}{{ "docs/" | relURL }}{{ end }}">documentation</a>.</p>
+    </header>
+    <div class="faq-list" data-reveal>
+      {{- range . }}
+      <details class="faq-item" name="faq">
+        <summary>{{ .question }}<svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <p>{{ partial "features/rich.html" .answer }}</p>
+      </details>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}

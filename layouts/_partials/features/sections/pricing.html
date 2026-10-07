@@ -1,0 +1,26 @@
+{{- $app := hugo.Data.features.app }}
+<section class="section" id="pricing" aria-labelledby="pricing-title">
+  <div class="container pricing">
+    <header class="section-head" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg></span>Pricing</p>
+      <h2 class="headline" id="pricing-title">Use everything free for {{ $app.trialDays }} days. <span class="muted">Then pay once.</span></h2>
+      <p class="lead">The trial starts when you install and needs no card and no account. After it ends you still get {{ $app.graceUsesPerDay }} free uses a day, so nothing stops working while you decide.</p>
+    </header>
+
+    <div class="price-card" data-reveal data-pricing data-pricing-url="{{ $app.pricingURL }}">
+      <p class="price-label">Lifetime license</p>
+      <p class="price"><span class="price-currency">$</span><span data-price>{{ $app.price }}</span><span class="price-term">one time</span></p>
+      <ul class="checklist" role="list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Every feature, tool and theme</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>No subscription, no account</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Keeps working offline after you activate it</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Key sent by email from Gumroad</li>
+      </ul>
+      <div class="price-actions">
+        {{- partial "features/install-button.html" (dict "variant" "dark" "size" "large") }}
+        <a class="button button-outline button-large" href="{{ $app.buyURL }}" target="_blank" rel="noopener">Buy a license</a>
+      </div>
+      <p class="price-note">Prices in USD. Payment and license keys are handled by Gumroad. <a href="{{ "docs/licensing/" | relURL }}">How licensing works</a></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,8 @@
+{{- $text := .text -}}
+<code class="token{{ with .class }} {{ . }}{{ end }}">
+  {{- if hasPrefix $text ":" -}}
+  <span class="token-colon">:</span>{{ strings.TrimPrefix ":" $text }}
+  {{- else -}}
+  {{ $text }}
+  {{- end -}}
+</code>

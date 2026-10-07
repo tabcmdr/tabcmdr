@@ -1,0 +1,24 @@
+{{- $app := hugo.Data.features.app }}
+<section class="feature-hero" aria-labelledby="feature-title">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="container feature-hero-inner">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ "/" | relURL }}">Home</a></li>
+        <li><a href="{{ .Parent.RelPermalink }}">{{ .Parent.LinkTitle }}</a></li>
+        <li><span aria-current="page">{{ .LinkTitle }}</span></li>
+      </ol>
+    </nav>
+    <p class="eyebrow feature-eyebrow">
+      {{- with .Params.token }}{{ partial "features/token.html" (dict "text" .) }}{{ else }}<span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#{{ $.Params.icon }}"/></svg></span>{{ end -}}
+      {{ .Params.eyebrow }}
+    </p>
+    <h1 class="feature-title" id="feature-title">{{ .Params.heading }}{{ with .Params.headingMuted }} <span class="muted">{{ . }}</span>{{ end }}</h1>
+    <p class="lead feature-lead">{{ partial "features/rich.html" .Params.lead }}</p>
+    <div class="hero-actions">
+      {{- partial "features/install-button.html" (dict "variant" "dark" "size" "large") }}
+      <a class="link-arrow" href="#demo">Try it on this page <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+    </div>
+    <p class="hero-note">{{ $app.trialDays }}-day free trial <span aria-hidden="true">·</span> No account <span aria-hidden="true">·</span> Chrome, Edge, Brave, Arc, Vivaldi and Opera</p>
+  </div>
+</section>

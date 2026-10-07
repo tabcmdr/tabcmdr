@@ -1,0 +1,21 @@
+<section class="section band-dark chapter" id="commands" aria-labelledby="commands-title">
+  <div class="container split">
+    <div class="split-copy" data-reveal>
+      <p class="eyebrow"><code class="token"><span class="token-colon">:</span>c</code>Tab commands</p>
+      <h2 class="headline" id="commands-title">A tab manager you run by typing. <span class="muted">Clean up a messy tab bar in one command.</span></h2>
+      <p class="lead">There's no dashboard to open. Type what you want done and press Enter. Tab commands work on every tab in the window, or across all your windows.</p>
+      <ul class="checklist" role="list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Close duplicate tabs across every window</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Close tabs to the left, to the right, or all other tabs</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Merge all windows into one</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Suspend inactive tabs to free up memory</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sort tabs alphabetically, mute or reload them all</li>
+      </ul>
+      {{- with site.GetPage "/features/close-duplicate-tabs" }}
+      <p class="chapter-link"><a class="link-arrow" href="{{ .RelPermalink }}">How Close Duplicate Tabs works <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+      {{- end }}
+    </div>
+
+    {{- partial "features/demos/cleanup.html" . }}
+  </div>
+</section>

@@ -1,0 +1,24 @@
+{{- with .Params.details }}
+<section class="section{{ with $.Store.Get "detailsBand" }} {{ . }}{{ end }}" aria-labelledby="details-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <h2 class="headline-sm" id="details-title">{{ $.Params.detailsTitle | default "What else it does" }}</h2>
+      {{- with $.Params.detailsLead }}
+      <p class="lead">{{ partial "features/rich.html" . }}</p>
+      {{- end }}
+    </header>
+    <ul class="details-grid" role="list" data-reveal>
+      {{- range $index, $detail := . }}
+      <li class="detail">
+        <div class="detail-top">
+          <span class="detail-icon"><svg class="icon" aria-hidden="true"><use href="#{{ $detail.icon }}"/></svg></span>
+          <span class="detail-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+        </div>
+        <h3 class="detail-title">{{ $detail.title }}</h3>
+        <p class="detail-text">{{ partial "features/rich.html" $detail.text }}</p>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</section>
+{{- end }}

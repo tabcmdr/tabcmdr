@@ -1,0 +1,76 @@
+{{- $demo := hugo.Data.features.demo }}
+{{- $tourName := .tour | default "hub" }}
+{{- $tourConfig := index $demo.tours $tourName }}
+{{- if not $tourConfig }}
+  {{- errorf "Demo tour %q is missing from data/features/demo.yaml" $tourName }}
+{{- end }}
+{{- $tour := $tourConfig.steps }}
+{{- $start := $tourConfig.start | default dict }}
+{{- $filter := $start.filter | default "all" }}
+{{- $labels := dict "all" "Tabs" "bookmarks" "Bookmarks" "history" "History" "closed" "Recently Closed" "downloads" "Downloads" }}
+{{- $sources := dict "all" $demo.tabs "bookmarks" $demo.bookmarks "history" $demo.history "closed" $demo.closed "downloads" $demo.downloads }}
+{{- $active := index (where $demo.tabs "active" true) 0 }}
+  <div class="container hero-stage" id="demo" data-hero-demo>
+    <div class="browser" data-browser>
+      <div class="browser-top" aria-hidden="true">
+        <span class="traffic"><i></i><i></i><i></i></span>
+        <div class="strip" data-strip>
+          {{- range where $demo.tabs "window" 1 }}
+          <span class="strip-tab{{ if .active }} is-active{{ end }}" data-tab-id="{{ .id }}">
+            {{- partial "features/favicon.html" (dict "host" .host "class" "fav-xs") -}}
+            <span class="strip-title">{{ .title }}</span>
+            {{- if .audible }}<svg class="icon strip-audio"><use href="#i-volume"/></svg>{{ end -}}
+          </span>
+          {{- end }}
+          <span class="strip-new"><svg class="icon"><use href="#i-plus"/></svg></span>
+        </div>
+      </div>
+      <div class="browser-bar" aria-hidden="true">
+        <span class="browser-nav"><svg class="icon"><use href="#i-arrow-left"/></svg><svg class="icon"><use href="#i-arrow-right"/></svg><svg class="icon"><use href="#i-rotate"/></svg></span>
+        <span class="browser-address"><svg class="icon"><use href="#i-lock"/></svg><span data-address>{{ strings.TrimPrefix "https://" $active.url }}</span></span>
+      </div>
+      <div class="browser-viewport">
+      <div class="browser-page" aria-hidden="true" data-page style="--site: {{ (index $demo.sites $active.host).color | safeCSS }}">
+        <p class="page-host" data-page-host>{{ $active.host }}</p>
+        <p class="page-title" data-page-title>{{ $active.title }}</p>
+        <div class="page-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="page-cards"><i></i><i></i><i></i></div>
+      </div>
+      <button class="browser-overlay" type="button" tabindex="-1" aria-label="Close the demo palette" data-overlay></button>
+      <button class="browser-reopen" type="button" data-reopen hidden>Press <span class="kbd-group"><kbd class="kbd" data-mod-key>⌘</kbd><kbd class="kbd">K</kbd></span> to open TabCmdr</button>
+
+      <div class="pal pal-hero" data-palette>
+        <div class="pal-search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="visually-hidden" for="hero-query">Search the sample tabs, bookmarks and history</label>
+          <input id="hero-query" class="pal-input" type="text" value="{{ $start.query }}" placeholder="Search tabs · :b bookmarks · :h history · :d downloads · :s search..." autocomplete="off" spellcheck="false" maxlength="80" enterkeyhint="go" role="combobox" aria-expanded="true" aria-controls="hero-results" aria-autocomplete="list" data-input>
+          <kbd class="pal-esc" aria-hidden="true">ESC</kbd>
+        </div>
+        {{- partial "features/palette-filters.html" (dict "active" $filter "interactive" true) }}
+        <div class="pal-list" id="hero-results" role="listbox" aria-label="Results" data-results>
+          <p class="pal-group">{{ index $labels $filter }}</p>
+          {{- range $index, $item := index $sources $filter }}
+          {{- partial "features/demos/palette-row.html" (dict "item" $item "kind" $filter "selected" (eq $index 0)) }}
+          {{- end }}
+        </div>
+        {{- partial "features/palette-footer.html" . }}
+        <p class="visually-hidden" aria-live="polite" data-live></p>
+      </div>
+      <p class="toast" role="status" data-toast></p>
+      </div>
+    </div>
+
+    <div class="tour" data-tour>
+      <div class="tour-steps" role="group" aria-label="Example searches">
+        {{- range $index, $step := $tour }}
+        <button class="tour-step" type="button" data-step="{{ $index }}"><svg class="icon" aria-hidden="true"><use href="#{{ $step.icon }}"/></svg>{{ $step.label }}<i class="tour-progress" aria-hidden="true"></i></button>
+        {{- end }}
+      </div>
+      <button class="tour-toggle" type="button" aria-label="Pause demo" data-tour-toggle data-state="playing">
+        <svg class="icon icon-pause" aria-hidden="true"><use href="#i-pause"/></svg>
+        <svg class="icon icon-play" aria-hidden="true"><use href="#i-play"/></svg>
+      </button>
+    </div>
+    <p class="tour-caption" data-tour-caption>{{ (index $tour 0).caption }}</p>
+    <script type="application/json" id="demo-data">{{ dict "sites" $demo.sites "tabs" $demo.tabs "bookmarks" $demo.bookmarks "history" $demo.history "downloads" $demo.downloads "closed" $demo.closed "commands" $demo.commands "tools" $demo.tools "engines" $demo.engines "tour" $tour "start" $start | jsonify | safeJS }}</script>
+  </div>

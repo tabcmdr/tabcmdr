@@ -1,0 +1,22 @@
+{{- $sorts := slice (slice "Browser Order" "As arranged") (slice "Recently Used" "Most recent first") (slice "Alphabetical" "By title, A → Z") (slice "Group by Site" "Same site together") }}
+<div class="settings-mock">
+  <p class="settings-title">Open Tabs Order</p>
+  <div class="sort-cards">
+    {{- range $sorts }}
+    <span class="sort-card{{ if eq (index . 0) "Recently Used" }} is-on{{ end }}"><b>{{ index . 0 }}</b><span>{{ index . 1 }}</span></span>
+    {{- end }}
+  </div>
+  <div class="settings-item">
+    <div class="settings-copy">
+      <p class="settings-item-label">Current Tab Position <small>(the tab you're on)</small></p>
+    </div>
+    <span class="settings-select">Always last<svg class="icon"><use href="#i-chevron-down"/></svg></span>
+  </div>
+  <div class="settings-preview">
+    <p class="pal-group">Tabs</p>
+    <p class="settings-row is-selected">{{ partial "features/favicon.html" (dict "host" "linear.app" "class" "fav-xs") }}ENG-482 Fix sticky header on Safari - Linear</p>
+    <p class="settings-row">{{ partial "features/favicon.html" (dict "host" "mail.google.com" "class" "fav-xs") }}Inbox (12) - Gmail</p>
+    <p class="settings-row">{{ partial "features/favicon.html" (dict "host" "figma.com" "class" "fav-xs") }}Onboarding flow v3 - Figma</p>
+    <p class="settings-row is-current">{{ partial "features/favicon.html" (dict "host" "docs.google.com" "class" "fav-xs") }}Q3 roadmap - Google Docs</p>
+  </div>
+</div>

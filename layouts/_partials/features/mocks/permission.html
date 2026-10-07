@@ -1,0 +1,15 @@
+{{- $permission := .row.permission }}
+<div class="pal pal-card pal-mini">
+  <div class="pal-search">
+    <svg class="icon"><use href="#i-search"/></svg>
+    <span class="pal-query pal-placeholder">Search tabs · :b bookmarks · :h history · :d downloads · :s search...</span>
+    <kbd class="pal-esc">ESC</kbd>
+  </div>
+  {{- partial "features/palette-filters.html" (dict "active" $permission.filter) }}
+  <div class="perm-prompt">
+    <svg class="icon perm-icon"><use href="#i-lock"/></svg>
+    <p class="perm-label">Enable {{ $permission.label }}</p>
+    <p class="perm-desc">{{ $permission.description }}</p>
+    <span class="perm-button">Grant Permission</span>
+  </div>
+</div>

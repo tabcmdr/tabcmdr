@@ -1,0 +1,33 @@
+{{- $settings := .row.settings }}
+<div class="settings-mock">
+  <p class="settings-title">{{ $settings.title }}</p>
+  {{- range $settings.rows }}
+  <div class="settings-item">
+    <div class="settings-copy">
+      <p class="settings-item-label">{{ .label }}</p>
+      <p class="settings-item-desc">{{ .desc }}</p>
+    </div>
+    {{- with .toggle }}
+    <span class="switch{{ if eq . "on" }} is-on{{ end }}"><i></i></span>
+    {{- end }}
+    {{- if .options }}
+    <span class="settings-select">{{ $.row.settings.selected }}<svg class="icon"><use href="#i-chevron-down"/></svg></span>
+    {{- end }}
+  </div>
+  {{- with .options }}
+  {{- $selected := $.row.settings.selected }}
+  <ul class="settings-menu">
+    {{- range . }}
+    <li{{ if eq . $selected }} class="is-on"{{ end }}>{{ . }}</li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  {{- end }}
+  {{- with $settings.checks }}
+  <ul class="settings-checks">
+    {{- range . }}
+    <li class="{{ if .on }}is-on{{ end }}"><i></i>{{ .label }}</li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</div>

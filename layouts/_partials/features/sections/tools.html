@@ -1,0 +1,122 @@
+{{- $emoji := slice "😀" "😃" "😄" "😁" "😆" "😅" "🤣" "😂" "🙂" "🙃" "🫠" "😉" "😊" "😇" "🥰" "😍" "🤩" "😘" "🚀" "🎉" "👍" "🔥" "✅" "💡" }}
+<section class="section band-paper" id="tools" aria-labelledby="tools-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg></span>Tools</p>
+      <h2 class="headline" id="tools-title">Eight tools that would otherwise need their own tab.</h2>
+      <p class="lead">Open them from the Tools filter or with a shorthand. Each one runs inside the palette or as an overlay on the page you're on.</p>
+    </header>
+
+    <div class="bento">
+      <article class="card card-wide" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-smile"/></svg>Emoji <code class="token token-sm"><span class="token-colon">:</span>emoji</code></p>
+          <h3 class="card-title">Find an emoji by name.</h3>
+          <p class="card-text">Search 1,900+ emoji, pick a skin tone and press Enter to copy it, or Shift+Enter to copy its <code class="inline-code">:name:</code> code. Your 24 most recent picks get their own row.</p>
+        </div>
+        <div class="mini mini-emoji" aria-hidden="true">
+          <div class="emoji-head">
+            <span class="emoji-big">🚀</span>
+            <span class="emoji-meta"><b>Rocket</b><span>↵ copy · shift+↵ copy :name:</span></span>
+            <span class="emoji-tones"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="emoji-copy">Copy</span>
+          </div>
+          <p class="pal-group">Smileys &amp; Emotion</p>
+          <div class="emoji-grid">{{ range $emoji }}<span>{{ . }}</span>{{ end }}</div>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg>Screenshot <code class="token token-sm"><span class="token-colon">:</span>ss</code></p>
+          <h3 class="card-title">Capture without another app.</h3>
+          <p class="card-text">The visible page, an area you drag, or the full page. Copy it to the clipboard or save a PNG.</p>
+        </div>
+        <div class="mini mini-shot" aria-hidden="true">
+          <div class="shot-page"><i></i><i></i><i></i><i></i></div>
+          <div class="shot-area"><span>640 × 360</span></div>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-square-check"/></svg>To-do <code class="token token-sm"><span class="token-colon">:</span>todo</code></p>
+          <h3 class="card-title">A to-do list one shortcut away.</h3>
+          <p class="card-text">Type a task and press Enter to save it. Check it off from the list later.</p>
+        </div>
+        <ul class="mini mini-todo" aria-hidden="true">
+          <li class="todo-input">Add a todo here... (press ↵ to save)</li>
+          <li class="is-done"><i></i>Send Q3 roadmap to design</li>
+          <li><i></i>Review PR #219</li>
+          <li><i></i>Book flights to Lisbon</li>
+        </ul>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-rss"/></svg>RSS reader <code class="token token-sm"><span class="token-colon">:</span>rss</code></p>
+          <h3 class="card-title">Headlines without a reader app.</h3>
+          <p class="card-text">Your feeds in one list, newest first. Six feeds come set up, and you can add your own and give each a color.</p>
+        </div>
+        <ul class="mini mini-rss" aria-hidden="true">
+          <li style="--feed: #bb1919"><b>BBC News</b><i></i></li>
+          <li style="--feed: #ff6600"><b>Hacker News</b><i></i></li>
+          <li style="--feed: #5200ff"><b>The Verge</b><i></i></li>
+          <li style="--feed: #d33a2c"><b>Smashing Magazine</b><i></i></li>
+        </ul>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-cloud"/></svg>Weather <code class="token token-sm"><span class="token-colon">:</span>wx</code></p>
+          <h3 class="card-title">Conditions for up to 15 places.</h3>
+          <p class="card-text">Current weather from Open-Meteo, with no API key to set up.</p>
+        </div>
+        <ul class="mini mini-weather" aria-hidden="true">
+          <li><span>Jaipur</span><b>31°</b></li>
+          <li><span>New York</span><b>18°</b></li>
+          <li><span>London</span><b>14°</b></li>
+          <li><span>Tokyo</span><b>22°</b></li>
+        </ul>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-pipette"/></svg>Color picker <code class="token token-sm"><span class="token-colon">:</span>cp</code></p>
+          <h3 class="card-title">Grab any color on screen.</h3>
+          <p class="card-text">See the HEX and RGB value under your cursor, then click to copy the hex code.</p>
+        </div>
+        <div class="mini mini-color" aria-hidden="true">
+          <span class="color-loupe"></span>
+          <span class="color-values"><b>#F0013D</b><span>rgb(240, 1, 61)</span></span>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-ruler"/></svg>Ruler <code class="token token-sm"><span class="token-colon">:</span>rl</code></p>
+          <h3 class="card-title">Measure the page you're on.</h3>
+          <p class="card-text">Hover an element to see its size, point at another to see the gap, and drag guides out of the rulers.</p>
+        </div>
+        <div class="mini mini-ruler" aria-hidden="true">
+          <span class="ruler-top"></span><span class="ruler-left"></span>
+          <span class="ruler-box"><span>button 148 × 40</span></span>
+          <span class="ruler-gap">24px</span>
+          <span class="ruler-box ruler-box-next"></span>
+        </div>
+      </article>
+
+      <article class="card" data-reveal>
+        <div class="card-copy">
+          <p class="card-kicker"><svg class="icon" aria-hidden="true"><use href="#i-qr"/></svg>QR code</p>
+          <h3 class="card-title">Send a page to your phone.</h3>
+          <p class="card-text">Run QR Code for Current Page and scan it. The code is made on your computer, offline.</p>
+        </div>
+        <div class="mini mini-qr">
+          {{ (resources.Get "images/qr-tabcmdr.svg").Content | safeHTML }}
+          <span aria-hidden="true">tabcmdr.com</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

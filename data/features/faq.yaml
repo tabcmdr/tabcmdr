@@ -1,0 +1,29 @@
+- question: Which browsers does TabCmdr work in?
+  answer: Chrome, Edge, Brave, Arc, Vivaldi, Opera and other Chromium-based browsers. Install it from the Chrome Web Store in any of them.
+
+- question: How do I open the palette?
+  answer: Press ⌘K on a Mac or Ctrl+K on Windows and Linux, or click the TabCmdr icon in the toolbar. If another app already uses that shortcut, set a different one in TabCmdr's settings.
+
+- question: Does it work on every page?
+  answer: On regular web pages the palette opens on top of the page. Browsers don't let extensions run on their own pages, such as chrome:// settings or the Web Store, so on those TabCmdr opens in its own window instead. You can also turn TabCmdr off for any domain you choose.
+
+- question: Does it search tabs in other windows?
+  answer: Yes. Tab search covers every open window at once, and Merge All Windows into One moves them all into the current window.
+
+- question: Do I need an account?
+  answer: No. There is nothing to sign up for. Install the extension and press the shortcut.
+
+- question: Is my browsing data sent anywhere?
+  answer: No. Tabs, bookmarks, history and downloads are read through the browser's own APIs when you open the palette and discarded when you close it. None of it is sent anywhere, and there's no analytics or tracking.
+
+- question: How does AI chat work, and what does it cost?
+  answer: Add an API key for ChatGPT, Claude, Gemini, Grok, Groq, DeepSeek, Mistral, Perplexity or OpenRouter in settings. Messages go from your browser straight to that provider, and you pay the provider for what you use. TabCmdr doesn't charge for AI and never sees your chats.
+
+- question: What happens when the free trial ends?
+  answer: Every feature works during the 7-day trial. After it ends you get 10 free uses a day. A one-time license from Gumroad removes the limit, with no subscription.
+
+- question: Does it work offline?
+  answer: Searching tabs, bookmarks, history and downloads, running commands and using the calculator all work offline. AI chat, weather and RSS need a connection because they fetch data.
+
+- question: Is it a tab manager or a launcher?
+  answer: Both. Search and switch to anything in your browser, then run commands on what you find, such as closing duplicate tabs, sorting tabs or moving a tab to a new window.

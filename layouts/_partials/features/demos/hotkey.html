@@ -1,0 +1,26 @@
+<div class="hk" data-hotkey data-reveal>
+  <div class="hk-card">
+    <div class="hk-row">
+      <div class="hk-copy">
+        <p class="hk-label">Your keyboard shortcut</p>
+        <p class="hk-desc">Press it on any page to open the TabCmdr palette.</p>
+      </div>
+      <div class="hk-side">
+        <span class="hk-keys" data-hotkey-current><kbd class="step-key" data-mod-key>⌘</kbd><kbd class="step-key">K</kbd></span>
+        <button class="hk-change" type="button" data-hotkey-open>Change</button>
+      </div>
+    </div>
+  </div>
+  <div class="hk-window" data-hotkey-window hidden>
+    <p class="hk-bar"><span class="traffic"><i></i><i></i><i></i></span><span class="hk-url">chrome://extensions/shortcuts</span></p>
+    <div class="hk-body">
+      <p class="hk-ext"><img src="{{ "favicon-96x96.png" | relURL }}" width="20" height="20" alt="">TabCmdr</p>
+      <div class="hk-field-row">
+        <span>Toggle Command Palette</span>
+        <button class="hk-field" type="button" aria-label="Shortcut for Toggle Command Palette. Click, then press a new shortcut." data-hotkey-field><span data-hotkey-field-text></span></button>
+      </div>
+      <p class="hk-hint" aria-live="polite" data-hotkey-hint>Click the shortcut, then press the keys you want.</p>
+    </div>
+  </div>
+  <p class="demo-caption" data-hotkey-caption>Click Change to see where the shortcut is set.</p>
+</div>

@@ -1,0 +1,15 @@
+{{- with .Params.related }}
+<section class="section{{ with $.Store.Get "relatedBand" }} {{ . }}{{ end }}" aria-labelledby="related-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <h2 class="headline-sm" id="related-title">Works well with</h2>
+    </header>
+    <ul class="catalog-grid catalog-grid-related" role="list">
+      {{- range . }}
+      {{- partial "features/catalog-card.html" (dict "item" (partial "features/catalog-item.html" .)) }}
+      {{- end }}
+    </ul>
+    <p class="related-all" data-reveal><a class="link-arrow" href="{{ "features/" | relURL }}#all-features">See all {{ partial "features/catalog-count.html" . }} features <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+  </div>
+</section>
+{{- end }}

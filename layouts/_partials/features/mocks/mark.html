@@ -1,0 +1,5 @@
+{{- $text := .text | default "" | htmlEscape }}
+{{- with .terms }}
+  {{- $text = replaceRE (printf "(?i)(%s)" (delimit . "|")) "<mark>$1</mark>" $text }}
+{{- end }}
+{{- return ($text | safeHTML) }}

@@ -1,0 +1,14 @@
+{{- $app := hugo.Data.features.app }}
+<section class="cta band-dark" aria-labelledby="cta-title">
+  <div class="container cta-inner" data-reveal>
+    <div class="cta-keys" aria-hidden="true">
+      <span class="keycap keycap-dark"><span data-mod-key>⌘</span></span>
+      <span class="keycap keycap-dark"><span>K</span></span>
+    </div>
+    <h2 class="headline" id="cta-title">One shortcut for your whole browser. <span class="muted">Stop hunting for tabs.</span></h2>
+    <div class="cta-actions">
+      {{- partial "features/install-button.html" (dict "variant" "light" "size" "large") }}
+    </div>
+    <p class="cta-note">Free for {{ $app.trialDays }} days <span aria-hidden="true">·</span> Then ${{ $app.price }}, paid once <span aria-hidden="true">·</span> No account</p>
+  </div>
+</section>

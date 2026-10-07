@@ -1,0 +1,53 @@
+{{- $rows := slice
+  (dict "id" "a1" "title" "Pull requests · acme/web" "url" "https://github.com/acme/web/pulls" "host" "github.com" "group" "Review")
+  (dict "id" "a2" "title" "Deployments - acme-web - Vercel" "url" "https://vercel.com/acme/web/deployments" "host" "vercel.com")
+  (dict "id" "a3" "title" "#design - acme - Slack" "url" "https://app.slack.com/client/T0A1/C0D3" "host" "app.slack.com" "pinned" true)
+  (dict "id" "a4" "title" "Weekly design review · acme - YouTube" "url" "https://www.youtube.com/watch?v=k7Fq2" "host" "youtube.com" "audible" true)
+  (dict "id" "a5" "title" "Design tokens - acme wiki" "url" "https://www.notion.so/acme/Design-tokens-31aa" "host" "notion.so" "group" "Review")
+}}
+{{- $actions := slice
+  (dict "id" "reload" "icon" "i-rotate" "label" "Reload tab")
+  (dict "id" "mute" "icon" "i-volume" "label" "Mute tab")
+  (dict "id" "pin" "icon" "i-pin" "label" "Pin tab")
+  (dict "id" "duplicate" "icon" "i-copy" "label" "Duplicate tab")
+  (dict "id" "incognito" "icon" "i-incognito" "label" "Open in incognito")
+  (dict "id" "ungroup" "icon" "i-ungroup" "label" "Remove from group")
+  (dict "id" "move" "icon" "i-maximize" "label" "Move to new window")
+  (dict "id" "copy" "icon" "i-link" "label" "Copy URL")
+  (dict "id" "close" "icon" "i-x" "label" "Close tab")
+}}
+    <div class="demo-stack" data-reveal>
+      <div class="pal pal-card" data-actions-demo>
+        <div class="pal-search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="visually-hidden" for="actions-query">Search the sample tabs</label>
+          <input id="actions-query" class="pal-input" type="text" value="acme" placeholder="Search tabs · :b bookmarks · :h history · :d downloads · :s search…" autocomplete="off" spellcheck="false" maxlength="80" aria-controls="actions-list" data-actions-input>
+          <kbd class="pal-esc" aria-hidden="true">ESC</kbd>
+        </div>
+        {{- partial "features/palette-filters.html" (dict "active" "tabs" "interactive" true) }}
+        <div class="pal-list pal-list-auto" id="actions-list" role="listbox" aria-label="Sample results" data-action-list>
+          <div data-actions-tabs>
+          <p class="pal-group">Tabs</p>
+          {{- range $index, $row := $rows }}
+          <div class="pal-item{{ if eq $index 0 }} is-selected{{ end }}" role="option" aria-selected="{{ if eq $index 0 }}true{{ else }}false{{ end }}" tabindex="-1" data-row="{{ $row.id }}" data-url="{{ $row.url }}"{{ with $row.group }} data-group="{{ . }}"{{ end }}{{ if $row.pinned }} data-pinned{{ end }}{{ if $row.audible }} data-audible{{ end }}>
+            {{- partial "features/favicon.html" (dict "host" $row.host) -}}
+            <span class="pal-text">
+              <span class="pal-title"><span data-title>{{ $row.title }}</span><span class="row-badges" aria-hidden="true"><svg class="icon row-pin"><use href="#i-pin"/></svg><svg class="icon row-muted"><use href="#i-volume-x"/></svg>{{ with $row.group }}<span class="row-group">{{ . }}</span>{{ end }}</span></span>
+              <span class="pal-sub">{{ $row.url }}</span>
+            </span>
+            <span class="pal-actions">
+              {{- range $actions }}
+              <button class="pal-action" type="button" data-action="{{ .id }}" aria-label="{{ .label }}" data-tip="{{ .label }}"><svg class="icon" aria-hidden="true"><use href="#{{ .icon }}"/></svg></button>
+              {{- end }}
+            </span>
+          </div>
+          {{- end }}
+          </div>
+          <div data-actions-extra></div>
+          <p class="pal-empty" data-actions-empty hidden>No results found.</p>
+        </div>
+        {{- partial "features/palette-footer.html" . }}
+        <p class="toast" role="status" data-toast></p>
+      </div>
+      <p class="demo-caption" data-actions-caption>Click a row, then try its buttons.</p>
+    </div>

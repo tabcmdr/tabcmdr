@@ -1,20 +1,33 @@
-{{- $src := .src -}}
+{{- $image := .resource -}}
+{{- with .src -}}
+  {{- $image = resources.Get . -}}
+{{- end -}}
 {{- $alt := default "" .alt -}}
 {{- $maxWidth := default 1024 .maxWidth -}}
-{{- with resources.Get $src -}}
-  {{- $image := . -}}
-  {{- if and (reflect.IsImageResourceProcessable $image) (gt $image.Width $maxWidth) -}}
-    {{- $image = $image.Resize (printf "%dx lanczos" $maxWidth) -}}
+{{- $absolute := default false .absolute -}}
+{{- $class := default "" .class -}}
+{{- with $image -}}
+  {{- $processed := . -}}
+  {{- if and (reflect.IsImageResourceProcessable $processed) (gt $processed.Width $maxWidth) -}}
+    {{- $processed = $processed.Resize (printf "%dx lanczos" $maxWidth) -}}
   {{- end -}}
-  {{- if reflect.IsImageResourceProcessable $image -}}
-    {{- $webp := $image.Process "webp q95" -}}
+  {{- $source := $processed.RelPermalink -}}
+  {{- if $absolute -}}
+    {{- $source = $processed.Permalink -}}
+  {{- end -}}
+  {{- if reflect.IsImageResourceProcessable $processed -}}
+    {{- $webp := $processed.Process "webp q95" -}}
+    {{- $webpSource := $webp.RelPermalink -}}
+    {{- if $absolute -}}
+      {{- $webpSource = $webp.Permalink -}}
+    {{- end -}}
     <picture>
-      <source srcset="{{ $webp.RelPermalink }}" type="image/webp" />
-      <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async" />
+      <source srcset="{{ $webpSource }}" type="image/webp" />
+      <img src="{{ $source }}" width="{{ $processed.Width }}" height="{{ $processed.Height }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async" />
     </picture>
   {{- else -}}
-    <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async" />
+    <img src="{{ $source }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async" />
   {{- end -}}
 {{- else -}}
-  {{- errorf "Image resource not found: %s" $src -}}
+  {{- errorf "Image resource not found: %v" (or $.src "no src or resource passed") -}}
 {{- end -}}

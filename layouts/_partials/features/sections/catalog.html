@@ -1,0 +1,20 @@
+{{- $groups := hugo.Data.features.catalog }}
+{{- $count := 0 }}
+{{- range $groups }}
+  {{- $count = add $count (len .items) }}
+{{- end }}
+<section class="section catalog" id="all-features" aria-labelledby="all-features-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>All features</p>
+      <h2 class="headline" id="all-features-title">Pick the problem. <span class="muted">There's a command for it.</span></h2>
+      <p class="lead">{{ $count }} features in {{ len $groups }} groups, all opened from the same <span class="kbd-group"><kbd class="kbd" data-mod-key>⌘</kbd><kbd class="kbd">K</kbd></span> search box. Pick one for the full guide, or scroll down to try them.</p>
+    </header>
+    <nav class="catalog-jump" aria-label="Feature groups" data-reveal>
+      {{- range $index, $group := $groups }}
+      <a href="#group-{{ $group.id }}"><span class="catalog-jump-number">{{ printf "%02d" (add $index 1) }}</span>{{ $group.title }}</a>
+      {{- end }}
+    </nav>
+    {{- partial "features/catalog-groups.html" . }}
+  </div>
+</section>

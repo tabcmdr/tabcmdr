@@ -1,0 +1,23 @@
+{{- $permissions := slice
+  (dict "id" "clipboardWrite" "label" "Clipboard Write" "desc" "Copy URLs, text, and screenshots to your clipboard." "uses" "copying URLs, answers, emoji and screenshots")
+  (dict "id" "bookmarks" "label" "Bookmarks" "desc" "Search and open your bookmarks directly from the palette." "uses" ":b and the Bookmarks filter")
+  (dict "id" "history" "label" "Browsing History" "desc" "Search your browsing history to quickly revisit pages." "uses" ":h and the History filter")
+  (dict "id" "downloads" "label" "Downloads" "desc" "View, open, and manage your recent downloads." "uses" ":d and the Downloads filter")
+  (dict "id" "sessions" "label" "Recently Closed" "desc" "Restore recently closed tabs and windows." "uses" ":r and Undo Close Tab")
+  (dict "id" "tabGroups" "label" "Tab Groups" "desc" "Create, manage, and organize tab groups. (Chrome only)" "uses" "Remove Tab from Group")
+}}
+<div class="perm-demo" data-permissions data-reveal>
+  <div class="perm-card">
+    <p class="perm-title">Optional permissions</p>
+    <p class="perm-sub">TabCmdr asks for each one the first time a feature needs it.</p>
+    <ul class="perm-list" role="list">
+      {{- range $index, $permission := $permissions }}
+      <li class="perm-item">
+        <span class="perm-copy"><b>{{ $permission.label }}</b><span>{{ $permission.desc }}</span></span>
+        <button class="switch perm-switch{{ if lt $index 3 }} is-on{{ end }}" type="button" role="switch" aria-checked="{{ if lt $index 3 }}true{{ else }}false{{ end }}" aria-label="{{ $permission.label }}" data-permission="{{ $permission.label }}" data-uses="{{ $permission.uses }}"><i></i></button>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+  <p class="demo-caption" aria-live="polite" data-permissions-caption>Turn a permission off and the feature that needs it asks again before it reads anything.</p>
+</div>

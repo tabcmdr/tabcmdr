@@ -1,0 +1,53 @@
+{{- $palette := .row.palette }}
+{{- $terms := $palette.highlight }}
+{{- $actionSets := dict
+  "tab" (slice (slice "i-rotate" "Reload tab") (slice "i-volume" "Mute tab") (slice "i-pin" "Pin tab") (slice "i-copy" "Duplicate tab") (slice "i-incognito" "Open in incognito") (slice "i-ungroup" "Remove from group") (slice "i-maximize" "Move to new window") (slice "i-link" "Copy URL") (slice "i-x" "Close tab"))
+  "bookmark" (slice (slice "i-incognito" "Open in incognito") (slice "i-link" "Copy URL"))
+  "history" (slice (slice "i-incognito" "Open in incognito") (slice "i-link" "Copy URL"))
+  "download" (slice (slice "i-folder" "Show in folder") (slice "i-link" "Copy source URL") (slice "i-x" "Remove from list"))
+}}
+<div class="pal pal-card pal-mini{{ with $palette.toast }} has-toast{{ end }}">
+  <div class="pal-search">
+    <svg class="icon"><use href="#i-search"/></svg>
+    {{- with $palette.query }}
+    <span class="pal-query">{{ . }}<i class="caret"></i></span>
+    {{- else }}
+    <span class="pal-query pal-placeholder">Search tabs · :b bookmarks · :h history · :d downloads · :s search...</span>
+    {{- end }}
+    <kbd class="pal-esc">ESC</kbd>
+  </div>
+  {{- with $palette.filter }}
+  {{- partial "features/palette-filters.html" (dict "active" .) }}
+  {{- end }}
+  <div class="pal-list pal-list-auto">
+    {{- range $palette.groups }}
+    <p class="pal-group">{{ .label }}</p>
+    {{- range .rows }}
+    <div class="pal-item{{ if .selected }} is-selected{{ end }}">
+      {{- with .glyph }}
+      <span class="pal-glyph"><svg class="icon"><use href="#{{ . }}"/></svg></span>
+      {{- else }}
+      {{- partial "features/favicon.html" (dict "host" .host) }}
+      {{- end }}
+      <span class="pal-text">
+        <span class="pal-title">{{ partial "features/mocks/mark.html" (dict "text" .title "terms" $terms) }}</span>
+        <span class="pal-sub">{{ partial "features/mocks/mark.html" (dict "text" .sub "terms" $terms) }}</span>
+      </span>
+      {{- with .meta }}<span class="pal-meta">{{ . }}</span>{{ end }}
+      {{- with .type }}<svg class="icon pal-tail pal-type"><use href="#{{ . }}"/></svg>{{ end }}
+      {{- with .actions }}
+      {{- $tip := $.row.palette.tip }}
+      <span class="pal-actions">
+        {{- range index $actionSets . }}
+        <span class="pal-action{{ if eq (index . 1) $tip }} is-tipped{{ end }}" data-tip="{{ index . 1 }}"><svg class="icon"><use href="#{{ index . 0 }}"/></svg></span>
+        {{- end }}
+      </span>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- end }}
+  </div>
+  {{- with $palette.toast }}
+  <p class="toast is-visible">{{ . }}</p>
+  {{- end }}
+</div>

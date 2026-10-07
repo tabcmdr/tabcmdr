@@ -1,0 +1,12 @@
+{{- $match := dict }}
+{{- range hugo.Data.features.catalog }}
+  {{- range .items }}
+    {{- if eq .id $ }}
+      {{- $match = . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- if not $match.id }}
+  {{- errorf "Feature %q is not in data/features/catalog.yaml" $ }}
+{{- end }}
+{{- return $match }}

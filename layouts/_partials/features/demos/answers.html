@@ -1,0 +1,22 @@
+{{- $demo := .demo | default dict }}
+{{- $examples := $demo.examples | default (slice "20% of 4500" "90 kg in lbs" "time in tokyo" "now + 3 days" "24px to rem" "rgb(240,1,61) to hex" "255 to binary" "unix 1713000000" ":tx launch plan notes" ":pwd 24" ":uuid") }}
+{{- $query := $demo.query | default "20% of 4500" }}
+    <div class="demo-stack" data-reveal>
+      <div class="pal pal-card" data-answers>
+        <div class="pal-search">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <label class="visually-hidden" for="answers-query">Type a calculation or conversion</label>
+          <input id="answers-query" class="pal-input" type="text" value="{{ $query }}" autocomplete="off" spellcheck="false" maxlength="80" enterkeyhint="done" aria-controls="answers-results" data-answers-input>
+          <kbd class="pal-esc" aria-hidden="true">ESC</kbd>
+        </div>
+        {{- partial "features/palette-filters.html" (dict "active" "all") }}
+        <div class="pal-list pal-list-answers" id="answers-results" aria-live="polite" data-answers-results></div>
+        {{- partial "features/palette-footer.html" . }}
+        <p class="toast" role="status" data-toast></p>
+      </div>
+      <div class="chips" role="group" aria-label="Examples to try">
+        {{- range $examples }}
+        <button class="chip chip-mono" type="button" data-answer-example="{{ . }}">{{ . }}</button>
+        {{- end }}
+      </div>
+    </div>

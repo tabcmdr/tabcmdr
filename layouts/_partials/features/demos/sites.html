@@ -1,0 +1,34 @@
+{{- $sites := hugo.Data.features.sites }}
+{{- $first := index $sites 0 }}
+    <div class="demo-stack" data-reveal data-sites>
+      <div class="site-chips" role="group" aria-label="Pick a site">
+        {{- range $index, $site := $sites }}
+        <button class="site-chip{{ if eq $index 0 }} is-active{{ end }}" type="button" aria-pressed="{{ if eq $index 0 }}true{{ else }}false{{ end }}" data-site="{{ $site.id }}">
+          <span class="fav fav-xs" style="--fav: {{ $site.color | safeCSS }}" aria-hidden="true">{{ $site.letter }}</span>{{ $site.name }}<span class="site-count">{{ $site.count }}</span>
+        </button>
+        {{- end }}
+      </div>
+      <div class="pal pal-card">
+        <div class="pal-search" aria-hidden="true">
+          <svg class="icon"><use href="#i-search"/></svg>
+          <span class="pal-query pal-placeholder">Search tabs · :b bookmarks · :h history · :d downloads · :s search...</span>
+          <kbd class="pal-esc">ESC</kbd>
+        </div>
+        {{- partial "features/palette-filters.html" (dict "active" "all") }}
+        <div class="pal-list pal-list-auto">
+          <p class="pal-group"><span>Commands</span><span class="pal-group-note" data-site-host>on {{ $first.host }}</span></p>
+          <div data-site-commands>
+            {{- range $first.commands }}
+            <div class="pal-item">
+              <span class="pal-glyph" aria-hidden="true"><svg class="icon"><use href="#i-command"/></svg></span>
+              <span class="pal-text"><span class="pal-title">{{ . }}</span><span class="pal-sub">Page command</span></span>
+              <svg class="icon pal-tail" aria-hidden="true"><use href="#i-terminal"/></svg>
+            </div>
+            {{- end }}
+          </div>
+        </div>
+        {{- partial "features/palette-footer.html" . }}
+      </div>
+      <p class="demo-caption" data-site-caption>{{ $first.count }} shortcuts on {{ $first.name }}. A few of them are shown here.</p>
+      <script type="application/json" id="sites-data">{{ $sites | jsonify | safeJS }}</script>
+    </div>

@@ -1,0 +1,18 @@
+{{- $picks := slice "calculator" "site-shortcuts" "color-picker" "themes" }}
+<section class="section band-paper" id="more" aria-labelledby="more-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>And more</p>
+      <h2 class="headline" id="more-title">What else can it do? <span class="muted">{{ partial "features/catalog-count.html" . }} features in all.</span></h2>
+      <p class="lead">Convert units, check the time in Tokyo, pick a color off the page, measure elements, make a QR code, keep a to-do list, read your RSS feeds and check the weather.</p>
+    </header>
+    <div class="catalog-group more-grid">
+      <ul class="catalog-grid" role="list">
+        {{- range $picks }}
+        {{- partial "features/catalog-card.html" (dict "item" (partial "features/catalog-item.html" .)) }}
+        {{- end }}
+      </ul>
+    </div>
+    <p class="more-all" data-reveal><a class="button button-outline button-large" href="{{ "features/" | relURL }}">See all {{ partial "features/catalog-count.html" . }} features<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+  </div>
+</section>

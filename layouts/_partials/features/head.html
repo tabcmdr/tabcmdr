@@ -1,0 +1,44 @@
+{{- $app := hugo.Data.features.app }}
+{{- $ogTitle := .Params.ogTitle | default .Title }}
+{{- $ogDescription := .Params.ogDescription | default .Description }}
+{{- $imageAlt := .Params.imageAlt | default $app.imageAlt }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ .Title }}</title>
+<meta name="description" content="{{ .Description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="{{ "favicon-96x96.png" | relURL }}" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+<meta name="apple-mobile-web-app-title" content="TabCmdr">
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
+<meta name="yandex-verification" content="1bb50e0c624fe9b9">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ $app.name }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $ogTitle }}">
+<meta property="og:description" content="{{ $ogDescription }}">
+<meta property="og:image" content="{{ "og-image.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ $imageAlt }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $ogTitle }}">
+<meta name="twitter:description" content="{{ $ogDescription }}">
+<meta name="twitter:image" content="{{ "twitter-card.png" | absURL }}">
+<meta name="twitter:image:alt" content="{{ $imageAlt }}">
+{{- if .IsHome }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@600&text=tabcmdr&display=swap">
+{{- end }}
+{{- $styles := resources.Get "css/features.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{- $script := resources.Get "js/features.js" | js.Build (dict "minify" true "target" "es2020") | fingerprint }}
+<script defer src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+{{- partial "features/schema.html" . }}

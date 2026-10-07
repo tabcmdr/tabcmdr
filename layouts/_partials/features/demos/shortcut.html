@@ -1,0 +1,49 @@
+{{- $demo := .demo | default dict }}
+{{- $data := hugo.Data.features.shortcuts }}
+{{- $item := dict }}
+{{- range $data.groups }}
+  {{- range .items }}
+    {{- if eq .token $demo.token }}
+      {{- $item = . }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- range $data.extras }}
+  {{- if eq .token $demo.token }}
+    {{- $item = . }}
+  {{- end }}
+{{- end }}
+{{- if not $item.token }}
+  {{- errorf "Shortcut demo %q is not in data/features/shortcuts.yaml" $demo.token }}
+{{- end }}
+{{- with $demo.query }}
+  {{- $item = merge $item (dict "query" .) }}
+{{- end }}
+{{- with $demo.tries }}
+  {{- $item = merge $item (dict "tries" .) }}
+{{- end }}
+{{- $payload := merge $data (dict "groups" (slice (dict "items" (slice $item)))) }}
+<div class="sx sx-single" data-sx data-reveal>
+  <div class="sx-stage" id="sx-stage">
+    <div class="sx-frame" data-sx-frame></div>
+    <div class="sx-info">
+      <div class="sx-info-head">
+        <kbd class="sh-key" data-sx-key></kbd>
+        <p class="sx-info-title" data-sx-title></p>
+        <a class="link-arrow sx-info-link" href="{{ "features/" | relURL }}" data-sx-link>Learn more</a>
+      </div>
+      <p class="sx-info-text" data-sx-info></p>
+      <p class="sx-status" aria-live="polite" data-sx-status></p>
+      <div class="sx-tries" data-sx-tries></div>
+    </div>
+  </div>
+  <div class="sx-list">
+    <button class="sx-item" type="button" aria-pressed="false" aria-controls="sx-stage" data-sx-item="{{ $item.token }}">{{ $item.title }}</button>
+  </div>
+  {{- if eq $item.scene "qr" }}
+  <template data-sx-qr>{{ (resources.Get "images/qr-tabcmdr.svg").Content | safeHTML }}</template>
+  {{- end }}
+  <script type="application/json" id="shortcut-data">{{ $payload | jsonify | safeJS }}</script>
+  {{- $sample := hugo.Data.features.demo }}
+  <script type="application/json" id="sx-demo-data">{{ dict "sites" $sample.sites "tabs" $sample.tabs "bookmarks" $sample.bookmarks "history" $sample.history "downloads" $sample.downloads "closed" $sample.closed "commands" $sample.commands "tools" $sample.tools "engines" $sample.engines | jsonify | safeJS }}</script>
+</div>

@@ -1,0 +1,27 @@
+{{- $item := .item }}
+{{- $page := site.GetPage (printf "/features/%s" $item.id) }}
+{{- $preview := index hugo.Data.features.previews $item.id }}
+{{- $href := printf "%s#%s" ("features/" | relURL) $item.section }}
+{{- $label := "See it in action" }}
+{{- if $page }}
+  {{- $href = $page.RelPermalink }}
+  {{- $label = "Read the guide" }}
+{{- else if $item.docs }}
+  {{- $href = printf "docs/%s/" $item.docs | relURL }}
+  {{- $label = "Read the docs" }}
+{{- end }}
+<li class="catalog-card{{ if $page }} has-page{{ end }}{{ if and $preview $preview.wide }} is-wide{{ end }}" data-reveal>
+  <a href="{{ $href }}">
+    {{- with $preview }}
+    <div class="catalog-preview">{{ partial "features/preview.html" (dict "preview" .) }}</div>
+    {{- end }}
+    <div class="catalog-body">
+      <h3 class="catalog-title">{{ $item.title }}</h3>
+      <p class="catalog-text">{{ $item.text }}</p>
+      <span class="catalog-meta">
+        {{- with $item.token }}{{ partial "features/token.html" (dict "text" . "class" "token-sm") }}{{ end -}}
+        <span class="catalog-more">{{ $label }}<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+      </span>
+    </div>
+  </a>
+</li>

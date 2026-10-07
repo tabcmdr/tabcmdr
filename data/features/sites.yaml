@@ -1,0 +1,143 @@
+- id: github
+  name: GitHub
+  host: github.com
+  letter: G
+  color: "#1f2328"
+  count: 17
+  page: "Pull requests · acme/web"
+  commands:
+    - Go to Code Tab
+    - Go to Issues Tab
+    - Go to Pull Requests Tab
+    - Go to Actions Tab
+    - Go to Wiki Tab
+    - Go to Discussions Tab
+    - Go to Projects Tab
+
+- id: gmail
+  name: Gmail
+  host: mail.google.com
+  letter: M
+  color: "#ea4335"
+  count: 23
+  page: "Inbox (12) - Gmail"
+  commands:
+    - Compose New Email
+    - Go to Inbox
+    - Go to Starred
+    - Go to Sent Mail
+    - Go to Drafts
+    - Go to Spam
+    - Go to Contacts
+
+- id: figma
+  name: Figma
+  host: figma.com
+  letter: F
+  color: "#a259ff"
+  count: 32
+  page: "Onboarding flow v3 - Figma"
+  commands:
+    - Move Tool
+    - Frame Tool
+    - Pen Tool
+    - Text Tool
+    - Rectangle Tool
+    - Ellipse Tool
+    - Arrow Tool
+
+- id: notion
+  name: Notion
+  host: notion.so
+  letter: N
+  color: "#191919"
+  count: 25
+  page: "Launch plan - Notion"
+  commands:
+    - New Page
+    - Quick Find / Search
+    - Create Sub-page Inside
+    - Toggle Sidebar
+    - Bold
+    - Strikethrough
+    - Inline Code
+
+- id: gitlab
+  name: GitLab
+  host: gitlab.com
+  letter: L
+  color: "#fc6d26"
+  count: 25
+  page: "Merge requests · acme / platform"
+  commands:
+    - Go to Your Projects
+    - Go to Your Groups
+    - Go to Your Issues
+    - Go to Your Merge Requests
+    - Go to Your To-Do List
+    - Go to Your Milestones
+    - Focus Search Bar
+
+- id: jira
+  name: Jira
+  host: atlassian.net
+  letter: J
+  color: "#0c66e4"
+  count: 20
+  page: "ENG board - Jira"
+  commands:
+    - Go to Boards
+    - Go to Backlog
+    - Go to Projects
+    - Go to Dashboards
+    - Go to Filters
+    - Create Issue
+    - Focus Search
+
+- id: discord
+  name: Discord
+  host: discord.com
+  letter: D
+  color: "#5865f2"
+  count: 20
+  page: "#general | acme - Discord"
+  commands:
+    - Previous Server
+    - Next Server
+    - Previous Unread Channel
+    - Next Unread Channel
+    - Search
+    - Mark Channel as Read
+    - Mark Server as Read
+
+- id: youtube
+  name: YouTube
+  host: youtube.com
+  letter: Y
+  color: "#ff0033"
+  count: 25
+  page: "Weekly design review - YouTube"
+  commands:
+    - Play / Pause
+    - Mute / Unmute
+    - Volume Up (+10%)
+    - Seek Back 10 Seconds
+    - Seek Forward 10 Seconds
+    - Go to Beginning
+    - Seek Back 5 Seconds
+
+- id: x
+  name: X
+  host: x.com
+  letter: X
+  color: "#0f1419"
+  count: 21
+  page: "Home / X"
+  commands:
+    - New Post
+    - Search
+    - Like Post
+    - Reply to Post
+    - Repost
+    - Bookmark Post
+    - New Direct Message

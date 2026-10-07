@@ -1,0 +1,15 @@
+{{- $before1 := slice (dict "host" "mail.google.com" "title" "Inbox (12) - Gmail") (dict "host" "github.com" "title" "Pull requests · acme/web") (dict "host" "docs.google.com" "title" "Q3 roadmap") (dict "host" "github.com" "title" "Pull requests · acme/web" "dup" true) (dict "host" "notion.so" "title" "Launch plan") }}
+{{- $before2 := slice (dict "host" "docs.google.com" "title" "Q3 roadmap" "dup" true) (dict "host" "dashboard.stripe.com" "title" "Payments") (dict "host" "mail.google.com" "title" "Inbox (12) - Gmail" "dup" true) }}
+<div class="windows-mock">
+  <p class="windows-label">Before</p>
+  <div class="windows-pair">
+    <div class="windows-strip"><span class="windows-name">Window 1</span>{{ range $before1 }}<span class="windows-tab{{ if .dup }} is-dup{{ end }}">{{ partial "features/favicon.html" (dict "host" .host "class" "fav-xs") }}<span>{{ .title }}</span></span>{{ end }}</div>
+    <div class="windows-strip"><span class="windows-name">Window 2</span>{{ range $before2 }}<span class="windows-tab{{ if .dup }} is-dup{{ end }}">{{ partial "features/favicon.html" (dict "host" .host "class" "fav-xs") }}<span>{{ .title }}</span></span>{{ end }}</div>
+  </div>
+  <p class="windows-toast">Closed 3 duplicates</p>
+  <p class="windows-label">After</p>
+  <div class="windows-pair">
+    <div class="windows-strip"><span class="windows-name">Window 1</span>{{ range $before1 }}{{ if not .dup }}<span class="windows-tab">{{ partial "features/favicon.html" (dict "host" .host "class" "fav-xs") }}<span>{{ .title }}</span></span>{{ end }}{{ end }}</div>
+    <div class="windows-strip"><span class="windows-name">Window 2</span>{{ range $before2 }}{{ if not .dup }}<span class="windows-tab">{{ partial "features/favicon.html" (dict "host" .host "class" "fav-xs") }}<span>{{ .title }}</span></span>{{ end }}{{ end }}</div>
+  </div>
+</div>

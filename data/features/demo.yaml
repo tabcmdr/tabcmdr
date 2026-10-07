@@ -1,0 +1,199 @@
+sites:
+  github.com: { letter: G, color: "#1f2328" }
+  mail.google.com: { letter: M, color: "#ea4335" }
+  linear.app: { letter: L, color: "#5e6ad2" }
+  figma.com: { letter: F, color: "#a259ff" }
+  docs.google.com: { letter: D, color: "#4285f4" }
+  news.ycombinator.com: { letter: Y, color: "#ff6600" }
+  developer.mozilla.org: { letter: M, color: "#1b1b1b" }
+  youtube.com: { letter: Y, color: "#ff0033" }
+  stackoverflow.com: { letter: S, color: "#f48024" }
+  notion.so: { letter: N, color: "#191919" }
+  open.spotify.com: { letter: S, color: "#1db954" }
+  calendar.google.com: { letter: C, color: "#1a73e8" }
+  app.slack.com: { letter: S, color: "#4a154b" }
+  dashboard.stripe.com: { letter: S, color: "#635bff" }
+  vercel.com: { letter: V, color: "#000000" }
+  en.wikipedia.org: { letter: W, color: "#54595d" }
+  tailwindcss.com: { letter: T, color: "#0ea5e9" }
+  react.dev: { letter: R, color: "#087ea4" }
+  developer.chrome.com: { letter: C, color: "#1a73e8" }
+  caniuse.com: { letter: C, color: "#c8553d" }
+  google.com: { letter: G, color: "#4285f4" }
+  drive.google.com: { letter: D, color: "#188038" }
+  seriouseats.com: { letter: S, color: "#d9381e" }
+  timeout.com: { letter: T, color: "#d6001c" }
+  bing.com: { letter: b, color: "#008373" }
+  duckduckgo.com: { letter: D, color: "#de5833" }
+
+tabs:
+  - { id: t1, window: 1, title: "Pull requests · acme/web", url: "https://github.com/acme/web/pulls", host: github.com }
+  - { id: t2, window: 1, title: "Inbox (12) - Gmail", url: "https://mail.google.com/mail/u/0/#inbox", host: mail.google.com }
+  - { id: t3, window: 1, title: "ENG-482 Fix sticky header on Safari - Linear", url: "https://linear.app/acme/issue/ENG-482", host: linear.app }
+  - { id: t4, window: 1, title: "Onboarding flow v3 - Figma", url: "https://www.figma.com/design/k2Yd/onboarding-flow-v3", host: figma.com }
+  - { id: t5, window: 1, title: "Q3 roadmap - Google Docs", url: "https://docs.google.com/document/d/1x9Kq3/edit", host: docs.google.com, active: true }
+  - { id: t6, window: 1, title: "Hacker News", url: "https://news.ycombinator.com/", host: news.ycombinator.com }
+  - { id: t7, window: 1, title: ":has() - CSS | MDN", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has", host: developer.mozilla.org }
+  - { id: t8, window: 1, title: "Weekly design review - YouTube", url: "https://www.youtube.com/watch?v=k7Fq2", host: youtube.com, audible: true }
+  - { id: t9, window: 1, title: "tailwind.config.js content paths not picked up - Stack Overflow", url: "https://stackoverflow.com/questions/7103/tailwind-content-paths", host: stackoverflow.com }
+  - { id: t10, window: 1, title: "Launch plan - Notion", url: "https://www.notion.so/acme/Launch-plan-8c1f", host: notion.so }
+  - { id: t11, window: 1, title: "Pull requests · acme/web", url: "https://github.com/acme/web/pulls", host: github.com, duplicate: true }
+  - { id: t12, window: 1, title: "Focus Flow - Spotify", url: "https://open.spotify.com/playlist/37i9dQZF1", host: open.spotify.com, audible: true }
+  - { id: t13, window: 2, title: "Calendar - Week of October 5, 2026", url: "https://calendar.google.com/calendar/r/week", host: calendar.google.com, pinned: true }
+  - { id: t14, window: 2, title: "#design - acme - Slack", url: "https://app.slack.com/client/T0A1/C0D3", host: app.slack.com, pinned: true }
+  - { id: t15, window: 2, title: "Payments - Stripe", url: "https://dashboard.stripe.com/payments", host: dashboard.stripe.com }
+  - { id: t16, window: 2, title: "Deployments - acme-web - Vercel", url: "https://vercel.com/acme/web/deployments", host: vercel.com }
+  - { id: t17, window: 2, title: "Keyboard shortcut - Wikipedia", url: "https://en.wikipedia.org/wiki/Keyboard_shortcut", host: en.wikipedia.org }
+
+bookmarks:
+  - { id: b1, title: "Tailwind CSS Docs", url: "https://tailwindcss.com/docs", host: tailwindcss.com, folder: "Bookmarks bar › Dev docs" }
+  - { id: b2, title: "Design tokens - acme wiki", url: "https://www.notion.so/acme/Design-tokens-31aa", host: notion.so, folder: "Bookmarks bar › Work" }
+  - { id: b3, title: "Team OKRs 2026", url: "https://docs.google.com/spreadsheets/d/0kr2026", host: docs.google.com, folder: "Bookmarks bar › Work" }
+  - { id: b4, title: "React Reference", url: "https://react.dev/reference/react", host: react.dev, folder: "Bookmarks bar › Dev docs" }
+  - { id: b5, title: "Component library - Figma", url: "https://www.figma.com/files/team/acme", host: figma.com, folder: "Bookmarks bar › Work › Design" }
+  - { id: b6, title: "Chrome Extensions docs", url: "https://developer.chrome.com/docs/extensions", host: developer.chrome.com, folder: "Other bookmarks › Reading list" }
+  - { id: b7, title: "Can I use", url: "https://caniuse.com/", host: caniuse.com, folder: "Bookmarks bar › Dev docs" }
+  - { id: b8, title: "Lisbon neighborhoods guide - Time Out", url: "https://www.timeout.com/lisbon/neighborhoods", host: timeout.com, folder: "Other bookmarks › Travel" }
+
+history:
+  - { id: h1, title: "Invoice #2041 - Stripe", url: "https://dashboard.stripe.com/invoices/in_2041", host: dashboard.stripe.com, when: "2h ago" }
+  - { id: h7, title: "Sprint 42 - Linear", url: "https://linear.app/acme/cycle/42", host: linear.app, when: "5h ago" }
+  - { id: h3, title: "Flights to Lisbon - Google Flights", url: "https://www.google.com/travel/flights?q=lisbon", host: google.com, when: "Yesterday" }
+  - { id: h2, title: "Contractor invoices - Google Drive", url: "https://drive.google.com/drive/folders/invoices", host: drive.google.com, when: "Yesterday" }
+  - { id: h4, title: "Release v4.2 · acme/design-system", url: "https://github.com/acme/design-system/releases/tag/v4.2", host: github.com, when: "Mon 5 Oct" }
+  - { id: h5, title: "CSS grid gap not working in Safari - Stack Overflow", url: "https://stackoverflow.com/questions/6611/css-grid-gap-safari", host: stackoverflow.com, when: "Sat 3 Oct" }
+  - { id: h6, title: "Pricing page explorations - Figma", url: "https://www.figma.com/design/p7Lm/pricing", host: figma.com, when: "Thu 1 Oct" }
+  - { id: h8, title: "Quarterly planning - Google Docs", url: "https://docs.google.com/document/d/q3plan/edit", host: docs.google.com, when: "Wed 30 Sep" }
+
+downloads:
+  - { id: d1, title: "invoice-2041.pdf", url: "https://dashboard.stripe.com/invoices/in_2041.pdf", host: dashboard.stripe.com, status: "182.0 KB" }
+  - { id: d5, title: "dataset-2026-10.csv", url: "https://drive.google.com/uc?id=ds2026", host: drive.google.com, status: "Downloading…" }
+  - { id: d2, title: "brand-assets-v3.zip", url: "https://www.figma.com/exports/brand-assets-v3.zip", host: figma.com, status: "24.1 MB" }
+  - { id: d3, title: "q3-roadmap.pdf", url: "https://docs.google.com/document/d/1x9Kq3/export", host: docs.google.com, status: "1.2 MB" }
+  - { id: d4, title: "team-offsite.jpg", url: "https://drive.google.com/uc?id=offsite", host: drive.google.com, status: "2.4 MB" }
+  - { id: d6, title: "old-contract.pdf", url: "https://drive.google.com/uc?id=contract", host: drive.google.com, status: "File missing" }
+  - { id: d7, title: "acme-brand-guidelines.pdf", url: "https://www.notion.so/acme/brand-guidelines.pdf", host: notion.so, status: "3.8 MB" }
+  - { id: d8, title: "acme-web-v2.4.0.zip", url: "https://github.com/acme/web/archive/v2.4.0.zip", host: github.com, status: "11.6 MB" }
+
+closed:
+  - { id: r1, title: "Expense report October - Google Sheets", url: "https://docs.google.com/spreadsheets/d/exp10", host: docs.google.com, when: "2m ago" }
+  - { id: r2, title: "Lisbon day trips - Time Out", url: "https://www.timeout.com/lisbon/day-trips", host: timeout.com, when: "18m ago" }
+  - { id: r3, title: "Sourdough starter, day 3 - Serious Eats", url: "https://www.seriouseats.com/sourdough-starter", host: seriouseats.com, when: "1h ago" }
+  - { id: r4, title: "Standup notes - Notion", url: "https://www.notion.so/acme/Standup-notes-77de", host: notion.so, when: "3h ago" }
+
+commands:
+  - { title: "Print Page", icon: i-printer }
+  - { title: "View Page Source", icon: i-code }
+  - { title: "Reload Page", icon: i-rotate }
+  - { title: "Hard Reload (Clear Cache)", icon: i-rotate }
+  - { title: "Close Tab", icon: i-x }
+  - { title: "Duplicate Tab", icon: i-copy }
+  - { title: "Undo Close Tab", icon: i-undo, effect: undo }
+  - { title: "Zoom In", icon: i-zoom-in, toast: "Zoomed in" }
+  - { title: "Zoom Out", icon: i-zoom-out, toast: "Zoomed out" }
+  - { title: "Reset Zoom", icon: i-search, toast: "Zoom reset" }
+  - { title: "Toggle Full Screen", icon: i-maximize }
+  - { title: "Scroll to Top", icon: i-arrow-up }
+  - { title: "Scroll to Bottom", icon: i-arrow-down }
+  - { title: "Copy Page URL", icon: i-link, toast: "URL copied" }
+  - { title: "Copy Page Title", icon: i-copy, toast: "Title copied" }
+  - { title: "New Tab", icon: i-plus }
+  - { title: "New Window", icon: i-monitor }
+  - { title: "New Incognito Window", icon: i-incognito }
+  - { title: "Bookmark This Page", icon: i-bookmark, toast: "Page bookmarked" }
+  - { title: "TabCmdr Settings", icon: i-settings }
+  - { title: "Manage Permissions", icon: i-shield }
+  - { title: "Pin Tab", icon: i-pin, toast: "Tab pinned" }
+  - { title: "Unpin Tab", icon: i-pin, toast: "Tab unpinned" }
+  - { title: "Merge All Windows into One", icon: i-layers, effect: merge }
+  - { title: "Close Duplicate Tabs", icon: i-copy-minus, effect: duplicates }
+  - { title: "Close Tabs to the Left", icon: i-arrow-left-line, effect: left }
+  - { title: "Close Tabs to the Right", icon: i-arrow-right-line, effect: right }
+  - { title: "Suspend Inactive Tabs", icon: i-moon, effect: suspend }
+  - { title: "Sort Tabs Alphabetically", icon: i-sort, effect: sort }
+  - { title: "Go Back", icon: i-arrow-left }
+  - { title: "Go Forward", icon: i-arrow-right }
+  - { title: "Mute Tab", icon: i-volume-x, toast: "Tab muted" }
+  - { title: "Unmute Tab", icon: i-volume, toast: "Tab unmuted" }
+  - { title: "Mute All Tabs", icon: i-volume-x, effect: mute }
+  - { title: "Unmute All Tabs", icon: i-volume, effect: unmute }
+  - { title: "Remove Tab from Group", icon: i-ungroup, toast: "Removed from group" }
+  - { title: "Move Tab to New Window", icon: i-maximize, toast: "Moved to new window" }
+  - { title: "Reload All Tabs", icon: i-rotate, effect: reload }
+  - { title: "Close Other Tabs", icon: i-x, effect: others }
+  - { title: "QR Code for Current Page", icon: i-qr }
+  - { title: "Screenshot - Copy to Clipboard", icon: i-camera }
+  - { title: "Screenshot - Download as PNG", icon: i-camera }
+  - { title: "Screenshot Area - Copy to Clipboard", icon: i-camera }
+  - { title: "Screenshot Area - Download as PNG", icon: i-camera }
+  - { title: "Full Page Screenshot - Copy to Clipboard", icon: i-camera }
+  - { title: "Full Page Screenshot - Download as PNG", icon: i-camera }
+  - { title: "Pick Color from Screen", icon: i-pipette }
+
+tools:
+  - { title: "AI Chat", description: "Chat with AI assistants · :ai", icon: i-message }
+  - { title: "Color Picker", description: "Sample any color from the screen · :cp", icon: i-pipette }
+  - { title: "Emoji", description: "Search and copy emoji · :emoji", icon: i-smile }
+  - { title: "RSS Reader", description: "Latest headlines from your feeds · :rss", icon: i-rss }
+  - { title: "Ruler", description: "Measure elements and place guides · :rl", icon: i-ruler }
+  - { title: "Screenshot", description: "Capture or crop the current page · :ss", icon: i-camera }
+  - { title: "Todo", description: "Quick to-do list · :todo", icon: i-square-check }
+  - { title: "Weather", description: "Current conditions for your locations · :wx", icon: i-cloud }
+
+engines:
+  - { name: Google, host: google.com, enabled: true, url: "https://www.google.com/search?q=", resultTitle: "%s - Google Search" }
+  - { name: Bing, host: bing.com, enabled: true, url: "https://www.bing.com/search?q=", resultTitle: "%s - Search" }
+  - { name: DuckDuckGo, host: duckduckgo.com, enabled: true, url: "https://duckduckgo.com/?q=", resultTitle: "%s at DuckDuckGo" }
+  - { name: Yahoo, host: search.yahoo.com, enabled: false, url: "https://search.yahoo.com/search?p=", resultTitle: "%s - Yahoo Search Results" }
+  - { name: Brave Search, host: search.brave.com, enabled: false, url: "https://search.brave.com/search?q=", resultTitle: "%s - Brave Search" }
+
+tours:
+  hub:
+    steps:
+      - { label: "Switch tabs", icon: i-search, query: "pull", target: t1, caption: "Type part of a title or address. Tabs from every window match, and Enter takes you there." }
+      - { label: "Bookmarks", icon: i-bookmark, query: ":b tokens", target: b2, caption: "Start with :b to search only your bookmarks. No folders to click through." }
+      - { label: "History", icon: i-history, query: ":h invoice", target: h1, caption: ":h searches your browsing history without opening the history page." }
+      - { label: "Closed tabs", icon: i-undo, query: ":r", target: r1, caption: ":r lists the tabs you closed, newest first. Enter opens one again." }
+      - { label: "Commands", icon: i-terminal, query: ":c dup", target: "Close Duplicate Tabs", caption: "Commands act on your tabs. Close Duplicate Tabs keeps one copy of each page." }
+      - { label: "Calculator", icon: i-calculator, query: "20% of 4500", target: answer, caption: "Math and conversions answer as you type. Enter copies the result." }
+      - { label: "Time zones", icon: i-clock, query: "time in tokyo", target: answer, caption: "Ask for the time in a city. The answer uses your clock, so it's always current." }
+  tabs:
+    steps:
+      - { label: "Switch tabs", icon: i-search, query: "pull", target: t1, caption: "Type part of a title or address and press Enter. The tab comes to the front." }
+      - { label: "Other windows", icon: i-layers, query: "vercel", target: t16, caption: "Tabs in your other windows are in the same list. Enter brings that window to the front." }
+      - { label: "Typos", icon: i-search, query: "onbording", target: t4, caption: "Words of five letters or more allow a typo, so a misspelled word still finds the tab." }
+      - { label: "Pinned tabs", icon: i-pin, query: ":p", target: t14, caption: ":p lists only your pinned tabs, from every window." }
+  bookmarks:
+    start: { filter: bookmarks }
+    steps:
+      - { label: "By name", icon: i-bookmark, query: ":b tokens", target: b2, caption: "Start with :b to search only your bookmarks. Enter opens the bookmark in a new tab." }
+      - { label: "By folder", icon: i-layers, query: ":b design", target: b5, caption: "Folder names count too, so :b design finds bookmarks filed under a Design folder." }
+      - { label: "By address", icon: i-globe, query: ":b caniuse", target: b7, caption: "Part of the address works as well as the title." }
+      - { label: "Browse all", icon: i-sliders, filter: bookmarks, query: "", target: b3, caption: "Press Tab to step to the Bookmarks filter and browse every bookmark, with its folder." }
+  history:
+    start: { filter: history }
+    steps:
+      - { label: "Search history", icon: i-history, query: ":h invoice", target: h1, caption: ":h searches the pages you visited, newest first, with when you were last there." }
+      - { label: "Any word", icon: i-search, query: ":h lisbon", target: h3, caption: "Type any word you remember from the title or the address." }
+      - { label: "In every search", icon: i-layers, query: "sprint", target: h7, caption: "History also shows up in a normal search, up to five pages under your tabs." }
+      - { label: "Browse history", icon: i-sliders, filter: history, query: "", target: h1, caption: "The History filter lists your recent history, newest first." }
+  closed:
+    start: { filter: closed }
+    steps:
+      - { label: "Reopen a tab", icon: i-undo, query: ":r", target: r1, caption: ":r lists the tabs you closed, newest first. Enter opens one again." }
+      - { label: "Search closed tabs", icon: i-search, query: ":r lisbon", target: r2, caption: "Type a word to find a closed tab by its title or address." }
+      - { label: "In every search", icon: i-layers, query: "sourdough", target: r3, caption: "Closed tabs also match in a normal search, right below your open tabs." }
+      - { label: "Undo Close Tab", icon: i-terminal, query: ":c undo", target: "Undo Close Tab", caption: "Undo Close Tab brings back the last tab you closed, without opening the list." }
+  downloads:
+    start: { filter: downloads }
+    steps:
+      - { label: "Open a file", icon: i-file, query: ":d invoice", target: d1, caption: ":d searches your recent downloads by file name. Enter opens the file." }
+      - { label: "Copy source URL", icon: i-link, query: ":d brand", target: d2, action: copy-download-url, caption: "Copy source URL gives you the address the file was downloaded from." }
+      - { label: "Remove from list", icon: i-x, query: ":d contract", target: d6, action: erase-download, caption: "Remove from list clears the entry from your downloads list. The file on disk stays." }
+      - { label: "Browse downloads", icon: i-sliders, filter: downloads, query: "", target: d1, caption: "The Downloads filter lists your last 100 downloads, including ones still in progress." }
+  search:
+    start: { query: ":s tailwind grid" }
+    steps:
+      - { label: "Search the web", icon: i-globe, query: ":s tailwind grid", target: 'Search "tailwind grid" on Google', caption: ":s turns the search box into a web search. Enter opens the results in a new tab." }
+      - { label: "Pick an engine", icon: i-search, query: "css has selector", target: 'Search "css has selector" on DuckDuckGo', caption: "Any search ends with your search engines, so you can pick one with the arrow keys." }
+      - { label: "Open an address", icon: i-arrow-up-right, query: "github.com/acme/web/issues", target: "Open github.com/acme/web/issues", caption: "Type an address and TabCmdr offers to open it in a new tab." }

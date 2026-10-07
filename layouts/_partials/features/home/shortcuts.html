@@ -1,0 +1,46 @@
+{{- $data := hugo.Data.features.shortcuts }}
+<section class="section" id="shorthands" aria-labelledby="shorthands-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <p class="eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-keyboard"/></svg></span>Shorthands</p>
+      <h2 class="headline" id="shorthands-title">Type a shortcut. <span class="muted">Go straight there.</span></h2>
+      <p class="lead">You can use every shortcut below in the TabCmdr search box. Press <span class="kbd-group"><kbd class="kbd" data-mod-key>⌘</kbd><kbd class="kbd">K</kbd></span> on any page and start with a colon. Point at one to try it here.</p>
+    </header>
+
+    <div class="sx" data-sx>
+      <div class="sx-stage" id="sx-stage" data-reveal>
+        <div class="sx-frame" data-sx-frame></div>
+        <div class="sx-info">
+          <div class="sx-info-head">
+            <kbd class="sh-key" data-sx-key></kbd>
+            <p class="sx-info-title" data-sx-title></p>
+            <a class="link-arrow sx-info-link" href="{{ "features/" | relURL }}" data-sx-link>Learn more <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          </div>
+          <p class="sx-info-text" data-sx-info></p>
+          <p class="sx-status" aria-live="polite" data-sx-status></p>
+          <div class="sx-tries" data-sx-tries></div>
+        </div>
+      </div>
+
+      <div class="sx-list" data-reveal>
+        {{- range $group := $data.groups }}
+        <h3 class="sh-label">{{ $group.label }}<span>{{ $group.note }}</span></h3>
+        <ul class="sx-items" role="list">
+          {{- range $group.items }}
+          <li>
+            <button class="sx-item" type="button" aria-pressed="false" aria-controls="sx-stage" data-sx-item="{{ .token }}">
+              <kbd class="sh-key"><span class="token-colon">:</span>{{ strings.TrimPrefix ":" .token }}</kbd>
+              <span class="sx-copy">
+                <b>{{ .title }}{{ with .alias }}<span class="sh-alias">or {{ . }}</span>{{ end }}</b>
+                <span>{{ .text }}</span>
+              </span>
+            </button>
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+  <script type="application/json" id="shortcut-data">{{ $data | jsonify | safeJS }}</script>
+</section>

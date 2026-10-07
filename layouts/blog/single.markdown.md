@@ -1,0 +1,2 @@
+{{- .Title | replaceRE "\n" " " | printf "# %s" }}
+{{ .RawContent | replaceRE `!\[([^\]]*)\]\(([^/][^:)]*)\)` (print "![$1](" .Permalink "$2)") | replaceRE `!\[([^\]]*)\]\((/[^)]+)\)` (print "![$1](" (strings.TrimSuffix "/" site.BaseURL) "$2)") }}

@@ -1,0 +1,70 @@
+{{- $first := slice
+  (dict "id" "c1" "title" "Inbox (12) - Gmail" "host" "mail.google.com")
+  (dict "id" "c2" "title" "Pull requests · acme/web" "host" "github.com")
+  (dict "id" "c3" "title" "Onboarding flow v3 - Figma" "host" "figma.com")
+  (dict "id" "c4" "title" "Pull requests · acme/web" "host" "github.com" "duplicate" true)
+  (dict "id" "c5" "title" "Q3 roadmap - Google Docs" "host" "docs.google.com" "active" true)
+  (dict "id" "c6" "title" "Hacker News" "host" "news.ycombinator.com")
+  (dict "id" "c7" "title" "Weekly design review - YouTube" "host" "youtube.com" "audible" true)
+  (dict "id" "c8" "title" "Inbox (12) - Gmail" "host" "mail.google.com" "duplicate" true)
+  (dict "id" "c9" "title" "Launch plan - Notion" "host" "notion.so")
+  (dict "id" "c10" "title" "Focus Flow - Spotify" "host" "open.spotify.com" "audible" true)
+}}
+{{- $second := slice
+  (dict "id" "c11" "title" "Calendar - Week of October 5, 2026" "host" "calendar.google.com")
+  (dict "id" "c12" "title" "#design - acme - Slack" "host" "app.slack.com")
+  (dict "id" "c13" "title" "Payments - Stripe" "host" "dashboard.stripe.com")
+}}
+{{- $commands := slice
+  (dict "id" "duplicates" "icon" "i-copy-minus" "title" "Close Duplicate Tabs")
+  (dict "id" "sort" "icon" "i-sort" "title" "Sort Tabs Alphabetically")
+  (dict "id" "right" "icon" "i-arrow-right-line" "title" "Close Tabs to the Right")
+  (dict "id" "merge" "icon" "i-layers" "title" "Merge All Windows into One")
+  (dict "id" "suspend" "icon" "i-moon" "title" "Suspend Inactive Tabs")
+  (dict "id" "mute" "icon" "i-volume-x" "title" "Mute All Tabs")
+}}
+    <div class="cleanup" data-cleanup data-reveal>
+      <div class="cleanup-window" aria-hidden="true">
+        <p class="cleanup-bar"><span class="traffic"><i></i><i></i><i></i></span>Window 1</p>
+        <div class="cleanup-strip" data-cleanup-strip="1">
+          {{- range $first }}
+          <span class="cleanup-tab{{ if .active }} is-active{{ end }}" data-tab="{{ .id }}" data-title="{{ .title }}"{{ if .duplicate }} data-duplicate{{ end }}{{ if .audible }} data-audible{{ end }}>
+            {{- partial "features/favicon.html" (dict "host" .host "class" "fav-xs") -}}
+            <span class="cleanup-title">{{ .title }}</span>
+            {{- if .audible }}<svg class="icon cleanup-audio"><use href="#i-volume"/></svg>{{ end -}}
+          </span>
+          {{- end }}
+        </div>
+      </div>
+      <div class="cleanup-window cleanup-window-second" aria-hidden="true" data-cleanup-second>
+        <p class="cleanup-bar"><span class="traffic"><i></i><i></i><i></i></span>Window 2</p>
+        <div class="cleanup-strip" data-cleanup-strip="2">
+          {{- range $second }}
+          <span class="cleanup-tab" data-tab="{{ .id }}" data-title="{{ .title }}">
+            {{- partial "features/favicon.html" (dict "host" .host "class" "fav-xs") -}}
+            <span class="cleanup-title">{{ .title }}</span>
+          </span>
+          {{- end }}
+        </div>
+      </div>
+
+      <div class="pal pal-night pal-commands">
+        <div class="pal-search" aria-hidden="true">
+          <svg class="icon"><use href="#i-search"/></svg>
+          <span class="pal-query">:c <span data-cleanup-query></span><i class="caret"></i></span>
+          <kbd class="pal-esc">ESC</kbd>
+        </div>
+        <div class="pal-list pal-list-auto" role="group" aria-label="Tab commands">
+          <p class="pal-group">Commands</p>
+          {{- range $commands }}
+          <button class="pal-item pal-item-button" type="button" data-command="{{ .id }}">
+            <span class="pal-glyph" aria-hidden="true"><svg class="icon"><use href="#{{ .icon }}"/></svg></span>
+            <span class="pal-text"><span class="pal-title">{{ .title }}</span><span class="pal-sub">Page command</span></span>
+            <svg class="icon pal-tail" aria-hidden="true"><use href="#i-terminal"/></svg>
+          </button>
+          {{- end }}
+        </div>
+        <p class="toast" role="status" data-toast></p>
+      </div>
+      <button class="reset-link" type="button" data-cleanup-reset><svg class="icon" aria-hidden="true"><use href="#i-rotate"/></svg>Reset the tabs</button>
+    </div>

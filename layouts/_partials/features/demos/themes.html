@@ -1,0 +1,52 @@
+{{- $themes := hugo.Data.features.themes }}
+{{- $rows := slice
+  (dict "title" "Pull requests · acme/web" "url" "https://github.com/acme/web/pulls" "host" "github.com")
+  (dict "title" "Inbox (12) - Gmail" "url" "https://mail.google.com/mail/u/0/#inbox" "host" "mail.google.com")
+  (dict "title" "Onboarding flow v3 - Figma" "url" "https://www.figma.com/design/k2Yd/onboarding-flow-v3" "host" "figma.com")
+  (dict "title" "Q3 roadmap - Google Docs" "url" "https://docs.google.com/document/d/1x9Kq3/edit" "host" "docs.google.com")
+}}
+    <div class="demo-stack" data-reveal data-studio>
+      <div class="studio-stage" data-studio-stage>
+        <div class="pal pal-themed" data-studio-palette>
+          <div class="pal-search" aria-hidden="true">
+            <svg class="icon"><use href="#i-search"/></svg>
+            <span class="pal-query pal-placeholder" data-studio-placeholder>Search tabs · :b bookmarks · :h history · :d downloads · :s search...</span>
+            <kbd class="pal-esc">ESC</kbd>
+          </div>
+          {{- partial "features/palette-filters.html" (dict "active" "all") }}
+          <div class="pal-list pal-list-auto" aria-hidden="true">
+            <p class="pal-group">Tabs</p>
+            {{- range $index, $row := $rows }}
+            <div class="pal-item{{ if eq $index 0 }} is-selected{{ end }}">
+              {{- partial "features/favicon.html" (dict "host" $row.host) -}}
+              <span class="pal-text"><span class="pal-title">{{ $row.title }}</span><span class="pal-sub">{{ $row.url }}</span></span>
+            </div>
+            {{- end }}
+          </div>
+          {{- partial "features/palette-footer.html" . }}
+        </div>
+      </div>
+
+      <div class="studio-controls">
+        <div class="seg" role="group" aria-label="Layout">
+          <button class="seg-button is-active" type="button" aria-pressed="true" data-layout="default">Palette</button>
+          <button class="seg-button" type="button" aria-pressed="false" data-layout="spotlight">Spotlight</button>
+          <button class="seg-button" type="button" aria-pressed="false" data-layout="notch">Notch</button>
+        </div>
+        <div class="seg" role="group" aria-label="Show themes">
+          <button class="seg-button is-active" type="button" aria-pressed="true" data-theme-filter="all">All</button>
+          <button class="seg-button" type="button" aria-pressed="false" data-theme-filter="dark">Dark</button>
+          <button class="seg-button" type="button" aria-pressed="false" data-theme-filter="light">Light</button>
+        </div>
+      </div>
+      <p class="studio-current"><b data-theme-name>Light</b> <span data-theme-count>28 themes</span></p>
+      <div class="theme-grid" role="group" aria-label="Themes" data-theme-grid>
+        {{- range $themes }}
+        <button class="theme{{ if eq .id "light" }} is-active{{ end }}" type="button" aria-pressed="{{ if eq .id "light" }}true{{ else }}false{{ end }}" data-theme="{{ .id }}" data-mode="{{ .mode }}" style="--t-bg: {{ .bg | safeCSS }}; --t-text: {{ .text | safeCSS }}; --t-sel: {{ .item_selected | safeCSS }}; --t-caret: {{ .caret | safeCSS }}">
+          <span class="theme-swatch" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="theme-name">{{ .name }}</span>
+        </button>
+        {{- end }}
+      </div>
+      <script type="application/json" id="themes-data">{{ $themes | jsonify | safeJS }}</script>
+    </div>

@@ -1,0 +1,30 @@
+name: TabCmdr
+storeURL: https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc
+buyURL: /buy?wanted=true
+pricingURL: /api/pricing
+price: "3.99"
+currency: USD
+trialDays: 7
+graceUsesPerDay: 10
+rating: "4.9"
+ratingCount: 10
+browsers:
+  - Chrome
+  - Edge
+  - Brave
+  - Arc
+  - Vivaldi
+  - Opera
+imageAlt: "TabCmdr command palette open over a web page, listing matching tabs"
+category: BrowserApplication
+subCategory: Command palette and tab manager
+features:
+  - Search open tabs across every window
+  - Search bookmarks, history, downloads and recently closed tabs
+  - 47 browser commands, including close duplicate tabs, merge windows and suspend inactive tabs
+  - 208 shortcuts for GitHub, GitLab, Gmail, Notion, Figma, Jira, Discord, YouTube and X
+  - Calculator, unit conversion, time zones, date math and Unix timestamps
+  - AI chat with ChatGPT, Claude, Gemini, Grok, Groq, DeepSeek, Mistral, Perplexity and OpenRouter using your own API key
+  - Emoji picker, to-do list, RSS reader, weather, screenshots, color picker, ruler and QR codes
+  - 28 themes and 3 layouts
+  - No account, no analytics, browsing data stays on your device

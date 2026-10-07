@@ -1,0 +1,25 @@
+<div class="pal pal-card pal-mini">
+  <div class="pal-search">
+    <svg class="icon"><use href="#i-search"/></svg>
+    <span class="pal-query">:r<i class="caret"></i></span>
+    <kbd class="pal-esc">ESC</kbd>
+  </div>
+  <div class="pal-list pal-list-auto">
+    <p class="pal-group">Recently Closed</p>
+    <div class="pal-item is-selected">
+      {{- partial "features/favicon.html" (dict "host" "mail.google.com") -}}
+      <span class="pal-text"><span class="pal-title">Inbox (12) - Gmail</span><span class="pal-sub">Recently closed</span></span>
+      <span class="pal-meta">Just now</span>
+    </div>
+    <div class="pal-item">
+      {{- partial "features/favicon.html" (dict "host" "github.com") -}}
+      <span class="pal-text"><span class="pal-title">Pull requests · acme/web</span><span class="pal-sub">Recently closed</span></span>
+      <span class="pal-meta">Just now</span>
+    </div>
+    <div class="pal-item">
+      {{- partial "features/favicon.html" (dict "host" "docs.google.com") -}}
+      <span class="pal-text"><span class="pal-title">Q3 roadmap - Google Docs</span><span class="pal-sub">Recently closed</span></span>
+      <span class="pal-meta">Just now</span>
+    </div>
+  </div>
+</div>

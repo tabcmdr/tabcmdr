@@ -1,0 +1,2 @@
+{{- $site := index hugo.Data.features.demo.sites .host | default (dict "letter" "•" "color" "#71717a") -}}
+<span class="fav{{ with .class }} {{ . }}{{ end }}" style="--fav: {{ $site.color | safeCSS }}" aria-hidden="true">{{ $site.letter }}</span>

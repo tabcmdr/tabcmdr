@@ -1,0 +1,25 @@
+{{- $app := hugo.Data.features.app }}
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="hero-keys" aria-hidden="true">
+    <span class="keycap keycap-hero keycap-left" data-hero-key><span data-mod-key>⌘</span></span>
+    <span class="keycap keycap-hero keycap-right" data-hero-key><span>K</span></span>
+  </div>
+  <div class="container hero-copy">
+    <a class="hero-badge" href="{{ $app.storeURL }}" target="_blank" rel="noopener">
+      <svg class="icon icon-star" aria-hidden="true"><use href="#i-star"/></svg>
+      <span>Featured on the Chrome Web Store</span>
+      <span class="hero-badge-sep" aria-hidden="true"></span>
+      <span>{{ $app.rating }} rating</span>
+    </a>
+    <h1 class="display" id="hero-title"><span class="display-line">Every TabCmdr feature,</span> <span class="display-line"><span class="hl">one shortcut</span> away.</span></h1>
+    <p class="lead hero-lead">Find any tab, clean up a crowded tab bar, run 47 browser commands and get answers without opening a new tab. Press <span class="kbd-group"><kbd class="kbd" data-mod-key>⌘</kbd><kbd class="kbd">K</kbd></span> and type.</p>
+    <div class="hero-actions">
+      {{- partial "features/install-button.html" (dict "variant" "dark" "size" "large") }}
+      <a class="link-arrow" href="#all-features">Browse all features <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg></a>
+    </div>
+    <p class="hero-note">{{ $app.trialDays }}-day free trial <span aria-hidden="true">·</span> No account <span aria-hidden="true">·</span> Chrome, Edge, Brave, Arc, Vivaldi and Opera</p>
+  </div>
+
+  {{- partial "features/demos/browser-palette.html" (dict) }}
+</section>
