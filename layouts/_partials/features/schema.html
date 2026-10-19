@@ -1,6 +1,6 @@
 {{- $app := hugo.Data.features.app }}
 {{- $home := site.Home.Permalink }}
-{{- $hubPage := site.GetPage "/features" }}
+{{- $hubPage := .Parent | default (site.GetPage "/features") }}
 {{- $publisher := dict "@type" "Organization" "@id" (printf "%s#organization" $home) "name" $app.name "url" $home "logo" ("web-app-manifest-512x512.png" | absURL) }}
 {{- $website := dict "@type" "WebSite" "@id" (printf "%s#website" $home) "url" $home "name" $app.name "inLanguage" site.Language.Lang "publisher" (dict "@id" (printf "%s#organization" $home)) }}
 {{- $software := partial "features/schema-app.html" . }}
@@ -11,6 +11,8 @@
   {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 2 "name" $hubPage.LinkTitle "item" $hubPage.Permalink) }}
   {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" 3 "name" .LinkTitle "item" .Permalink) }}
 {{- end }}
+{{- $primaryImage := "og-image.png" | absURL }}
+{{- with .Params.ogImage }}{{ with $.Resources.Get . }}{{ $primaryImage = .Permalink }}{{ end }}{{ end }}
 {{- $breadcrumb := dict "@type" "BreadcrumbList" "@id" (printf "%s#breadcrumb" .Permalink) "itemListElement" $crumbs }}
 {{- $webpage := dict
   "@type" "WebPage"
@@ -21,7 +23,7 @@
   "inLanguage" site.Language.Lang
   "isPartOf" (dict "@id" (printf "%s#website" $home))
   "about" (dict "@id" (index $software "@id"))
-  "primaryImageOfPage" (dict "@type" "ImageObject" "url" ("og-image.png" | absURL))
+  "primaryImageOfPage" (dict "@type" "ImageObject" "url" $primaryImage)
 }}
 {{- if not .Lastmod.IsZero }}
   {{- $webpage = merge $webpage (dict "dateModified" (.Lastmod.Format "2006-01-02")) }}
@@ -33,10 +35,37 @@
   {{- end }}
   {{- $webpage = merge $webpage (dict "@type" "CollectionPage" "mainEntity" (dict "@type" "ItemList" "itemListElement" $items)) }}
 {{- end }}
+{{- $article := dict }}
+{{- if and .IsPage (eq .Section "how-to") }}
+  {{- $images := slice }}
+  {{- with .Params.ogImage }}{{ with $.Resources.Get . }}{{ $images = $images | append .Permalink }}{{ end }}{{ end }}
+  {{- $images = $images | append ("og-image.png" | absURL) }}
+  {{- $author := .Params.author | default dict }}
+  {{- $article = dict
+    "@type" "TechArticle"
+    "@id" (printf "%s#article" .Permalink)
+    "headline" (.Params.heading | default .LinkTitle)
+    "description" .Description
+    "url" .Permalink
+    "mainEntityOfPage" (dict "@id" (printf "%s#webpage" .Permalink))
+    "image" $images
+    "datePublished" (.Date.Format "2006-01-02")
+    "dateModified" (.Lastmod.Format "2006-01-02")
+    "inLanguage" site.Language.Lang
+    "proficiencyLevel" "Beginner"
+    "author" (dict "@type" "Person" "name" ($author.name | default $app.name) "url" ($author.url | default $home))
+    "publisher" (dict "@id" (printf "%s#organization" $home))
+    "about" (dict "@id" (index $software "@id"))
+  }}
+  {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" (printf "%s#article" .Permalink))) }}
+{{- end }}
 {{- $nodes := slice $publisher $website $software $webpage }}
 {{- if not .IsHome }}
   {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumb" .Permalink))) }}
   {{- $nodes = slice $publisher $website $software $webpage $breadcrumb }}
+{{- end }}
+{{- with $article }}
+  {{- $nodes = $nodes | append . }}
 {{- end }}
 {{- $graph := dict "@context" "https://schema.org" "@graph" $nodes }}
 <script type="application/ld+json">{{ $graph | jsonify | safeJS }}</script>

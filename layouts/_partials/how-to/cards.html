@@ -1,0 +1,15 @@
+<ul class="catalog-grid" role="list">
+  {{- range . }}
+  <li class="catalog-card has-page" data-reveal>
+    <a href="{{ .RelPermalink }}">
+      <div class="catalog-body">
+        <h3 class="catalog-title">{{ .Params.heading | default .LinkTitle }}</h3>
+        <p class="catalog-text">{{ .Params.cardText | default .Description }}</p>
+        <span class="catalog-meta">
+          <span class="catalog-more">Read the guide<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+        </span>
+      </div>
+    </a>
+  </li>
+  {{- end }}
+</ul>

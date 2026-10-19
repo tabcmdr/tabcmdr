@@ -1,6 +1,7 @@
 {{- $app := hugo.Data.features.app }}
+{{- $isHub := and .IsSection (eq .Section "features") }}
 {{- $hub := "" }}
-{{- if not .IsSection }}
+{{- if not $isHub }}
   {{- $hub = "features/" | relURL }}
 {{- end }}
 <header class="site-header" data-header>
@@ -18,7 +19,7 @@
         <li><a href="#ai">AI chat</a></li>
         <li><a href="#privacy">Privacy</a></li>
         {{- else }}
-        <li><a href="{{ $hub }}#all-features"{{ if .IsSection }} aria-current="page"{{ end }}>All features</a></li>
+        <li><a href="{{ $hub }}#all-features"{{ if $isHub }} aria-current="page"{{ end }}>All features</a></li>
         <li><a href="{{ $hub }}#search">Tab search</a></li>
         <li><a href="{{ $hub }}#commands">Commands</a></li>
         <li class="nav-wide"><a href="{{ $hub }}#answers">Calculator</a></li>

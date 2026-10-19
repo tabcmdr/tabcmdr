@@ -1,0 +1,34 @@
+{{- /*
+  Wraps how-to sections so readers can tell the browser's own method from TabCmdr's.
+  Tag an H2 in the content with {.way-chrome} or {.way-tabcmdr}. Each tagged H2 and
+  everything up to the next H2 goes into a labelled block. Neighbouring sections of the
+  same kind share one block. Untagged H2 sections stay as they are.
+*/ -}}
+{{- $labels := dict
+  "chrome" (dict "text" "Chrome's way" "icon" (printf `<img src="%s" alt="" width="18" height="18">` ("icons/browsers/chrome.svg" | relURL)))
+  "tabcmdr" (dict "text" "TabCmdr's way" "icon" `<svg class="icon" aria-hidden="true"><use href="#i-command"/></svg>`)
+}}
+{{- $out := "" }}
+{{- $open := "" }}
+{{- range $i, $part := split (string .Content) "<h2" }}
+  {{- if eq $i 0 }}
+    {{- $out = $part }}
+    {{- continue }}
+  {{- end }}
+  {{- $chunk := print "<h2" $part }}
+  {{- $kind := "" }}
+  {{- with findRESubmatch `^<h2[^>]*\bway-(chrome|tabcmdr)\b` $chunk 1 }}
+    {{- $kind = index (index . 0) 1 }}
+  {{- end }}
+  {{- if ne $kind $open }}
+    {{- if $open }}{{ $out = print $out "</section>" }}{{ end }}
+    {{- with $kind }}
+      {{- $label := index $labels . }}
+      {{- $out = printf `%s<section class="way way-%s"><p class="way-label">%s%s</p>` $out . $label.icon $label.text }}
+    {{- end }}
+    {{- $open = $kind }}
+  {{- end }}
+  {{- $out = print $out $chunk }}
+{{- end }}
+{{- if $open }}{{ $out = print $out "</section>" }}{{ end }}
+{{- $out | safeHTML -}}

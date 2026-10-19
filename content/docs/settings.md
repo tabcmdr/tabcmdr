@@ -56,18 +56,18 @@ Choose which search engine TabCmdr uses when you type a query that doesn't match
 
 ## Site Shortcuts
 
-Configure custom shortcuts for sites you visit frequently. A site shortcut lets you type a short keyword in the palette to jump directly to a URL.
+When you're on a supported site (GitHub, YouTube, Gmail, Notion, Figma, Discord, GitLab, Jira or X), Site Shortcuts add that site's own actions to the palette, so you can run them by name. Turn the feature on or off in **Settings → Sites**, and switch individual sites on or off with their chips.
 
-## Disabled Domains
+## Blocked Sites
 
-Add domains to the disabled list to prevent TabCmdr from injecting the palette on those pages. Useful for sites where the keyboard shortcut conflicts with the page's own functionality.
+Add domains to the **Block List** to stop TabCmdr from opening on those pages. Useful for sites where the keyboard shortcut conflicts with the page's own functionality.
 
-To disable a domain:
-1. Open Settings.
-2. Find the **Disabled Domains** section.
-3. Add the domain (e.g., `app.example.com`).
+To block a domain:
+1. Open Settings and go to **Sites**.
+2. Find the **Blocked Sites** section.
+3. Add the domain to the **Block List**, one per line (e.g., `app.example.com`).
 
-TabCmdr will no longer activate on pages matching that domain.
+TabCmdr will no longer open on that domain or its subdomains.
 
 ## Settings Sync
 

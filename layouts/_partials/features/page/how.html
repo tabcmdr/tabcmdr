@@ -9,6 +9,9 @@
         {{- end -}}
       </span>
       {{- end }}
+      {{- with $step.icon }}
+      <span class="step-keys"><span class="step-key step-key-icon"><svg class="icon" aria-hidden="true"><use href="#{{ . }}"/></svg></span></span>
+      {{- end }}
       {{- with $step.typed }}
       <span class="step-typed"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><span>{{ if hasPrefix . ":" }}<span class="token-colon">:</span>{{ strings.TrimPrefix ":" . }}{{ else }}{{ . }}{{ end }}</span><i class="caret" aria-hidden="true"></i></span>
       {{- end }}

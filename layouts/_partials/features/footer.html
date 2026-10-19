@@ -35,6 +35,9 @@
       <h2>Docs</h2>
       <ul role="list">
         <li><a href="{{ "docs/getting-started/" | relURL }}">Getting started</a></li>
+        {{- with site.GetPage "/how-to" }}
+        <li><a href="{{ .RelPermalink }}">How-to guides</a></li>
+        {{- end }}
         <li><a href="{{ "docs/keyboard-shortcuts/" | relURL }}">Keyboard shortcuts</a></li>
         <li><a href="{{ "docs/tabs/" | relURL }}">Tabs</a></li>
         <li><a href="{{ "docs/page-commands/" | relURL }}">Page commands</a></li>

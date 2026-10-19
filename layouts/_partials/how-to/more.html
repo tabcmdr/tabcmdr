@@ -1,0 +1,19 @@
+{{- /* The three nearest guides in the same category, by weight, so every guide links to its neighbours. */ -}}
+{{- $siblings := where (where site.RegularPages "Section" "how-to") "Params.group" .Params.group }}
+{{- $siblings = $siblings.ByWeight }}
+{{- $picks := slice }}
+{{- range where $siblings "Weight" "gt" .Weight }}{{ $picks = $picks | append . }}{{ end }}
+{{- range (where $siblings "Weight" "lt" .Weight).Reverse }}{{ $picks = $picks | append . }}{{ end }}
+{{- with first 3 $picks }}
+<section class="section-tight band-paper" aria-labelledby="more-guides-title">
+  <div class="container">
+    <header class="section-head is-centered" data-reveal>
+      <h2 class="headline-sm" id="more-guides-title">More how-to guides</h2>
+    </header>
+    <div class="howto-more">
+      {{- partial "how-to/cards.html" . }}
+    </div>
+    <p class="related-all" data-reveal><a class="link-arrow" href="{{ (site.GetPage "/how-to").RelPermalink }}">See all how-to guides <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
+  </div>
+</section>
+{{- end }}

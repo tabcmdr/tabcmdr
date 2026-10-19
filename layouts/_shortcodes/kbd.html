@@ -1,0 +1,7 @@
+{{- /* Keyboard shortcut: {{< kbd "Ctrl" "Tab" >}} renders Ctrl+Tab as key caps. */ -}}
+<span class="kbd-group">
+  {{- range $i, $key := .Params -}}
+    {{- if $i }}<span class="kbd-plus">+</span>{{ end -}}
+    <kbd class="kbd">{{ $key }}</kbd>
+  {{- end -}}
+</span>

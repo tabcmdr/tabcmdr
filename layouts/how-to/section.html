@@ -1,0 +1,62 @@
+{{ define "main" }}
+  {{- $pages := .RegularPages.ByWeight }}
+  <section class="feature-hero howto-hero" aria-labelledby="feature-title">
+    <div class="hero-dots" aria-hidden="true"></div>
+    <div class="container feature-hero-inner">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="{{ "/" | relURL }}">Home</a></li>
+          <li><span aria-current="page">{{ .LinkTitle }}</span></li>
+        </ol>
+      </nav>
+      <p class="eyebrow feature-eyebrow"><span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#i-keyboard"/></svg></span>{{ .Params.eyebrow | default .LinkTitle }}</p>
+      <h1 class="feature-title" id="feature-title">{{ .Params.heading | default .Title }}{{ with .Params.headingMuted }} <span class="muted">{{ . }}</span>{{ end }}</h1>
+      {{- with .Params.lead }}
+      <p class="lead feature-lead">{{ partial "features/rich.html" . }}</p>
+      {{- end }}
+    </div>
+  </section>
+  <section class="section-tight band-paper" aria-label="All how-to guides">
+    <div class="container">
+      {{- $ids := slice }}
+      {{- $sections := slice }}
+      {{- range hugo.Data.features.catalog }}
+        {{- $items := where $pages "Params.group" .id }}
+        {{- if $items }}
+          {{- $ids = $ids | append .id }}
+          {{- $sections = $sections | append (dict "id" .id "title" .title "text" .text "pages" $items) }}
+        {{- end }}
+      {{- end }}
+      {{- $rest := where $pages "Params.group" "not in" $ids }}
+      {{- if gt (len $sections) 1 }}
+      <nav class="howto-jump" aria-label="Guide categories">
+        <ul role="list">
+          {{- range $sections }}
+          <li><a href="#{{ .id }}">{{ .title }} <span class="howto-jump-count">{{ len .pages }}</span></a></li>
+          {{- end }}
+        </ul>
+      </nav>
+      {{- end }}
+      {{- range $sections }}
+      <section class="howto-group" id="{{ .id }}" aria-labelledby="{{ .id }}-title">
+        <header class="howto-group-head">
+          <h2 class="howto-group-title" id="{{ .id }}-title">{{ .title }}</h2>
+          {{- with .text }}<p class="howto-group-text">{{ . }}</p>{{ end }}
+        </header>
+        {{- partial "how-to/cards.html" .pages }}
+      </section>
+      {{- end }}
+      {{- with $rest }}
+      <section class="howto-group" aria-labelledby="more-title">
+        {{- if $sections }}
+        <header class="howto-group-head">
+          <h2 class="howto-group-title" id="more-title">More guides</h2>
+        </header>
+        {{- end }}
+        {{- partial "how-to/cards.html" . }}
+      </section>
+      {{- end }}
+    </div>
+  </section>
+  {{- partial "features/sections/cta.html" . }}
+{{ end }}

@@ -53,7 +53,7 @@ showcase:
     - title: "Closed tabs show up in every search"
       text: "In a normal search, matching closed tabs appear below your open tabs and recent history. Type a word from the page and you'll find it whether the tab is still open or not."
       points:
-        - "Press [kbd:Tab] to move to the Recently Closed filter for the full list."
+        - "Press [kbd:→] to move to the Recently Closed filter for the full list."
         - "Closed a page days ago? It may not be in this list anymore, but `:h` searches your history for it."
       mock: mocks/palette
       palette:

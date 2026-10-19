@@ -1,0 +1,82 @@
+{{ define "main" }}
+  {{- $feature := dict }}
+  {{- with .Params.feature }}
+    {{- $feature = partial "features/catalog-item.html" . }}
+  {{- end }}
+  <article aria-labelledby="howto-title">
+    <header class="feature-hero howto-hero">
+      <div class="hero-dots" aria-hidden="true"></div>
+      <div class="container feature-hero-inner">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="{{ "/" | relURL }}">Home</a></li>
+            <li><a href="{{ .Parent.RelPermalink }}">{{ .Parent.LinkTitle }}</a></li>
+            <li><span aria-current="page">{{ .LinkTitle }}</span></li>
+          </ol>
+        </nav>
+        <p class="eyebrow feature-eyebrow">
+          <span class="token token-icon"><svg class="icon" aria-hidden="true"><use href="#{{ .Params.icon | default "i-keyboard" }}"/></svg></span>
+          How-to guide
+        </p>
+        <h1 class="feature-title" id="howto-title">{{ .Params.heading | default .LinkTitle }}</h1>
+        {{- with .Params.lead }}
+        <p class="feature-lead">{{ partial "features/rich.html" . }}</p>
+        {{- end }}
+      </div>
+    </header>
+
+    {{- with .Params.how }}
+    <section class="section-tight band-paper howto-quick" aria-labelledby="quick-title">
+      <div class="container">
+        <header class="section-head is-centered" data-reveal>
+          <p class="eyebrow">Quick answer</p>
+          <h2 class="headline-sm" id="quick-title">{{ $.Params.howTitle | default "The short version" }}</h2>
+        </header>
+        {{- partial "features/page/how.html" (dict "steps" . "row" true) }}
+      </div>
+    </section>
+    {{- end }}
+
+    <div class="container howto-layout">
+      <div class="howto-prose">
+        {{ partial "how-to/ways.html" . }}
+        {{- $app := hugo.Data.features.app }}
+        <div class="howto-signoff">
+          <div class="howto-signoff-keys" aria-hidden="true">
+            <span class="keycap"><span data-mod-key>⌘</span></span>
+            <span class="keycap"><span>K</span></span>
+          </div>
+          <div class="howto-signoff-copy">
+            <p class="howto-signoff-title">{{ .Params.installTitle | default "Try it on your own tabs" }}</p>
+            <p class="howto-signoff-text">Works in {{ delimit $app.browsers ", " " and " }}.</p>
+          </div>
+          {{- partial "features/install-button.html" (dict "variant" "dark" "size" "small") }}
+        </div>
+      </div>
+      <aside class="howto-aside">
+        {{- with .Fragments.ToHTML 2 2 false }}
+        <div class="howto-toc">
+          <p class="howto-aside-title">On this page</p>
+          {{ . }}
+        </div>
+        {{- end }}
+        {{- with $feature.id }}
+        {{- with site.GetPage (printf "/features/%s" .) }}
+        <a class="howto-feature" href="{{ .RelPermalink }}">
+          <span class="howto-aside-title">Feature in this guide</span>
+          <span class="howto-feature-title">{{ $feature.title }}</span>
+          <span class="howto-feature-text">{{ $feature.text }}</span>
+          <span class="catalog-more">See how it works<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+        </a>
+        {{- end }}
+        {{- end }}
+      </aside>
+    </div>
+  </article>
+  {{- $.Store.Set "faqBand" "band-paper" }}
+  {{- $.Store.Set "relatedBand" "" }}
+  {{- partial "features/page/faq.html" . }}
+  {{- partial "features/page/related.html" . }}
+  {{- partial "how-to/more.html" . }}
+  {{- partial "features/sections/cta.html" . }}
+{{ end }}

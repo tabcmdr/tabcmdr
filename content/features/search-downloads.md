@@ -93,7 +93,7 @@ details:
     text: "Remove from list tidies your downloads list. The file on your disk isn't touched."
   - icon: i-sliders
     title: "Browse with the Tab key"
-    text: "[kbd:Tab] steps to the Downloads filter, which lists your recent downloads, including ones still in progress."
+    text: "[kbd:→] steps to the Downloads filter, which lists your recent downloads, including ones still in progress."
   - icon: i-shield
     title: "Stays in your browser"
     text: "Download names and addresses are read when the palette opens and dropped when it closes."

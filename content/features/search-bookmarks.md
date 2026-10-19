@@ -55,7 +55,7 @@ showcase:
       points:
         - "Up to five bookmark matches show in the default list, so your open tabs stay on top."
         - "`:b` and the Bookmarks filter always search every bookmark, whether this setting is on or off."
-        - "Press [kbd:Tab] to step through the filters to Bookmarks and browse the full list."
+        - "Press [kbd:→] to step through the filters to Bookmarks and browse the full list."
       mock: mocks/settings
       settings:
         title: "Default Search Content"
@@ -86,7 +86,7 @@ details:
     text: "The bookmarks bar, Other bookmarks, Mobile bookmarks and every folder inside them are searched together."
   - icon: i-sliders
     title: "Browse with the Tab key"
-    text: "[kbd:Tab] steps to the Bookmarks filter, which lists every bookmark with the folder it's in."
+    text: "[kbd:→] steps to the Bookmarks filter, which lists every bookmark with the folder it's in."
   - icon: i-bookmark
     title: "Save pages too"
     text: "Run Bookmark This Page from the palette to bookmark the tab you're on. TabCmdr confirms with Page bookmarked."

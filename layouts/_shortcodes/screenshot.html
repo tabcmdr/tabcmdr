@@ -1,0 +1,10 @@
+{{- /* Screenshot from the page bundle: {{< screenshot src="shot.png" alt="..." caption="..." narrow="true" >}} */ -}}
+{{- $src := .Get "src" -}}
+{{- $image := .Page.Resources.Get $src -}}
+{{- if not $image -}}
+  {{- errorf "screenshot %q not found in %s" $src .Page.File.Path -}}
+{{- end -}}
+<figure class="howto-figure{{ if .Get "narrow" }} is-narrow{{ end }}">
+  {{- partial "processed-image.html" (dict "resource" $image "alt" (.Get "alt") "maxWidth" 1400) -}}
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end -}}
+</figure>

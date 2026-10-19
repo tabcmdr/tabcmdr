@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  {{- partial "features/head.html" . }}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{- partial "features/sprite.html" . }}
+  {{- partial "features/header.html" . }}
+  <main id="main">
+    {{- block "main" . }}{{ end }}
+  </main>
+  {{- partial "features/footer.html" . }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EMFSSHGMR"></script>
+  <script src="{{ "assets/js/analytics.min.js" | relURL }}"></script>
+  <script src="{{ "assets/js/browser-install-cta.js" | relURL }}"></script>
+</body>
+</html>

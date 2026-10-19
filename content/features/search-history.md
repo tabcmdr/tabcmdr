@@ -65,7 +65,7 @@ showcase:
     - title: "History in every search"
       text: "You don't always need `:h`. In a normal search, up to five history matches appear under your open tabs, so a page you closed and forgot about is still a few rows away."
       points:
-        - "Press [kbd:Tab] to move to the History filter and see the full list."
+        - "Press [kbd:→] to move to the History filter and see the full list."
         - "Each history row can open the page in an incognito window or copy its address."
       mock: mocks/palette
       palette:

@@ -72,7 +72,7 @@ details:
     text: "[kbd:Tab] steps through All, Tabs, Bookmarks, History, Downloads, Recently Closed and Tools without touching the mouse."
   - icon: i-keyboard
     title: "Your own shortcut"
-    text: "Keep [kbd:mod][kbd:K], or record a different shortcut in settings if another app already uses it. Clicking the TabCmdr toolbar icon opens the palette too."
+    text: "Keep [kbd:mod][kbd:K], or pick a different one on your browser's shortcuts page (click Change in settings) if another app already uses it. Clicking the TabCmdr toolbar icon opens the palette too."
   - icon: i-shield
     title: "Your tabs stay in your browser"
     text: "Titles and addresses are read when the palette opens and dropped when it closes. They aren't sent anywhere, and there's no account or analytics."
@@ -83,7 +83,7 @@ faq:
   - question: "Does it find tabs in other windows?"
     answer: "Yes. The list includes the tabs in all your open windows. When you pick one, TabCmdr switches to that tab and brings its window to the front."
   - question: "Can I change the keyboard shortcut?"
-    answer: "Yes. If another app already uses ⌘K or Ctrl+K, record a different shortcut in TabCmdr's settings. You can also open the palette by clicking the TabCmdr icon in the toolbar."
+    answer: "Yes. If another app already uses ⌘K or Ctrl+K, click Change in TabCmdr's settings and pick a different shortcut on your browser's shortcuts page. You can also open the palette by clicking the TabCmdr icon in the toolbar."
   - question: "Can it jump back to the tab I was just on?"
     answer: "Yes. In settings, sort tabs by Recently Used and set the current tab to Always last. The tab you used before this one is then at the top of the list, so the shortcut followed by Enter takes you back."
   - question: "Does it search bookmarks and history too?"
