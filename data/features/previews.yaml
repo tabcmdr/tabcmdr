@@ -62,12 +62,30 @@ close-duplicate-tabs:
     - { host: mail.google.com, title: "Inbox" }
     - { host: mail.google.com, title: "Inbox", state: gone }
 
-close-tabs-left-right:
+close-tabs-to-the-right:
   type: strip
   toast: "Closed 3 tabs"
   tabs:
     - { host: docs.google.com, title: "Q3 roadmap", state: active }
     - { host: news.ycombinator.com, title: "Hacker News", state: gone }
+    - { host: youtube.com, title: "Design review", state: gone }
+    - { host: notion.so, title: "Launch plan", state: gone }
+
+close-tabs-to-the-left:
+  type: strip
+  toast: "Closed 3 tabs"
+  tabs:
+    - { host: notion.so, title: "Launch plan", state: gone }
+    - { host: youtube.com, title: "Design review", state: gone }
+    - { host: news.ycombinator.com, title: "Hacker News", state: gone }
+    - { host: docs.google.com, title: "Q3 roadmap", state: active }
+
+close-tabs-left-right:
+  type: strip
+  toast: "Closed 3 tabs"
+  tabs:
+    - { host: news.ycombinator.com, title: "Hacker News", state: gone }
+    - { host: docs.google.com, title: "Q3 roadmap", state: active }
     - { host: youtube.com, title: "Design review", state: gone }
     - { host: notion.so, title: "Launch plan", state: gone }
 

@@ -1,95 +1,100 @@
 ---
-title: "How to Close Many Tabs at Once in Chrome | TabCmdr"
-linkTitle: "Close many tabs at once"
-description: "Close a run of Chrome tabs in one go: highlight them with Shift and close them together, or close every tab to the right or left of the one you're on."
-ogTitle: "Close a whole row of tabs at once"
-ogDescription: "Highlight a range of tabs and close them together, or close everything to the right or left of the tab you're on with one command."
+title: "How to Close Tabs to the Right in Chrome | TabCmdr"
+linkTitle: "Close tabs to the right"
+description: "Close every Chrome tab to the right of the one you're on: use the tab's right-click menu, or press ⌘K and run one TabCmdr command. Pinned tabs stay open."
+ogTitle: "Close every tab to the right of this one"
+ogDescription: "Right-click a tab in Chrome, or press ⌘K with TabCmdr and type close right. The tabs after the current one close and pinned tabs stay."
 ogImage: close-right-before.png
-imageAlt: "TabCmdr palette on the Tabs filter, listing seven tabs in one window with Inbox pinned"
-cardText: "Close a run of tabs in one go, or close every tab to the right or left of the one you're on."
-heading: "How to close many tabs at once in Chrome"
-lead: "In Chrome, click the first tab, Shift-click the last, then right-click and choose Close. With TabCmdr, press ⌘K and run Close Tabs to the Right or to the Left."
+imageAlt: "TabCmdr palette on the Tabs filter, listing seven tabs from two windows with Inbox pinned"
+cardText: "Close every tab after the one you're on, from Chrome's tab menu or with one TabCmdr command."
+heading: "How to close tabs to the right in Chrome"
+lead: "In Chrome, right-click the tab and choose Close tabs to the right. With TabCmdr, press ⌘K, type close right and press Enter. Pinned tabs stay open either way."
 date: 2026-10-19
-lastmod: 2026-10-19
+lastmod: 2026-10-25
 weight: 120
 group: tidy
 icon: i-arrow-right-line
-feature: close-tabs-left-right
+feature: close-tabs-to-the-right
 docs: page-commands
 author:
   name: "Abhimanyu Sharma"
   url: "https://github.com/abhimanyu003"
-howTitle: "Close one side of the tab bar in three steps"
+howTitle: "Close tabs to the right in three steps"
 how:
   - title: "Open the palette"
     keys: ["mod", "K"]
-    text: "On the tab where the cut should be. Ctrl+K on Windows and Linux."
-  - title: "Type close tabs to"
-    typed: "close tabs to"
-    text: "Close Tabs to the Left and to the Right show up."
+    text: "On the tab you want to keep as the last one. Ctrl+K on Windows and Linux."
+  - title: "Type close right"
+    typed: "close right"
+    text: "Close Tabs to the Right shows under Commands."
   - title: "Press Enter"
     keys: ["↵"]
-    text: "Tabs on that side close. Pinned tabs stay."
-faqTitle: "Questions about closing several tabs"
+    text: "The tabs after this one close. Pinned tabs stay."
+faqTitle: "Questions about closing tabs to the right"
 faq:
   - question: "How do I close all tabs to the right in Chrome?"
-    answer: "With TabCmdr, go to the tab you want to keep as the last one, press ⌘K on a Mac or Ctrl+K on Windows and Linux, type `close tabs to` and press Enter on Close Tabs to the Right. Every tab after it in that window closes, apart from pinned tabs."
+    answer: "Right-click the tab you want to keep as the last one and choose Close tabs to the right. With TabCmdr, press ⌘K on a Mac or Ctrl+K on Windows and Linux, type `close right` and press Enter."
+  - question: "Why does Chrome say Close tabs below?"
+    answer: "That's the same option with vertical tabs turned on. The tabs run down the side of the window, so the tabs after yours are below it instead of to the right."
+  - question: "Is there a keyboard shortcut to close tabs to the right?"
+    answer: "Chrome doesn't have one. Ctrl+W on Windows and Linux or ⌘W on a Mac closes only the tab you're on. With TabCmdr it's ⌘K, `close right` and Enter."
   - question: "Do pinned tabs close too?"
-    answer: "No. Close Tabs to the Right and Close Tabs to the Left skip pinned tabs, wherever they are in the tab bar."
+    answer: "No. Chrome's menu option and TabCmdr's command both skip pinned tabs."
   - question: "Does it close tabs in my other windows?"
-    answer: "No. Both commands only work on the window you're in."
-  - question: "How do I close just one tab from the keyboard?"
-    answer: "Press Ctrl+W on Windows and Linux or ⌘W on a Mac to close the tab you're on. In the TabCmdr palette, highlight any tab and press ⌘⌫ on a Mac or Ctrl+Backspace on Windows and Linux to close it without switching to it."
+    answer: "No. Both only work on the window you're in."
   - question: "Can I get the closed tabs back?"
-    answer: "Yes. Each closed tab goes into Recently Closed. Type `:r` in the palette to list them and press Enter on the one you want."
+    answer: "Yes. Each closed tab goes into Recently Closed. Type `:r` in the palette to list them and press Enter on the one you want. In Chrome, Ctrl+Shift+T on Windows and Linux or ⌘⇧T on a Mac reopens them in the order they were closed."
 relatedTitle: "Related features"
 related:
-  - close-tabs-left-right
-  - close-duplicate-tabs
+  - close-tabs-to-the-right
+  - close-tabs-to-the-left
   - recently-closed-tabs
 sitemap:
   priority: 0.7
   changefreq: monthly
 ---
 
-## Close a range of tabs in Chrome {.way-chrome}
+## Use the tab menu in Chrome {.way-chrome}
 
-1. Click the first tab you want to close.
-2. Hold {{< kbd "Shift" >}} and click the last one. The tabs between them are highlighted too.
-3. Right-click any highlighted tab and choose **Close**.
+1. Right-click the tab you want to keep as the last one.
+2. Choose **Close tabs to the right**.
 
-To close only the tab you're on, press {{< kbd "Ctrl" "W" >}} on Windows and Linux or {{< kbd "⌘" "W" >}} on a Mac.
+Every tab after it in that window closes, apart from pinned tabs. With vertical tabs turned on, the same option is called **Close tabs below**.
 
-Source: Google's [tabs](https://support.google.com/chrome/answer/2391819) and [keyboard shortcuts](https://support.google.com/chrome/answer/157179) help pages, checked in October 2026.
+Chrome has no keyboard shortcut for it. {{< kbd "Ctrl" "W" >}} on Windows and Linux or {{< kbd "⌘" "W" >}} on a Mac closes only the tab you're on.
 
-## Close everything on one side with TabCmdr {.way-tabcmdr}
+Source: the tab menu code in [Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/browser/ui/tabs/tab_menu_model.cc), which Chrome is built on, and Google's [keyboard shortcuts](https://support.google.com/chrome/answer/157179) help page, checked in October 2026.
 
-TabCmdr is a keyboard launcher that lives in your browser. Two of its commands close every tab on one side of the tab you're on: **Close Tabs to the Right** and **Close Tabs to the Left**.
+## Close the tabs to the right with TabCmdr {.way-tabcmdr}
+
+TabCmdr is a keyboard launcher that lives in your browser. Its **Close Tabs to the Right** command closes every tab after the one you're on, so you don't have to find the tab and right-click it.
 
 **Before you start:** add [TabCmdr from the Chrome Web Store](https://chromewebstore.google.com/detail/ejkkibnhfeccfnofeimpialoaipkojdc). It has a 7-day free trial and needs no account.
 
-### Step 1: Go to the tab where the cut should be
+### Step 1: Open the palette on the tab where the cut should be
 
-Switch to the tab you want to keep at the edge, then press {{< kbd "⌘" "K" >}} on a Mac or {{< kbd "Ctrl" "K" >}} on Windows and Linux. To check what's open first, press {{< kbd "→" >}} for the **Tabs** filter. Pinned tabs are listed under their own **Pinned** heading.
+Switch to the tab you want to keep as the last one, then press {{< kbd "⌘" "K" >}} on a Mac or {{< kbd "Ctrl" "K" >}} on Windows and Linux. To check what's open first, press {{< kbd "→" >}} for the **Tabs** filter. By default it lists your tabs in tab bar order, with pinned tabs under their own **Pinned** heading and tabs from your other windows included.
 
-{{< screenshot src="close-right-before.png" alt="TabCmdr palette on the Tabs filter, listing Calendar, Q4 planning, Pull requests, Hacker News, YouTube and MDN, with Inbox under Pinned" caption="Before: seven tabs in one window, with Inbox pinned. Q4 planning is the tab we're on." >}}
+{{< screenshot src="close-right-before.png" alt="TabCmdr palette on the Tabs filter, listing Calendar, Q4 planning, Pull requests, Hacker News, YouTube, MDN and Payments, with Inbox under Pinned" caption="Before: Q4 planning is the tab we're on. Pull requests, Hacker News, YouTube and MDN are to its right, and Payments - Stripe is in a second window." >}}
 
-### Step 2: Type `close tabs to`
+### Step 2: Type `close right`
 
-Both commands show up under Commands.
+**Close Tabs to the Right** shows up under Commands, already highlighted.
 
-{{< screenshot src="close-right-command.png" alt="TabCmdr palette with close tabs to typed, showing Close Tabs to the Left and Close Tabs to the Right" caption="`close tabs to` finds both commands." >}}
+{{< screenshot src="close-right-command.png" alt="TabCmdr palette with close right typed, showing Close Tabs to the Right highlighted under Commands" caption="`close right` finds the command." >}}
 
-### Step 3: Pick a side and press Enter
+### Step 3: Press Enter
 
-Press {{< kbd "↓" >}} to move to **Close Tabs to the Right** if that's the side you want, then press {{< kbd "Enter" >}}. The palette closes, every tab on that side of yours closes in this window, and a message at the bottom of the page says how many, such as **Closed 4 tabs**. With nothing on that side, it says **No tabs to the right** or **No tabs to the left**.
+The palette closes, and so does every tab to the right of yours in this window. A message at the bottom of the page says how many, such as **Closed 4 tabs**. With nothing to the right, it says **No tabs to the right**.
 
-{{< screenshot src="close-right-after.png" alt="TabCmdr palette on the Tabs filter after Close Tabs to the Right, listing Calendar and Q4 planning, with Inbox under Pinned" caption="After Close Tabs to the Right: Calendar, Q4 planning and the pinned Inbox tab are left." >}}
+{{< screenshot src="close-right-after.png" alt="TabCmdr palette on the Tabs filter after Close Tabs to the Right, listing Calendar, Q4 planning and Payments, with Inbox under Pinned" caption="After: Calendar, Q4 planning and the pinned Inbox tab are left. Payments - Stripe is in another window, so it stays open." >}}
 
 ## What stays open {.way-tabcmdr}
 
-- **The tab you're on.** Both commands only close tabs beside it.
-- **Pinned tabs,** on either side.
-- **Tabs in other windows.** The commands only work on the window you're in.
+- **The tab you're on** and every tab to its left.
+- **Pinned tabs.** Run the command from a pinned tab and every unpinned tab in the window closes, while your other pinned tabs stay.
+- **Tabs in other windows.** The command only works on the window you're in.
 
-Closed more than you meant to? Each closed tab goes into Recently Closed. Type `:r` to list them, or see [how to reopen closed tabs]({{< relref "/how-to/reopen-closed-tabs" >}}).
+Tabs in a tab group to your right close too, even when the group is collapsed.
+
+Closed more than you meant to? Each closed tab gets its own row in Recently Closed. Type `:r` to list them, or see [how to reopen closed tabs]({{< relref "/how-to/reopen-closed-tabs" >}}). For the other side of the tab bar, see [how to close tabs to the left]({{< relref "/how-to/close-tabs-to-the-left" >}}).

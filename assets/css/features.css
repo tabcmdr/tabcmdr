@@ -6356,6 +6356,17 @@ button.pal-filter:hover {
   text-wrap: pretty;
 }
 
+.showcase-text a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+
+.showcase-text a:hover {
+  text-decoration-color: currentColor;
+}
+
 .showcase-points li {
   align-items: flex-start;
   font-size: 15px;

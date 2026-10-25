@@ -94,4 +94,4 @@ Type `:p` to list your pinned tabs and nothing else. Each one has a crossed-out 
 
 In a normal search, pinned tabs that match show under their own **Pinned** heading, below your other tabs.
 
-Pinned tabs also stay put when you tidy up. Close Other Tabs and [Close Tabs to the Left or Right]({{< relref "/features/close-tabs-left-right" >}}) leave them open, and Suspend Inactive Tabs leaves them loaded when you [free up memory]({{< relref "/how-to/make-chrome-use-less-memory" >}}).
+Pinned tabs also stay put when you tidy up. [Close Other Tabs]({{< relref "/features/close-tabs-left-right" >}}), [Close Tabs to the Left]({{< relref "/features/close-tabs-to-the-left" >}}) and [Close Tabs to the Right]({{< relref "/features/close-tabs-to-the-right" >}}) leave them open, and Suspend Inactive Tabs leaves them loaded when you [free up memory]({{< relref "/how-to/make-chrome-use-less-memory" >}}).

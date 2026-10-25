@@ -15,14 +15,25 @@
   (dict "id" "c12" "title" "#design - acme - Slack" "host" "app.slack.com")
   (dict "id" "c13" "title" "Payments - Stripe" "host" "dashboard.stripe.com")
 }}
-{{- $commands := slice
-  (dict "id" "duplicates" "icon" "i-copy-minus" "title" "Close Duplicate Tabs")
-  (dict "id" "sort" "icon" "i-sort" "title" "Sort Tabs Alphabetically")
-  (dict "id" "right" "icon" "i-arrow-right-line" "title" "Close Tabs to the Right")
-  (dict "id" "merge" "icon" "i-layers" "title" "Merge All Windows into One")
-  (dict "id" "suspend" "icon" "i-moon" "title" "Suspend Inactive Tabs")
-  (dict "id" "mute" "icon" "i-volume-x" "title" "Mute All Tabs")
+{{- $catalog := dict
+  "duplicates" (dict "icon" "i-copy-minus" "title" "Close Duplicate Tabs")
+  "sort" (dict "icon" "i-sort" "title" "Sort Tabs Alphabetically")
+  "right" (dict "icon" "i-arrow-right-line" "title" "Close Tabs to the Right")
+  "left" (dict "icon" "i-arrow-left-line" "title" "Close Tabs to the Left")
+  "others" (dict "icon" "i-x" "title" "Close Other Tabs")
+  "merge" (dict "icon" "i-layers" "title" "Merge All Windows into One")
+  "suspend" (dict "icon" "i-moon" "title" "Suspend Inactive Tabs")
+  "mute" (dict "icon" "i-volume-x" "title" "Mute All Tabs")
 }}
+{{- /* Pages can pick and order the buttons with demo.commands. */}}
+{{- $ids := slice "duplicates" "sort" "right" "merge" "suspend" "mute" }}
+{{- if reflect.IsMap . }}
+  {{- with .demo }}{{ with .commands }}{{ $ids = . }}{{ end }}{{ end }}
+{{- end }}
+{{- $commands := slice }}
+{{- range $ids }}
+  {{- $commands = $commands | append (merge (index $catalog .) (dict "id" .)) }}
+{{- end }}
     <div class="cleanup" data-cleanup data-reveal>
       <div class="cleanup-window" aria-hidden="true">
         <p class="cleanup-bar"><span class="traffic"><i></i><i></i><i></i></span>Window 1</p>

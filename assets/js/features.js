@@ -2136,7 +2136,7 @@ function setupCleanup() {
   const toast = root.querySelector("[data-toast]");
   const initialFirst = [...firstStrip.children].map((node) => node.cloneNode(true));
   const initialSecond = [...secondStrip.children].map((node) => node.cloneNode(true));
-  const queryWords = { duplicates: "dup", sort: "sort", right: "right", merge: "merge", suspend: "susp", mute: "mute all" };
+  const queryWords = { duplicates: "dup", sort: "sort", right: "right", left: "left", others: "other", merge: "merge", suspend: "susp", mute: "mute all" };
 
   function tabs() {
     return [...firstStrip.querySelectorAll(".cleanup-tab:not(.is-leaving)")];
@@ -2200,6 +2200,26 @@ function setupCleanup() {
       }
       closeTabs(right);
       showToast(toast, "Closed " + plural(right.length, "tab"));
+      return;
+    }
+    if (command === "left") {
+      const left = current.slice(0, activeIndex);
+      if (left.length === 0) {
+        showToast(toast, "No tabs to the left");
+        return;
+      }
+      closeTabs(left);
+      showToast(toast, "Closed " + plural(left.length, "tab"));
+      return;
+    }
+    if (command === "others") {
+      const others = current.filter((node, index) => index !== activeIndex);
+      if (others.length === 0) {
+        showToast(toast, "No other tabs to close");
+        return;
+      }
+      closeTabs(others);
+      showToast(toast, "Closed " + plural(others.length, "tab"));
       return;
     }
     if (command === "merge") {

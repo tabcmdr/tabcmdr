@@ -49,10 +49,20 @@
       icon: i-copy-minus
       token: ":c"
       section: commands
-    - id: close-tabs-left-right
-      title: "Close the tabs you're done with"
-      text: "Close every tab to the left, to the right, or all but the one you're on. Pinned tabs stay."
+    - id: close-tabs-to-the-right
+      title: "Close every tab to the right"
+      text: "Close the tabs after the one you're on in one command. Pinned tabs stay open."
       icon: i-arrow-right-line
+      docs: page-commands
+    - id: close-tabs-to-the-left
+      title: "Close every tab to the left"
+      text: "Close the tabs before the one you're on. Your pinned tabs at the start of the bar stay."
+      icon: i-arrow-left-line
+      docs: page-commands
+    - id: close-tabs-left-right
+      title: "Close every tab but this one"
+      text: "Close Other Tabs keeps the tab you're on and your pinned tabs, and closes the rest of the window."
+      icon: i-x
       docs: page-commands
     - id: merge-windows
       title: "Put every window's tabs into one"

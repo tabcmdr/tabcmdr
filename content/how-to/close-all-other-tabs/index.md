@@ -10,7 +10,7 @@ cardText: "Keep the tab you're reading and close the rest of the window in one s
 heading: "How to close all tabs except the current one"
 lead: "Press ⌘K (Ctrl+K on Windows and Linux) with TabCmdr, type close other and press Enter. Every tab in the window closes except the one you're on and pinned tabs."
 date: 2026-10-19
-lastmod: 2026-10-19
+lastmod: 2026-10-25
 weight: 130
 group: tidy
 icon: i-x
@@ -52,11 +52,13 @@ sitemap:
   changefreq: monthly
 ---
 
-## Highlight and close tabs in Chrome {.way-chrome}
+## Use the tab menu in Chrome {.way-chrome}
 
-Chrome closes highlighted tabs together. Click a tab, hold {{< kbd "Shift" >}} and click another to highlight every tab between them, then right-click one of them and choose **Close**. To keep a tab in the middle, do this once on each side of it.
+Right-click the tab you want to keep and choose **Close other tabs**. Every other tab in that window closes, apart from pinned tabs.
 
-Source: Google's [tabs help page](https://support.google.com/chrome/answer/2391819), checked in October 2026.
+To close only some of them, click a tab, hold {{< kbd "Shift" >}} and click another to highlight every tab between them, then right-click one of them and choose **Close**.
+
+Source: Google's [tabs help page](https://support.google.com/chrome/answer/2391819) and the tab menu code in [Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/chrome/browser/ui/tabs/tab_menu_model.cc), which Chrome is built on, checked in October 2026.
 
 ## Close the rest of the window with TabCmdr {.way-tabcmdr}
 
